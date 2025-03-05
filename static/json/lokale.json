@@ -1,0 +1,9 @@
+[
+    { "id": "A1", "status": "dostępny", "cena": 500000 },
+    { "id": "A2", "status": "rezerwacja", "cena": 520000 },
+    { "id": "A3", "status": "rezerwacja", "cena": 520000 },
+    { "id": "A4", "status": "rezerwacja", "cena": 520000 },
+    { "id": "A5", "status": "rezerwacja", "cena": 520000 },
+    { "id": "A6", "status": "sprzedane", "cena": 0 },
+    { "id": "A7", "status": "sprzedane", "cena": 0 }
+]

@@ -1,0 +1,52 @@
+#mapa {
+    position: relative; /* Dodaje kontekst pozycjonowania */
+    aspect-ratio: 1792 / 1024;
+    margin-top: 2.5rem;
+}
+#mapa img {
+    width: 100%;
+    display: block;
+}
+#mapa svg {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    pointer-events: auto;
+}
+.lokal {
+    cursor: pointer;
+    opacity: 0;
+    transition: fill-opacity 0.3s;
+}
+.lokal.dostępny:hover {
+    fill: rgba(0, 255, 0, 0.5); /* Zielony dla dostępnych */
+    opacity: .8;
+}
+.lokal.rezerwacja:hover {
+    fill: rgba(255, 255, 0, 0.5); /* Żółty dla rezerwacji */
+    opacity: .8;
+}
+.lokal.sprzedane:hover {
+    fill: rgba(255, 0, 0, 0.5); /* Czerwony dla sprzedanych */
+    opacity: .8;
+}
+.lokal:hover {
+    /* stroke: #000;
+    stroke-width: 2px; */
+    fill-opacity: 0.7;
+}
+.tooltip {
+    position: absolute; /* Kluczowe dla dynamicznej pozycji */
+    display: none; /* Ukrycie domyślne */
+    background: #2b2b2b; /* Jasnoszare tło */
+    color: #a9a9a9; /* Ciemnoszary tekst */
+    border: 1px solid #3a3a3b; /* Obramowanie w średnim szarym odcieniu */
+    padding: 5px;
+    font-size: 14px;
+    pointer-events: none; /* Zapobiega kolizjom z myszą */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Lekki cień */
+    border-radius: 4px; /* Zaokrąglone rogi */
+    z-index: 1500; /* Wyższy indeks, aby tooltip był widoczny nad innymi elementami */
+}

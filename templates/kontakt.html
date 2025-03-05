@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+    <div class="breadcrumbs-custom box-transform-wrap context-dark">
+      <div class="container">
+        <h3 class="breadcrumbs-custom-title">Kontakt</h3>
+        <div class="breadcrumbs-custom-decor"></div>
+      </div>
+      <div class="box-transform" style="background-image: url(static/images/bg-services.jpg);"></div>
+    </div>
+    <div class="container">
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="/"><i class="bi bi-house" style="font-size: 24px;"></i></a></li>
+        <li class="active">Kontakt</li>
+      </ul>
+    </div>
+  </section>
+  <!-- Contacts-->
+  <section class="section section-lg bg-default text-md-start">
+    <div class="container">
+      <div class="row row-60 justify-content-center">
+        <div class="col-lg-8">
+          <h4 class="text-spacing-25 text-transform-none">Skontaktuj się z nami</h4>
+          <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+            <div class="row row-20 gutters-20">
+              <div class="col-md-6">
+                <div class="form-wrap">
+                  <input class="form-input" id="contact-your-name-5" type="text" name="name" data-constraints="@Required">
+                  <label class="form-label" for="contact-your-name-5">Imię i nazwisko*</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-wrap">
+                  <input class="form-input" id="contact-email-5" type="email" name="email" data-constraints="@Email @Required">
+                  <label class="form-label" for="contact-email-5">Adres e-mail*</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-wrap">
+                  <!--Select Lokali-->
+                  <select class="form-input" data-minimum-results-search="Infinity" data-constraints="@Required" name="lokal" data-placeholder="Wybierz lokal">
+                    <option label="placeholder"></option>
+                    <!-- Budynek A -->
+                    <option value="A.1">Lokal A.1</option>
+                    <option value="A.2">Lokal A.2</option>
+                    <option value="A.3">Lokal A.3</option>
+                    <option value="A.4">Lokal A.4</option>
+                    <!-- Budynek B -->
+                    <option value="B.1">Lokal B.1</option>
+                    <option value="B.2">Lokal B.2</option>
+                    <option value="B.3">Lokal B.3</option>
+                    <option value="B.4">Lokal B.4</option>
+                    <!-- Budynek C -->
+                    <option value="C.1">Lokal C.1</option>
+                    <option value="C.2">Lokal C.2</option>
+                    <!-- Budynek D -->
+                    <option value="D.1">Lokal D.1</option>
+                    <option value="D.2">Lokal D.2</option>
+                  </select>
+                  
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-wrap">
+                  <input class="form-input" id="contact-phone-5" type="text" name="phone" data-constraints="@Numeric">
+                  <label class="form-label" for="contact-phone-5">Numer telefonu*</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-wrap">
+                  <label class="form-label" for="contact-message-5">Wiadomość</label>
+                  <textarea class="form-input textarea-lg" id="contact-message-5" name="message" data-constraints="@Required"></textarea>
+                </div>
+              </div>
+            </div>
+            <button class="button button-secondary button-winona" type="submit">Wyślij</button>
+          </form>
+        </div>
+        <div class="col-lg-4">
+          <div class="aside-contacts">
+            <div class="row row-30">
+              <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                <p class="aside-contacts-title">Zostańmy w kontakcie</p>
+                <ul class="list-inline contacts-social-list list-inline-sm">
+                  <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                  <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                  <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                </ul>
+              </div>
+              <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                <p class="aside-contacts-title">Telefon</p>
+                <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
+                  <div class="unit-left"><span class="icon mdi mdi-phone"></span></div>
+                  <div class="unit-body"><a class="phone" href="tel:+48600202480">+48 600 202 480</a></div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                <p class="aside-contacts-title">E-mail</p>
+                <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
+                  <div class="unit-left"><span class="icon mdi mdi-email-outline"></span></div>
+                  <div class="unit-body"><a class="mail" href="mailto:biuro@dmdinwestycje.pl">biuro@dmdinwestycje.pl</a></div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-12 aside-contacts-item">
+                <p class="aside-contacts-title">Adres</p>
+                <div class="unit unit-spacing-xs justify-content-center justify-content-md-start">
+                  <div class="unit-left"><span class="icon mdi mdi-map-marker"></span></div>
+                  <div class="unit-body">
+                    <a class="address" href="#">ul. Dworkowa 51, <br class="d-md-none">05-082 Stare Babice</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

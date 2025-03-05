@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+    <div class="breadcrumbs-custom box-transform-wrap context-dark">
+      <div class="container">
+        <h3 class="breadcrumbs-custom-title">O inwestycji</h3>
+        <div class="breadcrumbs-custom-decor"></div>
+      </div>
+      <div class="box-transform" style="background-image: url(static/images/bg-project.jpg);"></div>
+    </div>
+    <div class="container">
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="/"><i class="bi bi-house" style="font-size: 24px;"></i></a></li>
+        <li class="active">O inwestycji</li>
+      </ul>
+    </div>
+  </section>
+  <!-- Project Page-->
+  <section class="section section-lg bg-default text-md-start">
+    <div class="container">
+      <div class="row row-60 flex-lg-row-reverse">
+        <div class="col-lg-6 col-xl-7">
+          <div class="slick-project">
+            <!-- Slick Carousel-->
+            <div class="slick-slider carousel-parent" data-arrows="true" data-autoplay="true" data-swipe="true" data-items="1" data-child="#child-carousel-7" data-for="#child-carousel-7" data-slide-effect="true">
+              <div class="item"><img src="static/images/project-5-670x477.jpg" alt="" width="670" height="477"/>
+                <div class="slick-project-caption">
+                  <div class="slick-project-title">Photo #1</div>
+                </div>
+              </div>
+              <div class="item"><img src="static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
+                <div class="slick-project-caption">
+                  <div class="slick-project-title">Photo #2</div>
+                </div>
+              </div>
+              <div class="item"><img src="static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
+                <div class="slick-project-caption">
+                  <div class="slick-project-title">Photo #3</div>
+                </div>
+              </div>
+              <div class="item"><img src="static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
+                <div class="slick-project-caption">
+                  <div class="slick-project-title">Photo #4</div>
+                </div>
+              </div>
+            </div>
+            <div class="slick-slider child-carousel" id="child-carousel-7" data-for=".carousel-parent" data-items="3" data-sm-items="3" data-md-items="4" data-lg-items="3" data-xl-items="4" data-slide-to-scroll="1">
+              <div class="item"><img src="static/images/project-5-670x477.jpg" alt="" width="670" height="477"/>
+              </div>
+              <div class="item"><img src="static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
+              </div>
+              <div class="item"><img src="static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
+              </div>
+              <div class="item"><img src="static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
+              </div>
+            </div>
+          </div>
+          <div class="table-custom-responsive">
+            <table class="table table-striped table-bordered">
+                <tbody>
+                    <tr>
+                        <td><i class="bi bi-building"></i></td>
+                        <td><span>Inwestor:</span> Wiśniowa House</td>
+                    </tr>
+                    <tr>
+                        <td><i class="fa fa-calendar"></i></td>
+                        <td><span>Rok realizacji:</span> 2024</td>
+                    </tr>
+                    <tr>
+                        <td><i class="bi bi-geo-alt"></i></td>
+                        <td><span>Lokalizacja:</span> 15 minut od centrum Warszawy</td>
+                    </tr>
+                    <tr>
+                        <td><i class="bi bi-cash"></i></td>
+                        <td><span>Standard:</span> Najwyższa jakość, nowoczesne technologie i ekologia</td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-5">
+          <div class="project-page">
+            <h4>Wiśniowa House</h4>
+            <p>Wiśniowa House to nowoczesna i ambitna inwestycja mieszkaniowa, która wyróżnia się najwyższą jakością wykonania oraz zastosowaniem innowacyjnych technologii. Projekt obejmuje 12 przestronnych lokali o powierzchni 140 m² każdy, zaprojektowanych z myślą o komforcie i funkcjonalności.</p>
+            <p>Architektura inwestycji łączy nowoczesny design z harmonią naturalnego otoczenia. Każdy lokal został wyposażony w energooszczędne rozwiązania, zapewniając niskie koszty utrzymania oraz minimalny wpływ na środowisko. W projekcie uwzględniono ekologiczne technologie, takie jak systemy rekuperacji, fotowoltaika oraz efektywne izolacje termiczne.</p>
+            <p>Dodatkowym atutem inwestycji jest bliskość terenów zielonych i dogodna lokalizacja - zaledwie 15 minut od centrum Warszawy. Mieszkańcy mogą cieszyć się zarówno spokojem, jak i łatwym dostępem do miejskiej infrastruktury.</p>
+            <p>Wiśniowa House to idealne miejsce dla osób poszukujących luksusu, nowoczesności i bliskości natury. To inwestycja, która spełnia najwyższe standardy jakości oraz zaspokaja potrzeby wymagających klientów.</p>
+            <div class="group-sm group-middle">
+              <!-- <span class="project-page-social-title">Share</span>
+              <div>
+                <ul class="list-inline project-page-social-list">
+                  <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                  <li><a class="icon mdi mdi-twitter" href="#"></a></li>
+                  <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                  <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
+                </ul>
+              </div> -->
+            </div>
+            <a class="button button-lg button-primary button-winona" href="/kontakt">Skontaktuj się</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+{% endblock %}

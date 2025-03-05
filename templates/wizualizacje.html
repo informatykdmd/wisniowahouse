@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
+    <div class="breadcrumbs-custom box-transform-wrap context-dark">
+      <div class="container">
+        <h3 class="breadcrumbs-custom-title">Grid Gallery</h3>
+        <div class="breadcrumbs-custom-decor"></div>
+      </div>
+      <div class="box-transform" style="background-image: url(static/images/bg-project.jpg);"></div>
+    </div>
+    <div class="container">
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li class="active">Grid Gallery</li>
+      </ul>
+    </div>
+  </section>
+  <!-- Grid Gallery-->
+  <section class="section section-lg bg-default isotope-wrap">
+    <div class="container">
+      <div class="isotope-filters isotope-filters-horizontal">
+        <button class="isotope-filters-toggle button button-sm button-icon button-icon-right button-gray-3" data-custom-toggle=".gallery-filters-list" data-custom-toggle-disable-on-blur="true" data-custom-toggle-hide-on-blur="true"><span class="icon mdi mdi-chevron-down"></span>Filter</button>
+        <ul class="isotope-filters-list gallery-filters-list">
+          <li><a class="active" href="#" data-isotope-filter="*">All</a></li>
+          <li><a href="#" data-isotope-filter="Type 1">Reconstruction</a></li>
+          <li><a href="#" data-isotope-filter="Type 2">Architectural Design</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container-fluid container-inset-0">
+      <div class="row row-30 row-desktop-8 gutters-8 isotope hoverdir" data-lightgallery="group">
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern block-1 hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="static/images/grid-gallery-1-1200x800-original.jpg" data-lightgallery="item"><img src="static/images/grid-gallery-1-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="project-page.html">Project name #1</a></h5>
+              <div class="thumbnail-modern-badge">Construction management</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 1">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern block-1 hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="static/images/grid-gallery-2-1200x800-original.jpg" data-lightgallery="item"><img src="static/images/grid-gallery-2-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="project-page.html">Project name #2</a></h5>
+              <div class="thumbnail-modern-badge">Consulting</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern block-1 hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="static/images/grid-gallery-3-1200x800-original.jpg" data-lightgallery="item"><img src="static/images/grid-gallery-3-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="project-page.html">Project name #3</a></h5>
+              <div class="thumbnail-modern-badge">Green construction</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 1">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern block-1 hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="static/images/grid-gallery-4-1200x800-original.jpg" data-lightgallery="item"><img src="static/images/grid-gallery-4-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="project-page.html">Project name #4</a></h5>
+              <div class="thumbnail-modern-badge">General contracting</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern block-1 hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="static/images/grid-gallery-5-1200x800-original.jpg" data-lightgallery="item"><img src="static/images/grid-gallery-5-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="project-page.html">Project name #5</a></h5>
+              <div class="thumbnail-modern-badge">Construction planning</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 1">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern block-1 hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="static/images/grid-gallery-6-1200x800-original.jpg" data-lightgallery="item"><img src="static/images/grid-gallery-6-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="project-page.html">Project name #6</a></h5>
+              <div class="thumbnail-modern-badge">Construction</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 2">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern block-1 hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="static/images/grid-gallery-7-1200x800-original.jpg" data-lightgallery="item"><img src="static/images/grid-gallery-7-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="project-page.html">Project name #7</a></h5>
+              <div class="thumbnail-modern-badge">Reconstruction</div>
+            </div>
+          </article>
+        </div>
+        <div class="col-sm-6 col-lg-4 col-xxl-3 isotope-item" data-filter="Type 1">
+          <!-- Thumbnail Modern-->
+          <article class="thumbnail thumbnail-modern block-1 hoverdir-item" data-hoverdir-target=".thumbnail-modern-caption"><a class="thumbnail-modern-figure" href="static/images/grid-gallery-8-1200x800-original.jpg" data-lightgallery="item"><img src="static/images/grid-gallery-8-474x355.jpg" alt="" width="474" height="355"/></a>
+            <div class="thumbnail-modern-caption">
+              <h5 class="thumbnail-modern-title"><a href="project-page.html">Project name #8</a></h5>
+              <div class="thumbnail-modern-badge">Architectural design</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+{% endblock %}

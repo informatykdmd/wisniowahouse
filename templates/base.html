@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    <title>{{pageTitle}}</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/png">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,600,700,900%7CRaleway:500">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/extracss.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-5.css') }}" id="main-styles-link">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="wrapper-triangle">
+        <div class="pen">
+          <div class="line-triangle">
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+          </div>
+          <div class="line-triangle">
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+          </div>
+          <div class="line-triangle">
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+            <div class="triangle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page">
+      <!-- Page Header and Swiper-->
+      <section class="section swiper-custom-container-x">
+        <header class="section page-header">
+          <!-- RD Navbar-->
+          <div class="rd-navbar-wrap">
+            <nav class="rd-navbar rd-navbar-corporate" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="80px" data-xl-stick-up-offset="80px" data-xxl-stick-up-offset="80px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+              <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+              <div class="rd-navbar-main-outer">
+                <div class="rd-navbar-main">
+                  <!-- RD Navbar Panel-->
+                  <div class="rd-navbar-panel">
+                    <!-- RD Navbar Toggle-->
+                    <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                    <!-- RD Navbar Brand-->
+                    <div class="rd-navbar-brand">
+                        <a class="brand" href="/">
+                            <img class="brand-logo-dark" src="{{ url_for('static', filename='images/logo-1-wisniowahouse.png') }}" alt="" width="332" height="102"/>
+                        </a>
+                    </div>
+                  </div>
+                  <div class="rd-navbar-main-element">
+                    <div class="rd-navbar-nav-wrap">
+                      <!-- RD Navbar Nav-->
+                      <ul class="rd-navbar-nav">
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="/lokale">Lokale</a>
+                            <!-- RD Navbar Megamenu-->
+                            <ul class="rd-menu rd-navbar-megamenu">
+                              <!-- Budynek A -->
+                              <li class="rd-megamenu-item">
+                                <h6 class="rd-megamenu-title">Budynek A</h6>
+                                <ul class="rd-megamenu-list">
+                                  <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/A.1">Lokal A.1</a></li>
+                                  <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/A.2">Lokal A.2</a></li>
+                                  <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/A.3">Lokal A.3</a></li>
+                                  <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/A.4">Lokal A.4</a></li>
+                                </ul>
+                              </li>
+                              <!-- Budynek B -->
+                              <li class="rd-megamenu-item">
+                                <h6 class="rd-megamenu-title">Budynek B</h6>
+                                <ul class="rd-megamenu-list">
+                                  <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/B.1">Lokal B.1</a></li>
+                                  <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/B.2">Lokal B.2</a></li>
+                                  <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/B.3">Lokal B.3</a></li>
+                                  <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/B.4">Lokal B.4</a></li>
+                                </ul>
+                              </li>
+                              <!-- Budynek C -->
+                              <li class="rd-megamenu-item">
+                                <h6 class="rd-megamenu-title">Budynek C</h6>
+                                <ul class="rd-megamenu-list">
+                                  <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/C.1">Lokal C.1</a></li>
+                                  <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/C.2">Lokal C.2</a></li>
+                                </ul>
+                              </li>
+                              <!-- Budynek D -->
+                              <li class="rd-megamenu-item">
+                                <h6 class="rd-megamenu-title">Budynek D</h6>
+                                <ul class="rd-megamenu-list">
+                                  <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/D.1">Lokal D.1</a></li>
+                                  <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/D.2">Lokal D.2</a></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                          
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="/wizualizacje">Wizualizacje</a>
+                            <!-- RD Navbar Dropdown-->
+                            <ul class="rd-menu rd-navbar-dropdown">
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="/wizualizacje?cat=osiedle">Osiedle</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="/wizualizacje?cat=budynki">Budynki</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="/wizualizacje?cat=przestrzenie-wspolne">Przestrzenie wspólne</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="/wizualizacje?cat=wnetrza">Wnętrza</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="/wizualizacje?cat=ogrody-i-tarasy">Ogrody i tarasy</a></li>
+                                <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="/wizualizacje?cat=wieczorny-klimat">Wieczorny klimat</a></li>
+                            </ul>
+                        </li>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="/lokalizacja">Lokalizacja</a>
+                        </li>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="/o-inwestycji">O inwestycji</a>
+                            <!-- RD Navbar Dropdown-->
+                            <ul class="rd-menu rd-navbar-dropdown">
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="/o-inwestycji/standard-wykonczenia">Standard wykończenia</a></li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="/o-inwestycji/technologie-budowlane">Technologie budowlane</a></li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="/o-inwestycji/zalety-lokalizacji">Zalety lokalizacji</a></li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="/o-inwestycji/plan-osiedla">Plan osiedla</a></li>
+                            </ul>
+                        </li>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="/o-firmie">O firmie</a>
+                        </li>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="/kontakt">Kontakt</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="rd-navbar-collapse">
+                    <ul class="rd-navbar-contacts-4">
+                        <li><span class="icon mdi mdi-phone"></span><span class="link-wrap"><a class="phone" href="tel:+48600202480">+48 600 202 480</a></span></li>
+                        <li><span class="icon mdi mdi-email-outline"></span><span class="link-wrap"><a class="mail" href="mailto:biuro@dmdinwestycje.pl">biuro@dmdinwestycje.pl</a></span></li>
+                        <li><span class="icon mdi mdi-map-marker"></span><span class="link-wrap"><a class="address" href="https://www.google.com/maps/dir//Dworkowa+51,+Stare+Babice">ul. Dworkowa 51, 05-082 Stare Babice</a></span></li>
+                      </ul>
+                      
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </header>
+    </section>
+{% block content %}
+<!-- Tutaj będzie treść strony -->
+{% endblock %}
+
+      <!-- Page Footer-->
+      <footer class="section section-md footer-creative context-dark footer-creative-2">
+        <div class="container">
+          <div class="row row-60 justify-content-center justify-content-md-between">
+            <div class="col-sm-8 col-md-8 col-lg-3 position-relative">
+                <h5 class="footer-creative-title oh-desktop"><span class="d-inline-block wow slideInDown">Skontaktuj się z nami</span></h5>
+                <ul class="footer-creative-contacts d-inline-block d-md-block">
+                  <li class="wow fadeInRight">
+                    <p class="footer-creative-contacts-title">Adres</p><a class="address" href="https://www.google.com/maps/dir//Dworkowa+51,+Stare+Babice">ul. Dworkowa 51, 05-082 Stare Babice</a>
+                  </li>
+                  <li class="wow fadeInRight" data-wow-delay=".05s">
+                    <p class="footer-creative-contacts-title">Telefon</p><a class="phone" href="tel:+48600202480">+48 600 202 480</a>
+                  </li>
+                  <li class="wow fadeInRight" data-wow-delay=".1s">
+                    <p class="footer-creative-contacts-title">E-mail</p><a class="mail" href="mailto:biuro@dmdinwestycje.pl">biuro@dmdinwestycje.pl</a>
+                  </li>
+                </ul>
+                <hr/>
+              <ul class="list-inline footer-social-list footer-social-list-2">
+                <li><a class="icon mdi mdi-facebook" href="#"></a></li>
+                <!-- <li><a class="icon mdi mdi-twitter" href="#"></a></li> -->
+                <li><a class="icon mdi mdi-instagram" href="#"></a></li>
+                <!-- <li><a class="icon mdi mdi-google-plus" href="#"></a></li> -->
+              </ul>
+            </div>
+            
+            <div class="col-sm-10 col-md-4 col-lg-9 col-xl-7 position-relative">
+                <div class="oh-desktop">
+                  <div class="inset-left-xl-20 wow slideInLeft">
+                    <!-- Logo -->
+                    <a class="brand" href="/">
+                        <img src="{{ url_for('static', filename='images/logo-wisniowa-233x102.png') }}" alt="Logo Wiśniowa House" width="160" height="80"/>
+                    </a>
+                    <!-- Opis -->
+                    <p>Twój nowy dom w sercu zieleni</p>
+                    <!-- Linki -->
+                    <ul class="footer-creative-list d-inline-block d-sm-block">
+                      <li><a href="/lokale">Lokale</a></li>
+                      <li><a href="/wizualizacje">Wizualizacje</a></li>
+                      <li><a href="/lokalizacja">Lokalizacja</a></li>
+                      <li><a href="/o-inwestycji">O inwestycji</a></li>
+                      <li><a href="/o-firmie">O firmie</a></li>
+                      <li><a href="/kontakt">Kontakt</a></li>
+                    </ul>
+                    <!-- Prawa autorskie -->
+                    <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>&nbsp;</span><span>Wiśniowa House</span><span>.&nbsp;</span><a href="/polityka-prywatnosci">Polityka prywatności</a></p>
+                  </div>
+                </div>
+                <div class="bg-footer-creative"></div>
+              </div>
+              
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- Global Mailform Output-->
+    <!-- <div class="snackbars" id="form-output-global"></div> -->
+    <!-- Javascript-->
+    <script src="{{ url_for('static', filename='js/core.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block bottom_scripts %}{% endblock %}
+    
+  </body>
+</html>
