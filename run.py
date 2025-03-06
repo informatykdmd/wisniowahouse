@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, jsonify, session, request, send_from_directory, g
 from flask_paginate import Pagination, get_page_args
-from bin.MySQLModel import MySQLModel
+from MySQLModel import MySQLModel
 import json
 from bin.config_utils import SESSION_FLASK_KEY
 from datetime import datetime, timedelta
