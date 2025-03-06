@@ -8,7 +8,10 @@
         <div class="breadcrumbs-custom-decor"></div>
       </div>
       <!-- <div class="box-transform" style="background-image: url(../static/images/bg-project.jpg);"></div> -->
-      <div class="box-transform" style="background-image: url('{{ url_for('static', filename='images/bg-project.jpg') }}');"></div>
+      {% set filepath = url_for('static', filename='images/bg-project.jpg') %}
+      <div class="box-transform" style="background-image: url('{{ filepath }}');"></div>
+
+
     </div>
     <div class="container">
       <ul class="breadcrumbs-custom-path">
