@@ -2,7 +2,7 @@ import pymysql
 import re
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+sys.path.append(os.path.join(os.path.dirname(__file__), 'bin'))
 from config_utils import DBDATA as DB  # Import konfiguracji połączenia
 from appslib import handle_error_Turbo
 
