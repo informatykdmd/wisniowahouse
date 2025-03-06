@@ -148,7 +148,7 @@ if __name__ == "__main__":
     db = MySQLModel(permanent_connection=True)
 
     # Pobranie użytkownika (SQL sam wykryje tabelę!)
-    db.fetch_one("SELECT * FROM contact WHERE id=1")
+    db.fetch_one("SELECT * FROM contact WHERE id=11356")
     print(db)
 
     # Pobranie produktów (SQL sam wykryje tabelę!)
