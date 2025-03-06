@@ -3,7 +3,7 @@ import re
 import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), 'bin'))
-from config_utils import DBDATA as DB  # Import konfiguracji połączenia
+from bin.config_utils import DBDATA as DB  # Import konfiguracji połączenia
 from appslib import handle_error_Turbo
 
 class MySQLModel:
