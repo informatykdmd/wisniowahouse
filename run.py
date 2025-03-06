@@ -225,12 +225,12 @@ def index():
     session['page'] = 'index'
     pageTitle = 'Strona Główna'
 
-    posts = generator_daneDBList()
+    # posts = generator_daneDBList()
 
     return render_template(
         'index.html',
         pageTitle=pageTitle,
-        posts=posts
+        # posts=posts
     )
 
 # Lokale
