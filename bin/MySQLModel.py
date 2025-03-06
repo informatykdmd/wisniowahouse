@@ -148,23 +148,23 @@ if __name__ == "__main__":
     db = MySQLModel(permanent_connection=True)
 
     # Pobranie użytkownika (SQL sam wykryje tabelę!)
-    db.fetch_one("SELECT * FROM users WHERE id=1")
+    db.fetch_one("SELECT * FROM xusers WHERE id=1")
     print(db)
 
     # Pobranie produktów (SQL sam wykryje tabelę!)
-    db.fetch_one("SELECT * FROM products WHERE id=3")
+    db.fetch_one("SELECT * FROM xproducts WHERE id=3")
     print(db)
 
     # Pobranie listy użytkowników jako dict
-    print(db.getFrom("SELECT * FROM users LIMIT 5", as_dict=True))
+    print(db.getFrom("SELECT * FROM xusers LIMIT 5", as_dict=True))
 
     # Pobranie listy zamówień jako lista obiektów
-    orders = db.getFrom("SELECT * FROM orders LIMIT 5", as_object=True)
+    orders = db.getFrom("SELECT * FROM xorders LIMIT 5", as_object=True)
     for order in orders:
         print(order)
 
     # Wykonanie INSERT bez podawania tabeli
-    db.executeTo("INSERT INTO users (name, email) VALUES (%s, %s)", ("Nowy", "nowy@example.com"))
+    db.executeTo("INSERT INTO xusers (name, email) VALUES (%s, %s)", ("Nowy", "nowy@example.com"))
 
     # Zamknięcie połączenia
     db.close_connection()
