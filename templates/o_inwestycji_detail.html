@@ -29,7 +29,8 @@
           <div class="slick-project">
             <!-- Slick Carousel-->
             <div class="slick-slider carousel-parent" data-arrows="true" data-autoplay="true" data-swipe="true" data-items="1" data-child="#child-carousel-7" data-for="#child-carousel-7" data-slide-effect="true">
-              <div class="item"><img src="static/images/project-5-670x477.jpg" alt="" width="670" height="477"/>
+              {% set filepath_1 = url_for('static', filename='images/project-5-670x477.jpg') %}
+              <div class="item"><img src="{{filepath_1}}" alt="" width="670" height="477"/>
                 <div class="slick-project-caption">
                   <div class="slick-project-title">Photo #1</div>
                 </div>
