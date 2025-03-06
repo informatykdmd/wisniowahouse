@@ -168,3 +168,4 @@ if __name__ == "__main__":
 
     # Zamknięcie połączenia
     db.close_connection()
+    handle_error_Turbo(f"Błąd: as_dict i as_object nie mogą być jednocześnie ustawione na True!")
