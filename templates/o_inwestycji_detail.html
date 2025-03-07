@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
 <!-- Breadcrumbs -->
+{% set filepath = url_for('static', filename='images/bg-project.jpg') %}
 <section class="bg-gray-7">
-    <div class="breadcrumbs-custom box-transform-wrap context-dark">
+    <!-- <div class="breadcrumbs-custom box-transform-wrap context-dark">
       <div class="container">
         <h3 class="breadcrumbs-custom-title">Project Page</h3>
         <div class="breadcrumbs-custom-decor"></div>
       </div>
-      <!-- <div class="box-transform" style="background-image: url(../static/images/bg-project.jpg);"></div> -->
-      {% set filepath = url_for('static', filename='images/bg-project.jpg') %}
       <div class="box-transform" style="background-image: url('{{ filepath }}');"></div>
-    </div>
+    </div> -->
     <div class="container">
       <ul class="breadcrumbs-custom-path">
         <li><a href="/"><i class="bi bi-house" style="font-size: 24px;"></i></a></li>
@@ -271,7 +270,7 @@
           {% endif %}
         </div>
         {% if detail == 'standard-wykonczenia' %}
-        <div class="col-lg-8 col-xl-5">
+        <div class="col-lg-6 col-xl-5">
           <div class="project-page">
             <h4>Smith office center</h4>
             <p>Lanistas accelerare in secundus rugensis civitas! Heu, castus lamia! Eheu. Pol. Tolerare inciviliter ducunt ad ferox devirginato. Genetrixs accelerare in cubiculum! Dominas ortum in vasa! Gabaliums velum in tolosa!</p>
