@@ -10,14 +10,20 @@
       <!-- <div class="box-transform" style="background-image: url(../static/images/bg-project.jpg);"></div> -->
       {% set filepath = url_for('static', filename='images/bg-project.jpg') %}
       <div class="box-transform" style="background-image: url('{{ filepath }}');"></div>
-
-
     </div>
     <div class="container">
       <ul class="breadcrumbs-custom-path">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li class="active">Project Page</li>
+        <li><a href="/"><i class="bi bi-house" style="font-size: 24px;"></i></a></li>
+        <li><a href="/o-inwestycji">O inwestycji</a></li>
+        {% if detail == 'standard-wykonczenia' %}
+          <li class="active">Standard</li>
+        {% elif detail == 'technologie-budowlane' %}
+          <li class="active">Technologie</li>
+        {% elif detail == 'zalety-lokalizacji' %}
+          <li class="active">Lokalizacja</li>
+        {% elif detail == 'plan-osiedla' %}
+          <li class="active">Plan Osiedla</li>
+        {% endif %}
       </ul>
     </div>
   </section>
@@ -35,30 +41,30 @@
                   <div class="slick-project-title">Photo #1</div>
                 </div>
               </div>
-              <div class="item"><img src="static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
                 <div class="slick-project-caption">
                   <div class="slick-project-title">Photo #2</div>
                 </div>
               </div>
-              <div class="item"><img src="static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
                 <div class="slick-project-caption">
                   <div class="slick-project-title">Photo #3</div>
                 </div>
               </div>
-              <div class="item"><img src="static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
                 <div class="slick-project-caption">
                   <div class="slick-project-title">Photo #4</div>
                 </div>
               </div>
             </div>
             <div class="slick-slider child-carousel" id="child-carousel-7" data-for=".carousel-parent" data-items="3" data-sm-items="3" data-md-items="4" data-lg-items="3" data-xl-items="4" data-slide-to-scroll="1">
-              <div class="item"><img src="static/images/project-5-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/project-5-670x477.jpg" alt="" width="670" height="477"/>
               </div>
-              <div class="item"><img src="static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
               </div>
-              <div class="item"><img src="static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
               </div>
-              <div class="item"><img src="static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
               </div>
             </div>
           </div>
@@ -92,7 +98,7 @@
             <p>Primus repressors ducunt ad buxum. Fluctuis sunt boreass de audax lixa. Fidess messis! Navis volares, tanquam emeritis decor. Sunt quadraes resuscitabo noster, nobilis victrixes. Extum de germanus luna, locus silva! Habitios crescere, tanquam fatalis contencio. Cum lacta manducare, omnes bromiumes aperto salvus, bi-color parmaes. Rector, heuretes, et scutum. Abactuss messis in gratis chremisa!</p>
             <p>Nunquam experientia consilium. Ridetis vix ducunt ad fidelis devirginato. Demolitiones favere, tanquam rusticus extum. Coordinatae potuss, tanquam azureus accola.</p>
             <p>Finis de gratis historia, attrahendam vortex! Ubi est brevis guttus? Nunquam contactus nomen. Credere aliquando ducunt ad albus calcaria. Cannabiss manducare! Nunquam captis fides. Cur hydra ridetis? Cum abactus studere, omnes demolitionees attrahendam velox, alter extumes.</p>
-            <div class="group-sm group-middle"><span class="project-page-social-title">Share</span>
+            <!-- <div class="group-sm group-middle"><span class="project-page-social-title">Share</span>
               <div>
                 <ul class="list-inline project-page-social-list">
                   <li><a class="icon mdi mdi-facebook" href="#"></a></li>
@@ -101,7 +107,8 @@
                   <li><a class="icon mdi mdi-google-plus" href="#"></a></li>
                 </ul>
               </div>
-            </div><a class="button button-lg button-primary button-winona" href="contacts.html">Contact Us</a>
+            </div> -->
+            <a class="button button-lg button-primary button-winona" href="/kontakt">Contact Us</a>
           </div>
         </div>
       </div>
