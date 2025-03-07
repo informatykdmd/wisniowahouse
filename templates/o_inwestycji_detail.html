@@ -69,6 +69,28 @@
               </div>
             </div>
           </div> -->
+          <div class="table-custom-responsive">
+            <table class="table-custom table-custom-primary table-project">
+              <tbody>
+                <tr>
+                  <td><span class="icon icon-26 mdi mdi-account"></span></td>
+                  <td><span>Client:</span> Smith Ltd.</td>
+                </tr>
+                <tr>
+                  <td><span class="icon mdi mdi-calendar-today"></span></td>
+                  <td><span>Year:</span> 2010</td>
+                </tr>
+                <tr>
+                  <td><span class="icon mdi mdi-map-marker"></span></td>
+                  <td><span>Location:</span> Los Angeles</td>
+                </tr>
+                <tr>
+                  <td><span class="icon icon-28 mdi mdi-cash"></span></td>
+                  <td><span>Value:</span> $1.299.525,00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           {% elif detail == 'technologie-budowlane' %}
           <div class="slick-project">
             <!-- Slick Carousel-->
@@ -105,6 +127,28 @@
               <div class="item"><img src="../static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
               </div>
             </div>
+          </div>
+          <div class="table-custom-responsive">
+            <table class="table-custom table-custom-primary table-project">
+              <tbody>
+                <tr>
+                  <td><span class="icon icon-26 mdi mdi-account"></span></td>
+                  <td><span>Client:</span> Smith Ltd.</td>
+                </tr>
+                <tr>
+                  <td><span class="icon mdi mdi-calendar-today"></span></td>
+                  <td><span>Year:</span> 2010</td>
+                </tr>
+                <tr>
+                  <td><span class="icon mdi mdi-map-marker"></span></td>
+                  <td><span>Location:</span> Los Angeles</td>
+                </tr>
+                <tr>
+                  <td><span class="icon icon-28 mdi mdi-cash"></span></td>
+                  <td><span>Value:</span> $1.299.525,00</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           {% elif detail == 'zalety-lokalizacji' %}
           <div class="slick-project">
@@ -143,6 +187,28 @@
               </div>
             </div>
           </div>
+          <div class="table-custom-responsive">
+            <table class="table-custom table-custom-primary table-project">
+              <tbody>
+                <tr>
+                  <td><span class="icon icon-26 mdi mdi-account"></span></td>
+                  <td><span>Client:</span> Smith Ltd.</td>
+                </tr>
+                <tr>
+                  <td><span class="icon mdi mdi-calendar-today"></span></td>
+                  <td><span>Year:</span> 2010</td>
+                </tr>
+                <tr>
+                  <td><span class="icon mdi mdi-map-marker"></span></td>
+                  <td><span>Location:</span> Los Angeles</td>
+                </tr>
+                <tr>
+                  <td><span class="icon icon-28 mdi mdi-cash"></span></td>
+                  <td><span>Value:</span> $1.299.525,00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
           {% elif detail == 'plan-osiedla' %}
           <div class="slick-project">
             <!-- Slick Carousel-->
@@ -180,8 +246,6 @@
               </div>
             </div>
           </div>
-          {% endif %}
-          
           <div class="table-custom-responsive">
             <table class="table-custom table-custom-primary table-project">
               <tbody>
@@ -204,7 +268,21 @@
               </tbody>
             </table>
           </div>
+          {% endif %}
         </div>
+        {% if detail == 'standard-wykonczenia' %}
+        <div class="col-lg-8 col-xl-5">
+          <div class="project-page">
+            <h4>Smith office center</h4>
+            <p>Lanistas accelerare in secundus rugensis civitas! Heu, castus lamia! Eheu. Pol. Tolerare inciviliter ducunt ad ferox devirginato. Genetrixs accelerare in cubiculum! Dominas ortum in vasa! Gabaliums velum in tolosa!</p>
+            <p>Primus repressors ducunt ad buxum. Fluctuis sunt boreass de audax lixa. Fidess messis! Navis volares, tanquam emeritis decor. Sunt quadraes resuscitabo noster, nobilis victrixes. Extum de germanus luna, locus silva! Habitios crescere, tanquam fatalis contencio. Cum lacta manducare, omnes bromiumes aperto salvus, bi-color parmaes. Rector, heuretes, et scutum. Abactuss messis in gratis chremisa!</p>
+            <p>Nunquam experientia consilium. Ridetis vix ducunt ad fidelis devirginato. Demolitiones favere, tanquam rusticus extum. Coordinatae potuss, tanquam azureus accola.</p>
+            <p>Finis de gratis historia, attrahendam vortex! Ubi est brevis guttus? Nunquam contactus nomen. Credere aliquando ducunt ad albus calcaria. Cannabiss manducare! Nunquam captis fides. Cur hydra ridetis? Cum abactus studere, omnes demolitionees attrahendam velox, alter extumes.</p>
+            
+            <a class="button button-lg button-primary button-winona" href="/kontakt">Contact Us</a>
+          </div>
+        </div>
+        {% elif detail == 'technologie-budowlane' %}
         <div class="col-lg-6 col-xl-5">
           <div class="project-page">
             <h4>Smith office center</h4>
@@ -216,6 +294,32 @@
             <a class="button button-lg button-primary button-winona" href="/kontakt">Contact Us</a>
           </div>
         </div>
+        {% elif detail == 'zalety-lokalizacji' %}
+        <div class="col-lg-6 col-xl-5">
+          <div class="project-page">
+            <h4>Smith office center</h4>
+            <p>Lanistas accelerare in secundus rugensis civitas! Heu, castus lamia! Eheu. Pol. Tolerare inciviliter ducunt ad ferox devirginato. Genetrixs accelerare in cubiculum! Dominas ortum in vasa! Gabaliums velum in tolosa!</p>
+            <p>Primus repressors ducunt ad buxum. Fluctuis sunt boreass de audax lixa. Fidess messis! Navis volares, tanquam emeritis decor. Sunt quadraes resuscitabo noster, nobilis victrixes. Extum de germanus luna, locus silva! Habitios crescere, tanquam fatalis contencio. Cum lacta manducare, omnes bromiumes aperto salvus, bi-color parmaes. Rector, heuretes, et scutum. Abactuss messis in gratis chremisa!</p>
+            <p>Nunquam experientia consilium. Ridetis vix ducunt ad fidelis devirginato. Demolitiones favere, tanquam rusticus extum. Coordinatae potuss, tanquam azureus accola.</p>
+            <p>Finis de gratis historia, attrahendam vortex! Ubi est brevis guttus? Nunquam contactus nomen. Credere aliquando ducunt ad albus calcaria. Cannabiss manducare! Nunquam captis fides. Cur hydra ridetis? Cum abactus studere, omnes demolitionees attrahendam velox, alter extumes.</p>
+            
+            <a class="button button-lg button-primary button-winona" href="/kontakt">Contact Us</a>
+          </div>
+        </div>
+        {% elif detail == 'plan-osiedla' %}
+        <div class="col-lg-6 col-xl-5">
+          <div class="project-page">
+            <h4>Smith office center</h4>
+            <p>Lanistas accelerare in secundus rugensis civitas! Heu, castus lamia! Eheu. Pol. Tolerare inciviliter ducunt ad ferox devirginato. Genetrixs accelerare in cubiculum! Dominas ortum in vasa! Gabaliums velum in tolosa!</p>
+            <p>Primus repressors ducunt ad buxum. Fluctuis sunt boreass de audax lixa. Fidess messis! Navis volares, tanquam emeritis decor. Sunt quadraes resuscitabo noster, nobilis victrixes. Extum de germanus luna, locus silva! Habitios crescere, tanquam fatalis contencio. Cum lacta manducare, omnes bromiumes aperto salvus, bi-color parmaes. Rector, heuretes, et scutum. Abactuss messis in gratis chremisa!</p>
+            <p>Nunquam experientia consilium. Ridetis vix ducunt ad fidelis devirginato. Demolitiones favere, tanquam rusticus extum. Coordinatae potuss, tanquam azureus accola.</p>
+            <p>Finis de gratis historia, attrahendam vortex! Ubi est brevis guttus? Nunquam contactus nomen. Credere aliquando ducunt ad albus calcaria. Cannabiss manducare! Nunquam captis fides. Cur hydra ridetis? Cum abactus studere, omnes demolitionees attrahendam velox, alter extumes.</p>
+            
+            <a class="button button-lg button-primary button-winona" href="/kontakt">Contact Us</a>
+          </div>
+        </div>
+        {% endif %}
+        
       </div>
     </div>
   </section>
