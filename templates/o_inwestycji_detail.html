@@ -4,7 +4,15 @@
 <section class="bg-gray-7">
     <div class="breadcrumbs-custom box-transform-wrap context-dark">
       <div class="container">
-        <h3 class="breadcrumbs-custom-title">Project Page</h3>
+        {% if detail == 'standard-wykonczenia' %}
+          <h3 class="breadcrumbs-custom-title">Standard wykończenia</h3>
+        {% elif detail == 'technologie-budowlane' %}
+          <h3 class="breadcrumbs-custom-title">Technologie budowlane</h3>
+        {% elif detail == 'zalety-lokalizacji' %}
+          <h3 class="breadcrumbs-custom-title">Zalety lokalizacji</h3>
+        {% elif detail == 'plan-osiedla' %}
+          <h3 class="breadcrumbs-custom-title">Plan Osiedla</h3>
+        {% endif %}
         <div class="breadcrumbs-custom-decor"></div>
       </div>
       <!-- <div class="box-transform" style="background-image: url(../static/images/bg-project.jpg);"></div> -->
