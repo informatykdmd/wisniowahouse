@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 <!-- Breadcrumbs -->
-{% set filepath = url_for('static', filename='images/bg-project.jpg') %}
 <section class="bg-gray-7">
-    <!-- <div class="breadcrumbs-custom box-transform-wrap context-dark">
+    <div class="breadcrumbs-custom box-transform-wrap context-dark">
       <div class="container">
         <h3 class="breadcrumbs-custom-title">Project Page</h3>
         <div class="breadcrumbs-custom-decor"></div>
       </div>
+      <!-- <div class="box-transform" style="background-image: url(../static/images/bg-project.jpg);"></div> -->
+      {% set filepath = url_for('static', filename='images/bg-project.jpg') %}
       <div class="box-transform" style="background-image: url('{{ filepath }}');"></div>
-    </div> -->
+    </div>
     <div class="container">
       <ul class="breadcrumbs-custom-path">
         <li><a href="/"><i class="bi bi-house" style="font-size: 24px;"></i></a></li>
@@ -26,295 +27,199 @@
       </ul>
     </div>
   </section>
-  <!-- Project Page-->
-  <section class="section section-lg bg-default text-md-start">
+  {% if detail == 'standard-wykonczenia' %}
+  <!-- About-->
+  <section class="section section-lg bg-default">
     <div class="container">
-      <div class="row row-60 flex-lg-row-reverse">
-        <div class="col-lg-6 col-xl-7">
-          {% if detail == 'standard-wykonczenia' %}
-          <!-- About-->
-          <div class="tabs-custom row row-50 justify-content-center flex-lg-row-reverse text-center text-md-start" id="tabs-4">
-            <div class="col-lg-4 col-xl-3">
-              <h5 class="text-spacing-200">Ponad 20 lat doświadczenia</h5>
-              <ul class="nav list-category list-category-down-md-inline-block">
-                <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay="0s">
-                  <a class="active" href="#tabs-4-1" data-bs-toggle="tab">O nas</a>
-                </li>
-                <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".1s">
-                  <a href="#tabs-4-2" data-bs-toggle="tab">Nasza misja</a>
-                </li>
-                <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".2s">
-                  <a href="#tabs-4-3" data-bs-toggle="tab">Nasze cele</a>
-                </li>
-                <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".3s">
-                  <a href="#tabs-4-4" data-bs-toggle="tab">Wartości firmy</a>
-                </li>
-              </ul>
-              <a class="button button-lg button-primary button-winona" href="contacts.html">Skontaktuj się z nami</a>
+      <div class="tabs-custom row row-50 justify-content-center flex-lg-row-reverse text-center text-md-start" id="tabs-4">
+        <div class="col-lg-4 col-xl-3">
+          <h5 class="text-spacing-200">Ponad 20 lat doświadczenia</h5>
+          <ul class="nav list-category list-category-down-md-inline-block">
+            <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay="0s">
+              <a class="active" href="#tabs-4-1" data-bs-toggle="tab">O nas</a>
+            </li>
+            <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".1s">
+              <a href="#tabs-4-2" data-bs-toggle="tab">Nasza misja</a>
+            </li>
+            <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".2s">
+              <a href="#tabs-4-3" data-bs-toggle="tab">Nasze cele</a>
+            </li>
+            <li class="list-category-item wow fadeInRight" role="presentation" data-wow-delay=".3s">
+              <a href="#tabs-4-4" data-bs-toggle="tab">Wartości firmy</a>
+            </li>
+          </ul>
+          <a class="button button-lg button-primary button-winona" href="contacts.html">Skontaktuj się z nami</a>
 
-            </div>
-            <div class="col-lg-8 col-xl-9">
-              <!-- Zakładki treści-->
-              <div class="tab-content tab-content-1">
-                <div class="tab-pane fade show active" id="tabs-4-1">
-                  <h4>Kilka słów o nas</h4>
-                  <p>Firma DMD Budownictwo od ponad 20 lat realizuje nowoczesne projekty budowlane, zdobywając zaufanie klientów dzięki solidności i innowacyjności. Nasz zespół to doświadczeni specjaliści, którzy tworzą przestrzenie idealnie dopasowane do potrzeb klientów.</p>
-                  <p>Oferujemy kompleksowe usługi, począwszy od projektowania, przez budowę luksusowych domów i hal komercyjnych, aż po profesjonalne doradztwo inżynierskie. W każdej realizacji stawiamy na najnowsze technologie i najwyższą jakość wykonania.</p>
-                  <img src="static/images/about-1-835x418.jpg" alt="O nas" width="835" height="418"/>
-                </div>
-                <div class="tab-pane fade" id="tabs-4-2">
-                  <h4>Nasza misja</h4>
-                  <p>Misją firmy DMD Budownictwo jest dostarczanie najwyższej jakości usług budowlanych, które spełniają rosnące oczekiwania klientów. Wierzymy, że każda realizacja to nie tylko inwestycja, ale przede wszystkim miejsce, które ma służyć ludziom przez lata.</p>
-                  <p>Naszym celem jest łączenie nowoczesnych rozwiązań z tradycyjnymi wartościami, tworząc przestrzenie funkcjonalne, estetyczne i przyjazne dla środowiska.</p>
-                  <img src="static/images/about-2-835x418.jpg" alt="Nasza misja" width="835" height="418"/>
-                </div>
-                <div class="tab-pane fade" id="tabs-4-3">
-                  <h4>Nasze cele</h4>
-                  <p>Dążymy do nieustannego rozwoju i wprowadzania innowacyjnych rozwiązań budowlanych. Naszym celem jest tworzenie projektów, które odpowiadają na potrzeby współczesnych klientów i wyznaczają nowe standardy w branży budowlanej.</p>
-                  <p>Wierzymy, że klucz do sukcesu tkwi w dbałości o detale, ścisłej współpracy z klientami oraz ciągłym podnoszeniu kwalifikacji naszego zespołu.</p>
-                  <img src="static/images/about-3-835x418.jpg" alt="Nasze cele" width="835" height="418"/>
-                </div>
-                <div class="tab-pane fade" id="tabs-4-4">
-                  <h4>Nasze wartości</h4>
-                  <p>Nasza firma opiera się na wartościach takich jak rzetelność, odpowiedzialność i dążenie do doskonałości. Stawiamy na transparentność w relacjach z klientami oraz poszanowanie dla środowiska naturalnego.</p>
-                  <p>Wszystkie nasze działania są ukierunkowane na budowanie długotrwałych relacji opartych na zaufaniu i profesjonalizmie. Wierzymy, że wartości te pozwalają nam realizować nawet najbardziej wymagające projekty.</p>
-                  <img src="static/images/about-4-835x418.jpg" alt="Nasze wartości" width="835" height="418"/>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-          {% elif detail == 'technologie-budowlane' %}
-          <div class="slick-project">
-            <!-- Slick Carousel-->
-            <div class="slick-slider carousel-parent" data-arrows="true" data-autoplay="true" data-swipe="true" data-items="1" data-child="#child-carousel-7" data-for="#child-carousel-7" data-slide-effect="true">
-              {% set filepath_1 = url_for('static', filename='images/project-5-670x477.jpg') %}
-              <div class="item"><img src="{{filepath_1}}" alt="" width="670" height="477"/>
-                <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #1</div>
-                </div>
-              </div>
-              <div class="item"><img src="../static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
-                <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #2</div>
-                </div>
-              </div>
-              <div class="item"><img src="../static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
-                <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #3</div>
-                </div>
-              </div>
-              <div class="item"><img src="../static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
-                <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #4</div>
-                </div>
-              </div>
-            </div>
-            <div class="slick-slider child-carousel" id="child-carousel-7" data-for=".carousel-parent" data-items="3" data-sm-items="3" data-md-items="4" data-lg-items="3" data-xl-items="4" data-slide-to-scroll="1">
-              <div class="item"><img src="../static/images/project-5-670x477.jpg" alt="" width="670" height="477"/>
-              </div>
-              <div class="item"><img src="../static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
-              </div>
-              <div class="item"><img src="../static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
-              </div>
-              <div class="item"><img src="../static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
-              </div>
-            </div>
-          </div>
-          <div class="table-custom-responsive">
-            <table class="table-custom table-custom-primary table-project">
-              <tbody>
-                <tr>
-                  <td><span class="icon icon-26 mdi mdi-account"></span></td>
-                  <td><span>Client:</span> Smith Ltd.</td>
-                </tr>
-                <tr>
-                  <td><span class="icon mdi mdi-calendar-today"></span></td>
-                  <td><span>Year:</span> 2010</td>
-                </tr>
-                <tr>
-                  <td><span class="icon mdi mdi-map-marker"></span></td>
-                  <td><span>Location:</span> Los Angeles</td>
-                </tr>
-                <tr>
-                  <td><span class="icon icon-28 mdi mdi-cash"></span></td>
-                  <td><span>Value:</span> $1.299.525,00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          {% elif detail == 'zalety-lokalizacji' %}
-          <div class="slick-project">
-            <!-- Slick Carousel-->
-            <div class="slick-slider carousel-parent" data-arrows="true" data-autoplay="true" data-swipe="true" data-items="1" data-child="#child-carousel-7" data-for="#child-carousel-7" data-slide-effect="true">
-              {% set filepath_1 = url_for('static', filename='images/project-5-670x477.jpg') %}
-              <div class="item"><img src="{{filepath_1}}" alt="" width="670" height="477"/>
-                <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #1</div>
-                </div>
-              </div>
-              <div class="item"><img src="../static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
-                <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #2</div>
-                </div>
-              </div>
-              <div class="item"><img src="../static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
-                <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #3</div>
-                </div>
-              </div>
-              <div class="item"><img src="../static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
-                <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #4</div>
-                </div>
-              </div>
-            </div>
-            <div class="slick-slider child-carousel" id="child-carousel-7" data-for=".carousel-parent" data-items="3" data-sm-items="3" data-md-items="4" data-lg-items="3" data-xl-items="4" data-slide-to-scroll="1">
-              <div class="item"><img src="../static/images/project-5-670x477.jpg" alt="" width="670" height="477"/>
-              </div>
-              <div class="item"><img src="../static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
-              </div>
-              <div class="item"><img src="../static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
-              </div>
-              <div class="item"><img src="../static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
-              </div>
-            </div>
-          </div>
-          <div class="table-custom-responsive">
-            <table class="table-custom table-custom-primary table-project">
-              <tbody>
-                <tr>
-                  <td><span class="icon icon-26 mdi mdi-account"></span></td>
-                  <td><span>Client:</span> Smith Ltd.</td>
-                </tr>
-                <tr>
-                  <td><span class="icon mdi mdi-calendar-today"></span></td>
-                  <td><span>Year:</span> 2010</td>
-                </tr>
-                <tr>
-                  <td><span class="icon mdi mdi-map-marker"></span></td>
-                  <td><span>Location:</span> Los Angeles</td>
-                </tr>
-                <tr>
-                  <td><span class="icon icon-28 mdi mdi-cash"></span></td>
-                  <td><span>Value:</span> $1.299.525,00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          {% elif detail == 'plan-osiedla' %}
-          <div class="slick-project">
-            <!-- Slick Carousel-->
-            <div class="slick-slider carousel-parent" data-arrows="true" data-autoplay="true" data-swipe="true" data-items="1" data-child="#child-carousel-7" data-for="#child-carousel-7" data-slide-effect="true">
-              {% set filepath_1 = url_for('static', filename='images/project-5-670x477.jpg') %}
-              <div class="item"><img src="{{filepath_1}}" alt="" width="670" height="477"/>
-                <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #1</div>
-                </div>
-              </div>
-              <div class="item"><img src="../static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
-                <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #2</div>
-                </div>
-              </div>
-              <div class="item"><img src="../static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
-                <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #3</div>
-                </div>
-              </div>
-              <div class="item"><img src="../static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
-                <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #4</div>
-                </div>
-              </div>
-            </div>
-            <div class="slick-slider child-carousel" id="child-carousel-7" data-for=".carousel-parent" data-items="3" data-sm-items="3" data-md-items="4" data-lg-items="3" data-xl-items="4" data-slide-to-scroll="1">
-              <div class="item"><img src="../static/images/project-5-670x477.jpg" alt="" width="670" height="477"/>
-              </div>
-              <div class="item"><img src="../static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
-              </div>
-              <div class="item"><img src="../static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
-              </div>
-              <div class="item"><img src="../static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
-              </div>
-            </div>
-          </div>
-          <div class="table-custom-responsive">
-            <table class="table-custom table-custom-primary table-project">
-              <tbody>
-                <tr>
-                  <td><span class="icon icon-26 mdi mdi-account"></span></td>
-                  <td><span>Client:</span> Smith Ltd.</td>
-                </tr>
-                <tr>
-                  <td><span class="icon mdi mdi-calendar-today"></span></td>
-                  <td><span>Year:</span> 2010</td>
-                </tr>
-                <tr>
-                  <td><span class="icon mdi mdi-map-marker"></span></td>
-                  <td><span>Location:</span> Los Angeles</td>
-                </tr>
-                <tr>
-                  <td><span class="icon icon-28 mdi mdi-cash"></span></td>
-                  <td><span>Value:</span> $1.299.525,00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          {% endif %}
         </div>
-        {% if detail == 'standard-wykonczenia' %}
-        <div class="col-lg-6 col-xl-5">
-          <div class="project-page">
-            <h4>Smith office center</h4>
-            <p>Lanistas accelerare in secundus rugensis civitas! Heu, castus lamia! Eheu. Pol. Tolerare inciviliter ducunt ad ferox devirginato. Genetrixs accelerare in cubiculum! Dominas ortum in vasa! Gabaliums velum in tolosa!</p>
-            <p>Primus repressors ducunt ad buxum. Fluctuis sunt boreass de audax lixa. Fidess messis! Navis volares, tanquam emeritis decor. Sunt quadraes resuscitabo noster, nobilis victrixes. Extum de germanus luna, locus silva! Habitios crescere, tanquam fatalis contencio. Cum lacta manducare, omnes bromiumes aperto salvus, bi-color parmaes. Rector, heuretes, et scutum. Abactuss messis in gratis chremisa!</p>
-            <p>Nunquam experientia consilium. Ridetis vix ducunt ad fidelis devirginato. Demolitiones favere, tanquam rusticus extum. Coordinatae potuss, tanquam azureus accola.</p>
-            <p>Finis de gratis historia, attrahendam vortex! Ubi est brevis guttus? Nunquam contactus nomen. Credere aliquando ducunt ad albus calcaria. Cannabiss manducare! Nunquam captis fides. Cur hydra ridetis? Cum abactus studere, omnes demolitionees attrahendam velox, alter extumes.</p>
-            
-            <a class="button button-lg button-primary button-winona" href="/kontakt">Contact Us</a>
+        <div class="col-lg-8 col-xl-9">
+          <!-- Zakładki treści-->
+          <div class="tab-content tab-content-1">
+            <div class="tab-pane fade show active" id="tabs-4-1">
+              <h4>Kilka słów o nas</h4>
+              <p>Firma DMD Budownictwo od ponad 20 lat realizuje nowoczesne projekty budowlane, zdobywając zaufanie klientów dzięki solidności i innowacyjności. Nasz zespół to doświadczeni specjaliści, którzy tworzą przestrzenie idealnie dopasowane do potrzeb klientów.</p>
+              <p>Oferujemy kompleksowe usługi, począwszy od projektowania, przez budowę luksusowych domów i hal komercyjnych, aż po profesjonalne doradztwo inżynierskie. W każdej realizacji stawiamy na najnowsze technologie i najwyższą jakość wykonania.</p>
+              <img src="static/images/about-1-835x418.jpg" alt="O nas" width="835" height="418"/>
+            </div>
+            <div class="tab-pane fade" id="tabs-4-2">
+              <h4>Nasza misja</h4>
+              <p>Misją firmy DMD Budownictwo jest dostarczanie najwyższej jakości usług budowlanych, które spełniają rosnące oczekiwania klientów. Wierzymy, że każda realizacja to nie tylko inwestycja, ale przede wszystkim miejsce, które ma służyć ludziom przez lata.</p>
+              <p>Naszym celem jest łączenie nowoczesnych rozwiązań z tradycyjnymi wartościami, tworząc przestrzenie funkcjonalne, estetyczne i przyjazne dla środowiska.</p>
+              <img src="static/images/about-2-835x418.jpg" alt="Nasza misja" width="835" height="418"/>
+            </div>
+            <div class="tab-pane fade" id="tabs-4-3">
+              <h4>Nasze cele</h4>
+              <p>Dążymy do nieustannego rozwoju i wprowadzania innowacyjnych rozwiązań budowlanych. Naszym celem jest tworzenie projektów, które odpowiadają na potrzeby współczesnych klientów i wyznaczają nowe standardy w branży budowlanej.</p>
+              <p>Wierzymy, że klucz do sukcesu tkwi w dbałości o detale, ścisłej współpracy z klientami oraz ciągłym podnoszeniu kwalifikacji naszego zespołu.</p>
+              <img src="static/images/about-3-835x418.jpg" alt="Nasze cele" width="835" height="418"/>
+            </div>
+            <div class="tab-pane fade" id="tabs-4-4">
+              <h4>Nasze wartości</h4>
+              <p>Nasza firma opiera się na wartościach takich jak rzetelność, odpowiedzialność i dążenie do doskonałości. Stawiamy na transparentność w relacjach z klientami oraz poszanowanie dla środowiska naturalnego.</p>
+              <p>Wszystkie nasze działania są ukierunkowane na budowanie długotrwałych relacji opartych na zaufaniu i profesjonalizmie. Wierzymy, że wartości te pozwalają nam realizować nawet najbardziej wymagające projekty.</p>
+              <img src="static/images/about-4-835x418.jpg" alt="Nasze wartości" width="835" height="418"/>
+            </div>
           </div>
         </div>
-        {% elif detail == 'technologie-budowlane' %}
-        <div class="col-lg-6 col-xl-5">
-          <div class="project-page">
-            <h4>Smith office center</h4>
-            <p>Lanistas accelerare in secundus rugensis civitas! Heu, castus lamia! Eheu. Pol. Tolerare inciviliter ducunt ad ferox devirginato. Genetrixs accelerare in cubiculum! Dominas ortum in vasa! Gabaliums velum in tolosa!</p>
-            <p>Primus repressors ducunt ad buxum. Fluctuis sunt boreass de audax lixa. Fidess messis! Navis volares, tanquam emeritis decor. Sunt quadraes resuscitabo noster, nobilis victrixes. Extum de germanus luna, locus silva! Habitios crescere, tanquam fatalis contencio. Cum lacta manducare, omnes bromiumes aperto salvus, bi-color parmaes. Rector, heuretes, et scutum. Abactuss messis in gratis chremisa!</p>
-            <p>Nunquam experientia consilium. Ridetis vix ducunt ad fidelis devirginato. Demolitiones favere, tanquam rusticus extum. Coordinatae potuss, tanquam azureus accola.</p>
-            <p>Finis de gratis historia, attrahendam vortex! Ubi est brevis guttus? Nunquam contactus nomen. Credere aliquando ducunt ad albus calcaria. Cannabiss manducare! Nunquam captis fides. Cur hydra ridetis? Cum abactus studere, omnes demolitionees attrahendam velox, alter extumes.</p>
-            
-            <a class="button button-lg button-primary button-winona" href="/kontakt">Contact Us</a>
-          </div>
-        </div>
-        {% elif detail == 'zalety-lokalizacji' %}
-        <div class="col-lg-6 col-xl-5">
-          <div class="project-page">
-            <h4>Smith office center</h4>
-            <p>Lanistas accelerare in secundus rugensis civitas! Heu, castus lamia! Eheu. Pol. Tolerare inciviliter ducunt ad ferox devirginato. Genetrixs accelerare in cubiculum! Dominas ortum in vasa! Gabaliums velum in tolosa!</p>
-            <p>Primus repressors ducunt ad buxum. Fluctuis sunt boreass de audax lixa. Fidess messis! Navis volares, tanquam emeritis decor. Sunt quadraes resuscitabo noster, nobilis victrixes. Extum de germanus luna, locus silva! Habitios crescere, tanquam fatalis contencio. Cum lacta manducare, omnes bromiumes aperto salvus, bi-color parmaes. Rector, heuretes, et scutum. Abactuss messis in gratis chremisa!</p>
-            <p>Nunquam experientia consilium. Ridetis vix ducunt ad fidelis devirginato. Demolitiones favere, tanquam rusticus extum. Coordinatae potuss, tanquam azureus accola.</p>
-            <p>Finis de gratis historia, attrahendam vortex! Ubi est brevis guttus? Nunquam contactus nomen. Credere aliquando ducunt ad albus calcaria. Cannabiss manducare! Nunquam captis fides. Cur hydra ridetis? Cum abactus studere, omnes demolitionees attrahendam velox, alter extumes.</p>
-            
-            <a class="button button-lg button-primary button-winona" href="/kontakt">Contact Us</a>
-          </div>
-        </div>
-        {% elif detail == 'plan-osiedla' %}
-        <div class="col-lg-6 col-xl-5">
-          <div class="project-page">
-            <h4>Smith office center</h4>
-            <p>Lanistas accelerare in secundus rugensis civitas! Heu, castus lamia! Eheu. Pol. Tolerare inciviliter ducunt ad ferox devirginato. Genetrixs accelerare in cubiculum! Dominas ortum in vasa! Gabaliums velum in tolosa!</p>
-            <p>Primus repressors ducunt ad buxum. Fluctuis sunt boreass de audax lixa. Fidess messis! Navis volares, tanquam emeritis decor. Sunt quadraes resuscitabo noster, nobilis victrixes. Extum de germanus luna, locus silva! Habitios crescere, tanquam fatalis contencio. Cum lacta manducare, omnes bromiumes aperto salvus, bi-color parmaes. Rector, heuretes, et scutum. Abactuss messis in gratis chremisa!</p>
-            <p>Nunquam experientia consilium. Ridetis vix ducunt ad fidelis devirginato. Demolitiones favere, tanquam rusticus extum. Coordinatae potuss, tanquam azureus accola.</p>
-            <p>Finis de gratis historia, attrahendam vortex! Ubi est brevis guttus? Nunquam contactus nomen. Credere aliquando ducunt ad albus calcaria. Cannabiss manducare! Nunquam captis fides. Cur hydra ridetis? Cum abactus studere, omnes demolitionees attrahendam velox, alter extumes.</p>
-            
-            <a class="button button-lg button-primary button-winona" href="/kontakt">Contact Us</a>
-          </div>
-        </div>
-        {% endif %}
         
       </div>
     </div>
   </section>
+  {% elif detail == 'technologie-budowlane' %}
+    <!-- Project Page-->
+  <section class="section section-lg bg-default text-md-start">
+    <div class="container">
+      <div class="row row-60 flex-lg-row-reverse">
+        <div class="col-lg-6 col-xl-7">
+          
+          
+          <div class="table-custom-responsive">
+            <table class="table-custom table-custom-primary table-project">
+              <tbody>
+                <tr>
+                  <td><span class="icon icon-26 mdi mdi-account"></span></td>
+                  <td><span>Client:</span> Smith Ltd.</td>
+                </tr>
+                <tr>
+                  <td><span class="icon mdi mdi-calendar-today"></span></td>
+                  <td><span>Year:</span> 2010</td>
+                </tr>
+                <tr>
+                  <td><span class="icon mdi mdi-map-marker"></span></td>
+                  <td><span>Location:</span> Los Angeles</td>
+                </tr>
+                <tr>
+                  <td><span class="icon icon-28 mdi mdi-cash"></span></td>
+                  <td><span>Value:</span> $1.299.525,00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-5">
+          <div class="project-page">
+            <h4>Smith office center</h4>
+            <p>Lanistas accelerare in secundus rugensis civitas! Heu, castus lamia! Eheu. Pol. Tolerare inciviliter ducunt ad ferox devirginato. Genetrixs accelerare in cubiculum! Dominas ortum in vasa! Gabaliums velum in tolosa!</p>
+            <p>Primus repressors ducunt ad buxum. Fluctuis sunt boreass de audax lixa. Fidess messis! Navis volares, tanquam emeritis decor. Sunt quadraes resuscitabo noster, nobilis victrixes. Extum de germanus luna, locus silva! Habitios crescere, tanquam fatalis contencio. Cum lacta manducare, omnes bromiumes aperto salvus, bi-color parmaes. Rector, heuretes, et scutum. Abactuss messis in gratis chremisa!</p>
+            <p>Nunquam experientia consilium. Ridetis vix ducunt ad fidelis devirginato. Demolitiones favere, tanquam rusticus extum. Coordinatae potuss, tanquam azureus accola.</p>
+            <p>Finis de gratis historia, attrahendam vortex! Ubi est brevis guttus? Nunquam contactus nomen. Credere aliquando ducunt ad albus calcaria. Cannabiss manducare! Nunquam captis fides. Cur hydra ridetis? Cum abactus studere, omnes demolitionees attrahendam velox, alter extumes.</p>
+            
+            <a class="button button-lg button-primary button-winona" href="/kontakt">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% elif detail == 'zalety-lokalizacji' %}
+    <!-- Project Page-->
+  <section class="section section-lg bg-default text-md-start">
+    <div class="container">
+      <div class="row row-60 flex-lg-row-reverse">
+        <div class="col-lg-6 col-xl-7">
+          
+          
+          <div class="table-custom-responsive">
+            <table class="table-custom table-custom-primary table-project">
+              <tbody>
+                <tr>
+                  <td><span class="icon icon-26 mdi mdi-account"></span></td>
+                  <td><span>Client:</span> Smith Ltd.</td>
+                </tr>
+                <tr>
+                  <td><span class="icon mdi mdi-calendar-today"></span></td>
+                  <td><span>Year:</span> 2010</td>
+                </tr>
+                <tr>
+                  <td><span class="icon mdi mdi-map-marker"></span></td>
+                  <td><span>Location:</span> Los Angeles</td>
+                </tr>
+                <tr>
+                  <td><span class="icon icon-28 mdi mdi-cash"></span></td>
+                  <td><span>Value:</span> $1.299.525,00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-5">
+          <div class="project-page">
+            <h4>Smith office center</h4>
+            <p>Lanistas accelerare in secundus rugensis civitas! Heu, castus lamia! Eheu. Pol. Tolerare inciviliter ducunt ad ferox devirginato. Genetrixs accelerare in cubiculum! Dominas ortum in vasa! Gabaliums velum in tolosa!</p>
+            <p>Primus repressors ducunt ad buxum. Fluctuis sunt boreass de audax lixa. Fidess messis! Navis volares, tanquam emeritis decor. Sunt quadraes resuscitabo noster, nobilis victrixes. Extum de germanus luna, locus silva! Habitios crescere, tanquam fatalis contencio. Cum lacta manducare, omnes bromiumes aperto salvus, bi-color parmaes. Rector, heuretes, et scutum. Abactuss messis in gratis chremisa!</p>
+            <p>Nunquam experientia consilium. Ridetis vix ducunt ad fidelis devirginato. Demolitiones favere, tanquam rusticus extum. Coordinatae potuss, tanquam azureus accola.</p>
+            <p>Finis de gratis historia, attrahendam vortex! Ubi est brevis guttus? Nunquam contactus nomen. Credere aliquando ducunt ad albus calcaria. Cannabiss manducare! Nunquam captis fides. Cur hydra ridetis? Cum abactus studere, omnes demolitionees attrahendam velox, alter extumes.</p>
+            
+            <a class="button button-lg button-primary button-winona" href="/kontakt">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% elif detail == 'plan-osiedla' %}
+    <!-- Project Page-->
+  <section class="section section-lg bg-default text-md-start">
+    <div class="container">
+      <div class="row row-60 flex-lg-row-reverse">
+        <div class="col-lg-6 col-xl-7">
+          
+          
+          <div class="table-custom-responsive">
+            <table class="table-custom table-custom-primary table-project">
+              <tbody>
+                <tr>
+                  <td><span class="icon icon-26 mdi mdi-account"></span></td>
+                  <td><span>Client:</span> Smith Ltd.</td>
+                </tr>
+                <tr>
+                  <td><span class="icon mdi mdi-calendar-today"></span></td>
+                  <td><span>Year:</span> 2010</td>
+                </tr>
+                <tr>
+                  <td><span class="icon mdi mdi-map-marker"></span></td>
+                  <td><span>Location:</span> Los Angeles</td>
+                </tr>
+                <tr>
+                  <td><span class="icon icon-28 mdi mdi-cash"></span></td>
+                  <td><span>Value:</span> $1.299.525,00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xl-5">
+          <div class="project-page">
+            <h4>Smith office center</h4>
+            <p>Lanistas accelerare in secundus rugensis civitas! Heu, castus lamia! Eheu. Pol. Tolerare inciviliter ducunt ad ferox devirginato. Genetrixs accelerare in cubiculum! Dominas ortum in vasa! Gabaliums velum in tolosa!</p>
+            <p>Primus repressors ducunt ad buxum. Fluctuis sunt boreass de audax lixa. Fidess messis! Navis volares, tanquam emeritis decor. Sunt quadraes resuscitabo noster, nobilis victrixes. Extum de germanus luna, locus silva! Habitios crescere, tanquam fatalis contencio. Cum lacta manducare, omnes bromiumes aperto salvus, bi-color parmaes. Rector, heuretes, et scutum. Abactuss messis in gratis chremisa!</p>
+            <p>Nunquam experientia consilium. Ridetis vix ducunt ad fidelis devirginato. Demolitiones favere, tanquam rusticus extum. Coordinatae potuss, tanquam azureus accola.</p>
+            <p>Finis de gratis historia, attrahendam vortex! Ubi est brevis guttus? Nunquam contactus nomen. Credere aliquando ducunt ad albus calcaria. Cannabiss manducare! Nunquam captis fides. Cur hydra ridetis? Cum abactus studere, omnes demolitionees attrahendam velox, alter extumes.</p>
+            
+            <a class="button button-lg button-primary button-winona" href="/kontakt">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+  
   
 {% endblock %}
