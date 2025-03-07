@@ -3588,6 +3588,20 @@ h3 + .title-decor-left {
 	}
 }
 
+.button-oi {
+	padding: 20px 45px;
+	font-size: 14px;
+	line-height: 1.85;
+	min-width: 150px;
+}
+
+@media (min-width: 992px) {
+	.button-oi {
+		min-width: 120px;
+		padding: 30px 55px;
+	}
+}
+
 .button-circle {
 	border-radius: 30px;
 }
