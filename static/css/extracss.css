@@ -50,3 +50,53 @@
     border-radius: 4px; /* Zaokrąglone rogi */
     z-index: 1500; /* Wyższy indeks, aby tooltip był widoczny nad innymi elementami */
 }
+
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.custom-list {
+    list-style-type: none; /* Usunięcie domyślnych kropek */
+    padding-left: 0;
+    margin: 0 0 20px 0;
+}
+
+.custom-list-item {
+    font-size: 16px;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.custom-list-item::before {
+    content: "•"; /* Custom bullet */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #007bff; /* Kolor punktora */
+    font-size: 18px;
+}
+
+.nested-list {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.nested-list-item {
+    font-size: 14px;
+    margin-bottom: 5px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.nested-list-item::before {
+    content: "–"; /* Inny punktor dla podlist */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #555;
+    font-weight: bold;
+}
