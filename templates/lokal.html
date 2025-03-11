@@ -104,3 +104,60 @@
   </section>
   
 {% endblock %}
+
+{% block bottom_scripts %}
+<script>
+    const tooltip = document.getElementById('tooltip');
+
+    // Funkcja do ładowania danych z pliku JSON
+    function loadLokale() {
+        fetch('static/json/lokale.json')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(lokal => {
+                    const rect = document.querySelector(`.lokal[data-lokal="${lokal.id}"]`);
+                    if (rect) {
+                        rect.classList.remove('dostępny', 'rezerwacja', 'sprzedane');
+                        rect.classList.add(lokal.status);
+
+                        // Dodanie obsługi zdarzeń dla każdego lokalu
+                        rect.addEventListener('mouseover', () => {
+                            tooltip.style.display = 'block';
+                            tooltip.innerHTML = `
+                                <strong>Lokal: ${lokal.id}</strong><br>
+                                Status: ${lokal.status}<br>
+                                Cena: ${lokal.cena ? lokal.cena + ' PLN' : 'Niedostępny'}
+                            `;
+                        });
+
+                        rect.addEventListener('mousemove', (e) => {
+                            const offsetX = 10; // Przesunięcie w poziomie względem kursora
+                            const offsetY = 10; // Przesunięcie w pionie względem kursora
+                            tooltip.style.left = `${e.pageX + offsetX}px`;
+                            tooltip.style.top = `${e.pageY + offsetY}px`;
+                            // console.log(`e.pageX: ${e.pageX}, e.pageY: ${e.pageY}`);
+                            // console.log(`tooltip.style.left: ${e.pageX + 10}px, tooltip.style.top: ${e.pageY + 10}px`);
+                        });
+
+                        rect.addEventListener('mouseout', () => {
+                            tooltip.style.display = 'none';
+                        });
+
+                        rect.addEventListener('click', () => {
+                            if (lokal.status === 'dostępny') {
+                                alert(`Lokal ${lokal.id} jest dostępny za ${lokal.cena} PLN.`);
+                            } else {
+                                alert(`Lokal ${lokal.id} jest ${lokal.status}.`);
+                            }
+                        });
+                    }
+                });
+            })
+            .catch(error => console.error('Błąd podczas ładowania danych:', error));
+    }
+
+    // Inicjalizacja
+    document.addEventListener('DOMContentLoaded', loadLokale);
+
+</script>
+{% endblock %}
