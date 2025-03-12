@@ -297,11 +297,6 @@ def o_inwestycji():
         pageTitle=pageTitle
     )
 
-
-def get_about_invest_pack(detail):
-
-    return 
-
 @app.route('/o-inwestycji/<detail>')
 def o_inwestycji_detail(detail):
 
@@ -314,17 +309,14 @@ def o_inwestycji_detail(detail):
         session['page'] = f'o_inwestycji_{detail}'
         pageTitle = f'O Inwestycji - {detail.capitalize()}'
 
-        about_invest_pack = get_about_invest_pack(detail)
-
         return render_template(
             'o_inwestycji_detail.html',
             pageTitle=pageTitle,
-            detail=detail,
-            about_invest_pack=about_invest_pack
+            detail=detail
         )
-    else:
-        pageTitle = 'O Inwestycji'
-        return render_template(
+    
+    pageTitle = 'O Inwestycji'
+    return render_template(
         'o_inwestycji.html',
         pageTitle=pageTitle
     )
