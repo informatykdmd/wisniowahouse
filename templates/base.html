@@ -72,7 +72,6 @@
                         </a>
                     </div>
                   </div>
-                  {{available_premises}}
                   <div class="rd-navbar-main-element">
                     <div class="rd-navbar-nav-wrap">
                       <!-- RD Navbar Nav-->
@@ -80,8 +79,20 @@
                         <li class="rd-nav-item"><a class="rd-nav-link" href="/lokale">Lokale</a>
                             <!-- RD Navbar Megamenu-->
                             <ul class="rd-menu rd-navbar-megamenu">
+                              {% for building, locales in available_premises.items() %}
+                                <li class="rd-megamenu-item">
+                                  <h6 class="rd-megamenu-title">{{ building }}</h6>
+                                  <ul class="rd-megamenu-list">
+                                    {% for lokal in locales %}
+                                      <li class="rd-megamenu-list-item">
+                                        <a class="rd-megamenu-list-link" href="{{ lokal.href }}">{{ lokal.name }}</a>
+                                      </li>
+                                    {% endfor %}
+                                  </ul>
+                                </li>
+                              {% endfor %}
                               <!-- Budynek A -->
-                              <li class="rd-megamenu-item">
+                              <!-- <li class="rd-megamenu-item">
                                 <h6 class="rd-megamenu-title">Budynek A</h6>
                                 <ul class="rd-megamenu-list">
                                   <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/A.1">Lokal A.1</a></li>
@@ -89,9 +100,9 @@
                                   <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/A.3">Lokal A.3</a></li>
                                   <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/A.4">Lokal A.4</a></li>
                                 </ul>
-                              </li>
+                              </li> -->
                               <!-- Budynek B -->
-                              <li class="rd-megamenu-item">
+                              <!-- <li class="rd-megamenu-item">
                                 <h6 class="rd-megamenu-title">Budynek B</h6>
                                 <ul class="rd-megamenu-list">
                                   <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/B.1">Lokal B.1</a></li>
@@ -99,23 +110,23 @@
                                   <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/B.3">Lokal B.3</a></li>
                                   <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/B.4">Lokal B.4</a></li>
                                 </ul>
-                              </li>
+                              </li> -->
                               <!-- Budynek C -->
-                              <li class="rd-megamenu-item">
+                              <!-- <li class="rd-megamenu-item">
                                 <h6 class="rd-megamenu-title">Budynek C</h6>
                                 <ul class="rd-megamenu-list">
                                   <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/C.1">Lokal C.1</a></li>
                                   <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/C.2">Lokal C.2</a></li>
                                 </ul>
-                              </li>
+                              </li> -->
                               <!-- Budynek D -->
-                              <li class="rd-megamenu-item">
+                              <!-- <li class="rd-megamenu-item">
                                 <h6 class="rd-megamenu-title">Budynek D</h6>
                                 <ul class="rd-megamenu-list">
                                   <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/D.1">Lokal D.1</a></li>
                                   <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="/lokale/D.2">Lokal D.2</a></li>
                                 </ul>
-                              </li>
+                              </li> -->
                             </ul>
                           </li>
                           

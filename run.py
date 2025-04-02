@@ -213,15 +213,25 @@ def generator_wisniowa_lokale():
 
 @app.context_processor
 def inject_shared_variable():
-
     all_data = generator_wisniowa_lokale()
-    available_premises = []
-    for ap in all_data:
-        if ap.get("status_lokalu") == "dostepny":
-            href = f"/lokale/{ap.get('id_lokalu', '').strip()}"
-            name = f"{ap.get('typ_zabudowy', '').upper()} {ap.get('id_lokalu', '').strip()}"
+    available_premises = {}
 
-            available_premises.append({"href": href, "name": name})
+    for ap in all_data:
+        id_lokalu = ap.get('id_lokalu', '').strip()
+        if not id_lokalu:
+            continue
+
+        building = id_lokalu[0].capitalize()
+        if ap.get("status_lokalu") == "dostepny" and building:
+            href = f"/lokale/{id_lokalu}"
+            name = f"Lokal {id_lokalu}"
+
+            building_key = f"Budynek {building}"
+            available_premises.setdefault(building_key, []).append({
+                "href": href,
+                "name": name
+            })
+
     return {
         'available_premises': available_premises
     }
