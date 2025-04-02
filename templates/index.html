@@ -539,22 +539,14 @@
                   <!--Select Lokali-->
                   <select class="form-input" data-minimum-results-search="Infinity" data-constraints="@Required" name="lokal" data-placeholder="Wybierz lokal">
                     <option label="placeholder"></option>
-                    <!-- Budynek A -->
-                    <option value="A.1">Lokal A.1</option>
-                    <option value="A.2">Lokal A.2</option>
-                    <option value="A.3">Lokal A.3</option>
-                    <option value="A.4">Lokal A.4</option>
-                    <!-- Budynek B -->
-                    <option value="B.1">Lokal B.1</option>
-                    <option value="B.2">Lokal B.2</option>
-                    <option value="B.3">Lokal B.3</option>
-                    <option value="B.4">Lokal B.4</option>
-                    <!-- Budynek C -->
-                    <option value="C.1">Lokal C.1</option>
-                    <option value="C.2">Lokal C.2</option>
-                    <!-- Budynek D -->
-                    <option value="D.1">Lokal D.1</option>
-                    <option value="D.2">Lokal D.2</option>
+                    
+                    {% for building, locales in available_premises.items() %}
+                      <optgroup label="{{ building }}">
+                        {% for lokal in locales %}
+                          <option value="{{ lokal.href.split('/')[-1] }}">{{ lokal.name }}</option>
+                        {% endfor %}
+                      </optgroup>
+                    {% endfor %}
                   </select>
                   
                 </div>
