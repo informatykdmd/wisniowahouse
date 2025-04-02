@@ -50,10 +50,10 @@ class MySQLModel:
         """ Analizuje zapytanie SQL i wyciąga nazwę tabeli z `FROM`, `JOIN`, `UPDATE`, `INSERT INTO` """
         try:
             # Czyszczenie białych znaków i normalizacja spacji
-            query = re.sub(r'\s+', ' ', query.strip().lower())  # Usuwa nadmiarowe spacje, tabulatory, nowe linie
+            query = re.sub(r'\s+', ' ', query.strip())  # Usuwa nadmiarowe spacje, tabulatory, nowe linie
 
-            # Wyszukiwanie w SQL
-            match = re.search(r'\b(from|join|update|into)\s+([a-zA-Z0-9_]+)', query)
+            # Wyszukiwanie w SQL (ignorujemy wielkość liter tylko w regex, ale nie zmieniamy oryginału)
+            match = re.search(r'\b(from|join|update|into)\s+([a-zA-Z0-9_]+)', query, re.IGNORECASE)
             if match:
                 return match.group(2)  # Nazwa tabeli
 

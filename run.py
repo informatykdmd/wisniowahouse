@@ -197,6 +197,35 @@ def generator_daneDBList(lang='pl'):
 
     return daneList
 
+def generator_wisniowa_lokale():
+    db = get_db()
+    query_lokale = "SELECT * FROM Lokale_wisniowa;"
+    all_lokale = db.getFrom(query_lokale, as_dict=True)
+
+    for pos_dict in all_lokale:
+        id_lokal = pos_dict.get('id', None)
+        if isinstance(id_lokal, int):
+            query_messages = f"SELECT * FROM Messages_wisniowa WHERE id_lokalu={id_lokal};"
+            all_messages_for_lokal = db.getFrom(query_messages, as_dict=True)
+            pos_dict['Messages'] = all_messages_for_lokal or []
+
+    return all_lokale
+
+@app.context_processor
+def inject_shared_variable():
+
+    all_data = generator_wisniowa_lokale()
+    available_premises = []
+    for ap in all_data:
+        if ap.get("status_lokalu") == "dostepny":
+            href = f"/lokale/{ap.get('id_lokalu', '').strip()}"
+            name = f"{ap.get('typ_zabudowy', '').upper()} {ap.get('id_lokalu', '').strip()}"
+
+            available_premises.append({"href": href, "name": name})
+    return {
+        'available_premises': available_premises
+    }
+
 ############################
 ##      ######           ###
 ##      ######           ###
