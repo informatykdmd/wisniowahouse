@@ -560,6 +560,7 @@
                   <span class="icon mdi mdi-chevron-right"></span>Wyślij wiadomość
                 </button>
               </form>
+              <div id="Answering"></div>
               
             </div>
           </div>
@@ -660,27 +661,35 @@
         document.addEventListener('DOMContentLoaded', loadLokale);
         
         document.querySelector('#contact-form').addEventListener('submit', async function (e) {
-          e.preventDefault(); // zapobiegamy domyślnemu wysłaniu formularza
-        
+          e.preventDefault();
+
           const form = e.target;
           const formData = new FormData(form);
-        
+          const outputDiv = document.getElementById('Answering');
+
+          // Czyścimy wcześniejsze komunikaty
+          outputDiv.textContent = '';
+          outputDiv.className = ''; // usuwamy stare klasy
+
           try {
             const response = await fetch('/api/contact', {
               method: 'POST',
               body: formData,
             });
-        
+
             const result = await response.json();
-        
+
             if (response.ok) {
-              alert('✅ Wiadomość została wysłana!');
+              outputDiv.textContent = '✅ Wiadomość została wysłana!';
+              outputDiv.classList.add('success-message');
               form.reset();
             } else {
-              alert('❌ Błąd: ' + result.message);
+              outputDiv.textContent = '❌ Błąd: ' + result.message;
+              outputDiv.classList.add('error-message');
             }
           } catch (error) {
-            alert('⚠️ Wystąpił problem z połączeniem.');
+            outputDiv.textContent = '⚠️ Wystąpił problem z połączeniem.';
+            outputDiv.classList.add('error-message');
             console.error(error);
           }
         });
