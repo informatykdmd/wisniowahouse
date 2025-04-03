@@ -70,7 +70,7 @@
             <input type="hidden" value="Wiadomość ze strony 'Kontakt'" name="title">
             <button class="button button-secondary button-winona" type="submit">Wyślij</button>
           </form>
-          <div id="Answering"></div>
+          <div id="Answering" class="mt-2"></div>
         </div>
         <div class="col-lg-4">
           <div class="aside-contacts">
@@ -137,15 +137,15 @@
 
       if (response.ok) {
         outputDiv.textContent = '✅ Wiadomość została wysłana!';
-        outputDiv.classList.add('success-message mt-2');
+        outputDiv.classList.add('success-message');
         form.reset();
       } else {
         outputDiv.textContent = '❌ Błąd: ' + result.message;
-        outputDiv.classList.add('error-message mt-2');
+        outputDiv.classList.add('error-message');
       }
     } catch (error) {
       outputDiv.textContent = '⚠️ Wystąpił problem z połączeniem.';
-      outputDiv.classList.add('error-message mt-2');
+      outputDiv.classList.add('error-message');
       console.error(error);
     }
 

@@ -194,7 +194,7 @@
               <span class="icon mdi mdi-chevron-right"></span>Wyślij wiadomość
             </button>
           </form>
-          <div id="Answering"></div>
+          <div id="Answering" class="mt-2"></div>
           
         </div>
       </div>
@@ -227,15 +227,15 @@
 
       if (response.ok) {
         outputDiv.textContent = '✅ Wiadomość została wysłana!';
-        outputDiv.classList.add('success-message mt-2');
+        outputDiv.classList.add('success-message');
         form.reset();
       } else {
         outputDiv.textContent = '❌ Błąd: ' + result.message;
-        outputDiv.classList.add('error-message mt-2');
+        outputDiv.classList.add('error-message');
       }
     } catch (error) {
       outputDiv.textContent = '⚠️ Wystąpił problem z połączeniem.';
-      outputDiv.classList.add('error-message mt-2');
+      outputDiv.classList.add('error-message');
       console.error(error);
     }
 
