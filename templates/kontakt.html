@@ -22,7 +22,7 @@
       <div class="row row-60 justify-content-center">
         <div class="col-lg-8">
           <h4 class="text-spacing-25 text-transform-none">Skontaktuj się z nami</h4>
-          <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+          <form class="rd-form rd-mailform" id="contact-form">
             <div class="row row-20 gutters-20">
               <div class="col-md-6">
                 <div class="form-wrap">
@@ -45,7 +45,7 @@
                     {% for building, locales in available_premises.items() %}
                       <optgroup label="{{ building }}">
                         {% for lokal in locales %}
-                          <option value="{{ lokal.href.split('/')[-1] }}">{{ lokal.name }}</option>
+                          <option value="{{ lokal.id_direct }}">{{ lokal.name }}</option>
                         {% endfor %}
                       </optgroup>
                     {% endfor %}
@@ -67,6 +67,7 @@
                 </div>
               </div>
             </div>
+            <input type="hidden" value="Wiadomość ze strony 'Kontakt'" name="title">
             <button class="button button-secondary button-winona" type="submit">Wyślij</button>
           </form>
         </div>
@@ -111,4 +112,33 @@
     </div>
   </section>
 
+{% endblock %}
+{% block bottom_scripts %}
+<script>
+  document.querySelector('#contact-form').addEventListener('submit', async function (e) {
+    e.preventDefault(); // zapobiegamy domyślnemu wysłaniu formularza
+  
+    const form = e.target;
+    const formData = new FormData(form);
+  
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        alert('✅ Wiadomość została wysłana!');
+        form.reset();
+      } else {
+        alert('❌ Błąd: ' + result.message);
+      }
+    } catch (error) {
+      alert('⚠️ Wystąpił problem z połączeniem.');
+      console.error(error);
+    }
+  });
+</script>
 {% endblock %}

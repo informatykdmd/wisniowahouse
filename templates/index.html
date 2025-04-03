@@ -526,7 +526,7 @@
                   </div>
                 </div>
               </article>
-              <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+              <form class="rd-form rd-mailform" id="contact-form">
                 <div class="form-wrap wow fadeInRight">
                   <input class="form-input" id="contact-name-6" type="text" name="name" data-constraints="@Required">
                   <label class="form-label" for="contact-name-6">Twoje imię i nazwisko*</label>
@@ -554,6 +554,8 @@
                   <input class="form-input" id="contact-phone-6" type="text" name="phone" data-constraints="@Numeric">
                   <label class="form-label" for="contact-phone-6">Twój numer telefonu</label>
                 </div>
+                <input type="hidden" value="Wiadomość ze strony 'Proces Zakupu'" name="title">
+                <input type="hidden" value="Interesuje mnie ten lokal. Proszę o kontakt." name="message">
                 <button class="button button-icon button-icon-right button-gray-3 wow fadeInRight" type="submit" data-wow-delay=".25s">
                   <span class="icon mdi mdi-chevron-right"></span>Wyślij wiadomość
                 </button>
@@ -656,6 +658,32 @@
 
         // Inicjalizacja
         document.addEventListener('DOMContentLoaded', loadLokale);
-
+        
+        document.querySelector('#contact-form').addEventListener('submit', async function (e) {
+          e.preventDefault(); // zapobiegamy domyślnemu wysłaniu formularza
+        
+          const form = e.target;
+          const formData = new FormData(form);
+        
+          try {
+            const response = await fetch('/api/contact', {
+              method: 'POST',
+              body: formData,
+            });
+        
+            const result = await response.json();
+        
+            if (response.ok) {
+              alert('✅ Wiadomość została wysłana!');
+              form.reset();
+            } else {
+              alert('❌ Błąd: ' + result.message);
+            }
+          } catch (error) {
+            alert('⚠️ Wystąpił problem z połączeniem.');
+            console.error(error);
+          }
+        });
     </script>
 {% endblock %}
+
