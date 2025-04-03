@@ -510,32 +510,27 @@ def contact():
     email = request.form.get('email')
     lokal = request.form.get('lokal')
     phone = request.form.get('phone')
-    title = request.form.get('title')
-    message = request.form.get('message')
+    title = request.form.get('title', 'Wiadomość ze strony')  # fallback tytuł
+    message = request.form.get('message', '')  # pusty string jeśli brak wiadomości
 
-    # Walidacja (prosta)
     if not name or not email or not lokal:
         return jsonify({'message': 'Brakuje wymaganych danych'}), 400
 
     print(f"Otrzymano formularz: {name}, {email}, {lokal}, {phone}")
-    # TODO: Zapisz dane do bazy lub wyślij maila
+
     db = get_db()
     query = """
-        INSERT INTO Messages_wisniowa 
-        SET (
-            id_lokalu=%s,
-            tytul_wiadomosci=%s,
-            wiadomosc=%s,
-            autor_wiadomosci=%s,
-            email_autora_wiadomosci=%s,
-            telefon_do_autora_wiadomosci=%s,
-            status_wiadomosci='nowa'
-        );
+        INSERT INTO Messages_wisniowa (
+            id_lokalu,
+            tytul_wiadomosci,
+            wiadomosc,
+            autor_wiadomosci,
+            email_autora_wiadomosci,
+            telefon_do_autora_wiadomosci,
+            status_wiadomosci
+        ) VALUES (%s, %s, %s, %s, %s, %s, 'nowa');
     """
-
-    params = (
-        lokal, title, message, name, email, phone
-    )
+    params = (lokal, title, message, name, email, phone)
 
     success = db.executeTo(query, params)
 
