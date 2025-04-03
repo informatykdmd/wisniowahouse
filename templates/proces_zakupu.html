@@ -205,7 +205,7 @@
 {% endblock %}
 {% block bottom_scripts %}
 <script>
-  document.querySelector('.rd-mailform').addEventListener('submit', async function (e) {
+  document.querySelector('#contact-form').addEventListener('submit', async function (e) {
     e.preventDefault(); // zapobiegamy domyślnemu wysłaniu formularza
   
     const form = e.target;

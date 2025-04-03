@@ -517,6 +517,7 @@ def contact():
     if not name or not email or not lokal:
         return jsonify({'message': 'Brakuje wymaganych danych'}), 400
 
+    print(f"Otrzymano formularz: {name}, {email}, {lokal}, {phone}")
     # TODO: Zapisz dane do bazy lub wyślij maila
     db = get_db()
     query = """
@@ -538,7 +539,6 @@ def contact():
 
     success = db.executeTo(query, params)
 
-    print(f"Otrzymano formularz: {name}, {email}, {lokal}, {phone}")
     if success:
         return jsonify({'message': 'Dane odebrane poprawnie'}), 200
     else:
