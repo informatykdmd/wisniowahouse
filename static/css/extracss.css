@@ -115,6 +115,18 @@
     position:absolute;
 }
 
+.success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+  
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
 #Answering {
     transition: opacity 0.3s ease;
 }
