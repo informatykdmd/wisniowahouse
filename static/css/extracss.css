@@ -114,3 +114,11 @@
     width:100%;
     position:absolute;
 }
+
+#Answering {
+    transition: opacity 0.3s ease;
+}
+
+#Answering.hidden {
+    opacity: 0;
+}
