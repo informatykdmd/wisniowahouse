@@ -162,7 +162,7 @@
               </div>
             </div>
           </article>
-          <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+          <form class="rd-form rd-mailform" id="contact-form">
             <div class="form-wrap wow fadeInRight">
               <input class="form-input" id="contact-name-6" type="text" name="name" data-constraints="@Required">
               <label class="form-label" for="contact-name-6">Twoje imię i nazwisko*</label>
@@ -178,12 +178,13 @@
                 {% for building, locales in available_premises.items() %}
                   <optgroup label="{{ building }}">
                     {% for lokal in locales %}
-                      <option value="{{ lokal.href.split('/')[-1] }}">{{ lokal.name }}</option>
+                      <option value="{{ lokal.id_direct }}">{{ lokal.name }}</option>
                     {% endfor %}
                   </optgroup>
                 {% endfor %}
               </select>
-              
+              <input type="hidden" value="Wiadomość ze strony 'Proces Zakupu'" name="title">
+              <input type="hidden" value="Interesuje mnie ten lokal. Proszę o kontakt." name="message">
             </div>
             <div class="form-wrap wow fadeInRight" data-wow-delay=".2s">
               <input class="form-input" id="contact-phone-6" type="text" name="phone" data-constraints="@Numeric">
@@ -201,4 +202,33 @@
   
   
   
+{% endblock %}
+{% block bottom_scripts %}
+<script>
+  document.querySelector('.rd-mailform').addEventListener('submit', async function (e) {
+    e.preventDefault(); // zapobiegamy domyślnemu wysłaniu formularza
+  
+    const form = e.target;
+    const formData = new FormData(form);
+  
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        alert('✅ Wiadomość została wysłana!');
+        form.reset();
+      } else {
+        alert('❌ Błąd: ' + result.message);
+      }
+    } catch (error) {
+      alert('⚠️ Wystąpił problem z połączeniem.');
+      console.error(error);
+    }
+  });
+</script>
 {% endblock %}

@@ -225,11 +225,13 @@ def inject_shared_variable():
         if ap.get("status_lokalu") == "dostepny" and building:
             href = f"/lokale/{id_lokalu}"
             name = f"Lokal {id_lokalu}"
+            id_direct = ap.get('id')
 
             building_key = f"Budynek {building}"
             available_premises.setdefault(building_key, []).append({
                 "href": href,
-                "name": name
+                "name": name,
+                "id_direct": id_direct
             })
 
     return {
@@ -501,6 +503,46 @@ def subpage():
         f'{targetPage}.html',
         pageTitle=pageTitle
         )
+
+@app.route('/api/contact', methods=['POST'])
+def contact():
+    name = request.form.get('name')
+    email = request.form.get('email')
+    lokal = request.form.get('lokal')
+    phone = request.form.get('phone')
+    title = request.form.get('title')
+    message = request.form.get('message')
+
+    # Walidacja (prosta)
+    if not name or not email or not lokal:
+        return jsonify({'message': 'Brakuje wymaganych danych'}), 400
+
+    # TODO: Zapisz dane do bazy lub wyślij maila
+    db = get_db()
+    query = """
+        INSERT INTO Messages_wisniowa 
+        SET (
+            id_lokalu=%s,
+            tytul_wiadomosci=%s,
+            wiadomosc=%s,
+            autor_wiadomosci=%s,
+            email_autora_wiadomosci=%s,
+            telefon_do_autora_wiadomosci=%s,
+            status_wiadomosci='nowa'
+        );
+    """
+
+    params = (
+        lokal, title, message, name, email, phone
+    )
+
+    success = db.executeTo(query, params)
+
+    print(f"Otrzymano formularz: {name}, {email}, {lokal}, {phone}")
+    if success:
+        return jsonify({'message': 'Dane odebrane poprawnie'}), 200
+    else:
+        return jsonify({'message': 'Błąd serwera MySQL!'}), 500
 
 
 
