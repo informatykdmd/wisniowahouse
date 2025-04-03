@@ -543,7 +543,7 @@
                     {% for building, locales in available_premises.items() %}
                       <optgroup label="{{ building }}">
                         {% for lokal in locales %}
-                          <option value="{{ lokal.href.split('/')[-1] }}">{{ lokal.name }}</option>
+                          <option value="{{ lokal.id_direct }}">{{ lokal.name }}</option>
                         {% endfor %}
                       </optgroup>
                     {% endfor %}
