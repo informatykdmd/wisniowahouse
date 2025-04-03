@@ -118,13 +118,13 @@
 .success-message {
     color: green;
     font-weight: bold;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
   
 .error-message {
     color: red;
     font-weight: bold;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 #Answering {
