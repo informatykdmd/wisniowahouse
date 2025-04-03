@@ -681,15 +681,15 @@
 
             if (response.ok) {
               outputDiv.textContent = '✅ Wiadomość została wysłana!';
-              outputDiv.classList.add('success-message');
+              outputDiv.classList.add('success-message mt-2');
               form.reset();
             } else {
               outputDiv.textContent = '❌ Błąd: ' + result.message;
-              outputDiv.classList.add('error-message');
+              outputDiv.classList.add('error-message mt-2');
             }
           } catch (error) {
             outputDiv.textContent = '⚠️ Wystąpił problem z połączeniem.';
-            outputDiv.classList.add('error-message');
+            outputDiv.classList.add('error-message mt-2');
             console.error(error);
           }
 
