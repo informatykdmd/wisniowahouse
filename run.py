@@ -513,7 +513,7 @@ def contact():
     title = request.form.get('title', 'Wiadomość ze strony')  # fallback tytuł
     message = request.form.get('message', '')  # pusty string jeśli brak wiadomości
 
-    if not name or not email or not lokal:
+    if not name or not email or not lokal or not phone:
         return jsonify({'message': 'Brakuje wymaganych danych'}), 400
 
     print(f"Otrzymano formularz: {name}, {email}, {lokal}, {phone}")
