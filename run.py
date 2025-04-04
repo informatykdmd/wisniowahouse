@@ -215,6 +215,7 @@ def generator_wisniowa_lokale():
 def inject_shared_variable():
     all_data = generator_wisniowa_lokale()
     available_premises = {}
+    sales_status = {"sold": 0, "reserved": 0, "left": 0}
 
     for ap in all_data:
         id_lokalu = ap.get('id_lokalu', '').strip()
@@ -233,9 +234,17 @@ def inject_shared_variable():
                 "name": name,
                 "id_direct": id_direct
             })
+        
+        if ap.get("status_lokalu") == "dostepny":
+            sales_status["left"] += 1
+        elif ap.get("status_lokalu") == "sprzedany":
+            sales_status["sold"] += 1
+        elif ap.get("status_lokalu") == "rezerwacja":
+            sales_status["reserved"] += 1
 
     return {
-        'available_premises': available_premises
+        'available_premises': available_premises,
+        "sales_status": sales_status
     }
 
 ############################
