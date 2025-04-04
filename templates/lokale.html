@@ -15,8 +15,40 @@
         <li class="active">Lokale</li>
       </ul>
     </div>
-  </section>
-  <section class="section bg-image-4">
+</section>
+<section class="section parallax-container" data-parallax-img="static/images/bg-counter-6.jpg">
+    <div class="parallax-content section-xxl context-dark">
+      <div class="container">
+        <h5 class="fw-light text-spacing-200 wow fadeInLeft">Liczby mówią same za siebie</h5>
+        <h2 class="fw-light text-spacing-200 wow fadeInRight">Postęp sprzedaży Wiśniowa House</h2>
+        <div class="counter-modern-wrap">
+          <!-- Licznik 1 -->
+          <div class="counter-modern">
+            <h3 class="counter-modern-number"><span class="counter">{{sales_status.sold}}</span>
+            </h3>
+            <div class="counter-modern-decor"></div>
+            <p class="counter-modern-title">Sprzedane lokale</p>
+          </div>
+          <!-- Licznik 2 -->
+          <div class="counter-modern">
+            <h3 class="counter-modern-number"><span class="counter">{{sales_status.reserved}}</span>
+            </h3>
+            <div class="counter-modern-decor"></div>
+            <p class="counter-modern-title">Zarezerwowane lokale</p>
+          </div>
+          <!-- Licznik 3 -->
+          <div class="counter-modern">
+            <h3 class="counter-modern-number"><span class="counter">{{sales_status.left}}</span>
+                <!-- <span class="symbol">+</span> -->
+            </h3>
+            <div class="counter-modern-decor"></div>
+            <p class="counter-modern-title">Zostało lokali</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<section class="section bg-image-4">
     <div class="container-fluid container-inset-0">
         <div id="mapa">
             <svg viewBox="0 0 7363.01 4207.43" width="100%" height="auto" style="position: absolute; top: 0; left: 0;">
@@ -63,7 +95,7 @@
             </div>
         </div>
     </div>
-  </section>
+</section>
   
 {% endblock %}
 {% block bottom_scripts %}
