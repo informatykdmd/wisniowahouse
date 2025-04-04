@@ -237,7 +237,7 @@ def inject_shared_variable():
         
         if ap.get("status_lokalu") == "dostepny":
             sales_status["left"] += 1
-        elif ap.get("status_lokalu") == "sprzedany":
+        elif ap.get("status_lokalu") == "sprzedane":
             sales_status["sold"] += 1
         elif ap.get("status_lokalu") == "rezerwacja":
             sales_status["reserved"] += 1
