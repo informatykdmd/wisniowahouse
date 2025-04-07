@@ -10,5 +10,5 @@
     { "id": "C1", "status": "sprzedane", "cena": 0 },
     { "id": "C2", "status": "sprzedane", "cena": 0 },
     { "id": "D1", "status": "sprzedane", "cena": 0 },
-    { "id": "D1", "status": "sprzedane", "cena": 0 }
+    { "id": "D2", "status": "sprzedane", "cena": 0 }
 ]
