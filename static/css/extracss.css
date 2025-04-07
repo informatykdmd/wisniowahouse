@@ -50,6 +50,25 @@
     max-width: 300px;
 }
 
+.lokal-info-box {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lokal-info-box.show {
+    opacity: 1;
+}
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 .tooltip {
     position: absolute; /* Kluczowe dla dynamicznej pozycji */
     display: none; /* Ukrycie domyślne */

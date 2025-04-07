@@ -136,6 +136,7 @@
 
                 </svg>
                 <div id="lokal-info" class="lokal-info-box" style="display: none;">
+                    <button id="close-info" class="close-button">×</button>
                     <h5 id="lokal-id"></h5>
                     <p id="lokal-status"></p>
                     <p id="lokal-cena"></p>
@@ -620,17 +621,20 @@
 {% endblock %}
 {% block bottom_scripts %}
 <script>
-        function loadLokale() {
-            fetch('static/json/lokale.json')
-                .then(response => response.json())
-                .then(data => {
-                    data.forEach(lokal => {
-                        const rect = document.querySelector(`.lokal[data-lokal="${lokal.id}"]`);
-                        if (rect) {
-                            rect.classList.remove('dostępny', 'rezerwacja', 'sprzedane');
-                            rect.classList.add(lokal.status);
+    function loadLokale() {
+        fetch('static/json/lokale.json')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(lokal => {
+                    const rect = document.querySelector(`.lokal[data-lokal="${lokal.id}"]`);
+                    if (rect) {
+                        rect.classList.remove('dostępny', 'rezerwacja', 'sprzedane');
+                        rect.classList.add(lokal.status);
 
-                            // Obsługa kliknięcia
+                        // Sprawdź, czy już nie przypisano zdarzenia
+                        if (!rect.dataset.bound) {
+                            rect.dataset.bound = true;
+
                             rect.addEventListener('click', () => {
                                 const infoBox = document.getElementById('lokal-info');
                                 const idBox = document.getElementById('lokal-id');
@@ -642,57 +646,75 @@
                                 statusBox.textContent = `Status: ${lokal.status}`;
                                 cenaBox.textContent = `Cena: ${lokal.cena ? lokal.cena + ' PLN' : 'Niedostępny'}`;
                                 linkBox.href = `/lokale/${lokal.id}`;
+                                linkBox.classList.toggle('disabled', lokal.status !== 'dostępny');
+                                linkBox.style.pointerEvents = (lokal.status === 'dostępny') ? 'auto' : 'none';
+                                linkBox.style.opacity = (lokal.status === 'dostępny') ? '1' : '0.5';
 
                                 infoBox.style.display = 'block';
                             });
                         }
-                    });
-                })
-                .catch(error => console.error('Błąd podczas ładowania danych:', error));
-        }
+                    }
+                });
+            })
+            .catch(error => console.error('Błąd podczas ładowania danych:', error));
+    }
 
-        // Inicjalizacja
-        document.addEventListener('DOMContentLoaded', loadLokale);
-        
-        document.querySelector('#contact-form').addEventListener('submit', async function (e) {
-          e.preventDefault();
+    // Inicjalizacja po załadowaniu DOM
+    document.addEventListener('DOMContentLoaded', () => {
+        loadLokale();
 
-          const form = e.target;
-          const formData = new FormData(form);
-          const outputDiv = document.getElementById('Answering');
-
-          // Czyścimy poprzedni komunikat
-          outputDiv.textContent = '';
-          outputDiv.className = '';
-
-          try {
-            const response = await fetch('/api/contact', {
-              method: 'POST',
-              body: formData,
+        // Obsługa zamknięcia okienka
+        const closeButton = document.getElementById('close-info');
+        if (closeButton) {
+            closeButton.addEventListener('click', () => {
+                const infoBox = document.getElementById('lokal-info');
+                infoBox.style.display = 'none';
             });
+        }
+    });
 
-            const result = await response.json();
+        
 
-            if (response.ok) {
-              outputDiv.textContent = '✅ Wiadomość została wysłana!';
-              outputDiv.classList.add('success-message');
-              form.reset();
-            } else {
-              outputDiv.textContent = '❌ Błąd: ' + result.message;
-              outputDiv.classList.add('error-message');
-            }
-          } catch (error) {
+
+    document.querySelector('#contact-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+        const outputDiv = document.getElementById('Answering');
+
+        // Czyścimy poprzedni komunikat
+        outputDiv.textContent = '';
+        outputDiv.className = '';
+
+        try {
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            body: formData,
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            outputDiv.textContent = '✅ Wiadomość została wysłana!';
+            outputDiv.classList.add('success-message');
+            form.reset();
+        } else {
+            outputDiv.textContent = '❌ Błąd: ' + result.message;
+            outputDiv.classList.add('error-message');
+        }
+        } catch (error) {
             outputDiv.textContent = '⚠️ Wystąpił problem z połączeniem.';
             outputDiv.classList.add('error-message');
             console.error(error);
-          }
+        }
 
-          // Znikanie po 5 sekundach
-          setTimeout(() => {
+        // Znikanie po 5 sekundach
+        setTimeout(() => {
             outputDiv.classList.add('hidden');
-          }, 5000);
-        });
+        }, 5000);
+    });
 
-    </script>
+</script>
 {% endblock %}
 
