@@ -622,20 +622,32 @@
 {% block bottom_scripts %}
 <script>
     function loadLokale() {
+        console.log('[DEBUG] Start ładowania lokali...');
+
         fetch('static/json/lokale.json')
-            .then(response => response.json())
+            .then(response => {
+                console.log('[DEBUG] Odpowiedź fetch OK:', response);
+                return response.json();
+            })
             .then(data => {
+                console.log('[DEBUG] Dane JSON:', data);
+
                 data.forEach(lokal => {
                     const rect = document.querySelector(`.lokal[data-lokal="${lokal.id}"]`);
+                    console.log(`[DEBUG] Szukam lokal ID: ${lokal.id}`, rect);
+
                     if (rect) {
                         rect.classList.remove('dostępny', 'rezerwacja', 'sprzedane');
                         rect.classList.add(lokal.status);
+                        console.log(`[DEBUG] Ustawiam status: ${lokal.status} dla lokalu: ${lokal.id}`);
 
-                        // Sprawdź, czy już nie przypisano zdarzenia
+                        // Dodajemy listener tylko raz
                         if (!rect.dataset.bound) {
                             rect.dataset.bound = true;
 
                             rect.addEventListener('click', () => {
+                                console.log(`[DEBUG] Kliknięto lokal: ${lokal.id}`);
+
                                 const infoBox = document.getElementById('lokal-info');
                                 const idBox = document.getElementById('lokal-id');
                                 const statusBox = document.getElementById('lokal-status');
@@ -645,31 +657,38 @@
                                 idBox.textContent = `Lokal: ${lokal.id}`;
                                 statusBox.textContent = `Status: ${lokal.status}`;
                                 cenaBox.textContent = `Cena: ${lokal.cena ? lokal.cena + ' PLN' : 'Niedostępny'}`;
+
                                 linkBox.href = `/lokale/${lokal.id}`;
                                 linkBox.classList.toggle('disabled', lokal.status !== 'dostępny');
                                 linkBox.style.pointerEvents = (lokal.status === 'dostępny') ? 'auto' : 'none';
                                 linkBox.style.opacity = (lokal.status === 'dostępny') ? '1' : '0.5';
 
                                 infoBox.classList.add('show');
+                                console.log('[DEBUG] Pokazuję infoBox');
                             });
                         }
                     }
                 });
             })
-            .catch(error => console.error('Błąd podczas ładowania danych:', error));
+            .catch(error => console.error('[BŁĄD FETCH]', error));
     }
+
 
     // Inicjalizacja po załadowaniu DOM
     document.addEventListener('DOMContentLoaded', () => {
+        console.log('[DEBUG] DOM załadowany');
+
         loadLokale();
 
-        // Obsługa zamknięcia okienka
         const closeButton = document.getElementById('close-info');
         if (closeButton) {
             closeButton.addEventListener('click', () => {
                 const infoBox = document.getElementById('lokal-info');
                 infoBox.classList.remove('show');
+                console.log('[DEBUG] Zamknięto infoBox');
             });
+        } else {
+            console.warn('[DEBUG] Nie znaleziono przycisku zamykania');
         }
     });
 
