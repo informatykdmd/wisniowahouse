@@ -650,7 +650,7 @@
                                 linkBox.style.pointerEvents = (lokal.status === 'dostępny') ? 'auto' : 'none';
                                 linkBox.style.opacity = (lokal.status === 'dostępny') ? '1' : '0.5';
 
-                                infoBox.style.display = 'block';
+                                infoBox.classList.add('show');
                             });
                         }
                     }
@@ -668,7 +668,7 @@
         if (closeButton) {
             closeButton.addEventListener('click', () => {
                 const infoBox = document.getElementById('lokal-info');
-                infoBox.style.display = 'none';
+                infoBox.classList.remove('show');
             });
         }
     });

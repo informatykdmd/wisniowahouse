@@ -48,15 +48,25 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     z-index: 999;
     max-width: 300px;
-}
 
-.lokal-info-box {
+    /* Fade-in effect */
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none; /* zapobiega kliknięciom, gdy niewidoczny */
 }
 
 .lokal-info-box.show {
     opacity: 1;
+    pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+    .lokal-info-box {
+        left: 10px;
+        bottom: 10px;
+        max-width: 90%;
+        font-size: 14px;
+    }
 }
 
 .close-button {
