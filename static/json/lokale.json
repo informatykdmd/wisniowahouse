@@ -3,7 +3,12 @@
     { "id": "A2", "status": "rezerwacja", "cena": 520000 },
     { "id": "A3", "status": "rezerwacja", "cena": 520000 },
     { "id": "A4", "status": "rezerwacja", "cena": 520000 },
-    { "id": "A5", "status": "rezerwacja", "cena": 520000 },
-    { "id": "A6", "status": "sprzedane", "cena": 0 },
-    { "id": "A7", "status": "sprzedane", "cena": 0 }
+    { "id": "B1", "status": "rezerwacja", "cena": 520000 },
+    { "id": "B2", "status": "sprzedane", "cena": 0 },
+    { "id": "B3", "status": "sprzedane", "cena": 0 },
+    { "id": "B4", "status": "sprzedane", "cena": 0 },
+    { "id": "C1", "status": "sprzedane", "cena": 0 },
+    { "id": "C2", "status": "sprzedane", "cena": 0 },
+    { "id": "D1", "status": "sprzedane", "cena": 0 },
+    { "id": "D1", "status": "sprzedane", "cena": 0 }
 ]
