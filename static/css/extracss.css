@@ -40,8 +40,8 @@
 
 .lokal-info-box {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    left: 20px;
+    bottom: 20px;
     background: white;
     border-radius: 10px;
     padding: 20px;
