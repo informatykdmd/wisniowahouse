@@ -51,13 +51,14 @@
 
     /* Fade-in effect */
     opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none; /* zapobiega kliknięciom, gdy niewidoczny */
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 }
 
 .lokal-info-box.show {
     opacity: 1;
-    pointer-events: auto;
+    visibility: visible;
 }
 
 @media (max-width: 768px) {
