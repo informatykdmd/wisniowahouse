@@ -59,6 +59,7 @@
 .lokal-info-box.show {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto; /* ← TO JEST KLUCZ */
 }
 
 @media (max-width: 768px) {
