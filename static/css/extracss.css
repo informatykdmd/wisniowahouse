@@ -1,6 +1,6 @@
 #mapa {
     position: relative; /* Dodaje kontekst pozycjonowania */
-    aspect-ratio: 1792 / 624;
+    aspect-ratio: 1792 / 600;
     margin-top: 2.5rem;
 }
 #mapa img {
