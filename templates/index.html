@@ -681,6 +681,7 @@
         loadLokale();
 
         const closeButton = document.getElementById('close-info');
+        console.log('[DEBUG] closeButton:', closeButton);
         if (closeButton) {
             closeButton.addEventListener('click', () => {
                 const infoBox = document.getElementById('lokal-info');
