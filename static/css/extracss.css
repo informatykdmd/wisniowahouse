@@ -37,6 +37,19 @@
     stroke-width: 2px; */
     fill-opacity: 0.7;
 }
+
+.lokal-info-box {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    z-index: 999;
+    max-width: 300px;
+}
+
 .tooltip {
     position: absolute; /* Kluczowe dla dynamicznej pozycji */
     display: none; /* Ukrycie domyślne */
