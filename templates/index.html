@@ -624,7 +624,7 @@
     function loadLokale() {
         console.log('[DEBUG] Start ładowania lokali...');
 
-        fetch('static/json/lokale.json')
+        fetch('/api/lokale')
             .then(response => {
                 console.log('[DEBUG] Odpowiedź fetch OK:', response);
                 return response.json();
@@ -633,20 +633,20 @@
                 console.log('[DEBUG] Dane JSON:', data);
 
                 data.forEach(lokal => {
-                    const rect = document.querySelector(`.lokal[data-lokal="${lokal.id}"]`);
-                    console.log(`[DEBUG] Szukam lokal ID: ${lokal.id}`, rect);
+                    const rect = document.querySelector(`.lokal[data-lokal="${lokal.id_lokalu}"]`);
+                    console.log(`[DEBUG] Szukam lokal ID: ${lokal.id_lokalu}`, rect);
 
                     if (rect) {
                         rect.classList.remove('dostępny', 'rezerwacja', 'sprzedane');
                         rect.classList.add(lokal.status);
-                        console.log(`[DEBUG] Ustawiam status: ${lokal.status} dla lokalu: ${lokal.id}`);
+                        console.log(`[DEBUG] Ustawiam status: ${lokal.status} dla lokalu: ${lokal.id_lokalu}`);
 
                         // Dodajemy listener tylko raz
                         if (!rect.dataset.bound) {
                             rect.dataset.bound = true;
 
                             rect.addEventListener('click', () => {
-                                console.log(`[DEBUG] Kliknięto lokal: ${lokal.id}`);
+                                console.log(`[DEBUG] Kliknięto lokal: ${lokal.id_lokalu}`);
 
                                 const infoBox = document.getElementById('lokal-info');
                                 const idBox = document.getElementById('lokal-id');
@@ -654,11 +654,11 @@
                                 const cenaBox = document.getElementById('lokal-cena');
                                 const linkBox = document.getElementById('lokal-link');
 
-                                idBox.textContent = `Lokal: ${lokal.id}`;
+                                idBox.textContent = `Lokal: ${lokal.id_lokalu}`;
                                 statusBox.textContent = `Status: ${lokal.status}`;
                                 cenaBox.textContent = `Cena: ${lokal.cena ? lokal.cena + ' PLN' : 'Niedostępny'}`;
 
-                                linkBox.href = `/lokale/${lokal.id}`;
+                                linkBox.href = `/lokale/${lokal.id_lokalu}`;
                                 linkBox.classList.toggle('disabled', lokal.status !== 'dostępny');
                                 linkBox.style.pointerEvents = (lokal.status === 'dostępny') ? 'auto' : 'none';
                                 linkBox.style.opacity = (lokal.status === 'dostępny') ? '1' : '0.5';
