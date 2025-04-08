@@ -132,9 +132,18 @@
     color: #ddd;
 }
 
+/* #lokal-link {
+    margin-top: 8px;
+    display: inline-block;
+} */
+
 #lokal-link {
     margin-top: 8px;
     display: inline-block;
+    font-size: 0.75em; /* zmniejsza tekst */
+    padding: 4px 8px;  /* zmniejsza wewnętrzny margines */
+    transform: scale(0.5); /* zmniejsza cały guzik o 50% */
+    transform-origin: left top; /* opcjonalnie: ustawia punkt zmniejszenia */
 }
 
 /* Responsive */
