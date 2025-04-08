@@ -38,31 +38,6 @@
     fill-opacity: 0.7;
 }
 
-/* .lokal-info-box {
-    position: absolute;
-    left: 20px;
-    bottom: 20px;
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    z-index: 999;
-    max-width: 40%;
-    box-shadow: 0 0 0px rgba(255, 255, 255, 0);
-    border: 2px solid transparent;
-    transition: border 1s ease, box-shadow 1s ease;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.lokal-info-box.show {
-    border: 2px solid white;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-} */
-
 /* Sekwencyjne animacje elementów */
 .fade-in-item {
     opacity: 0;
@@ -151,17 +126,24 @@
         padding: 10px;
 
         transform: scale(0.7);
-        transform-origin: left bottom; /* zachowuje pozycję względem narożnika */
+        transform-origin: left bottom;
     }
 
-    #lokal-nazwa {
-        font-size: 14px;
+    #lokal-nazwa,
+    #lokal-opis {
+        display: none;
     }
 
-    #lokal-meta, #lokal-opis {
+    #lokal-meta {
         font-size: 11px;
     }
+
+    #lokal-link {
+        transform: scale(0.7);
+        transform-origin: left top;
+    }
 }
+
 
 .close-button {
     position: absolute;
