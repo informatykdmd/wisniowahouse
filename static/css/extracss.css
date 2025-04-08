@@ -96,10 +96,7 @@
     pointer-events: auto;
 }
 
-.lokal-info-box * {
-    margin: 0;
-    padding: 2px 0;
-    text-align: left;
+.lokal-info-box .fade-in-item {
     opacity: 0;
     transform: translateY(5px);
     transition: opacity 0.3s ease, transform 0.3s ease;
