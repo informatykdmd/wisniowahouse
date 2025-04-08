@@ -139,7 +139,7 @@
                     <button id="close-info" class="close-button">×</button>
                     <h5 id="lokal-nazwa" class="fade-in-item"></h5>
                     <p id="lokal-meta" class="fade-in-item"></p>
-                    <p id="lokal-cena" class="fade-in-item"></p>
+                    <!-- <p id="lokal-cena" class="fade-in-item"></p> -->
                     <p id="lokal-opis" class="fade-in-item"></p>
                     <a id="lokal-link" class="button button-sm button-primary fade-in-item" href="#">Zobacz więcej</a>
                 </div>
@@ -669,23 +669,24 @@
                             let kolorKropki;
                             switch (lokal.status_lokalu) {
                                 case 'dostepny':
-                                    kolorKropki = 'green';
+                                    kolorKropki = '#00FF00';
                                     break;
                                 case 'rezerwacja':
-                                    kolorKropki = 'goldenrod';
+                                    kolorKropki = '#FFFF00';
                                     break;
                                 case 'sprzedane':
                                 default:
-                                    kolorKropki = 'red';
+                                    kolorKropki = '#FF0000';
                                     break;
                             }
 
                             let cena = lokal.cena_wyjsciowa ? `${lokal.cena_wyjsciowa} PLN` : 'Cena niedostępna';
                             // Wstawiamy HTML z kolorową kropką i metrażem
-                            metaBox.innerHTML = `<span style="margin-left:5px;">${lokal.id_lokalu || '-'} </span><span style="color:${kolorKropki};font-size:14px;">&#9679;</span> <span style="margin-left:5px;">${lokal.status_lokalu || '-'} | ${lokal.powierzchnia_m2 || 0} m² (${lokal.powierzchnia_uzytkowa_m2 || 0} m²)</span> <span style="margin-left:5px; font-size:16px; font-weight: bold;"> ${cena}</span> `;
+                            metaBox.innerHTML = `<span style="margin-left:5px;">${lokal.id_lokalu || '-'} </span><span style="color:${kolorKropki};font-size:14px;">&#9679;</span> <span style="margin-left:5px; color:${kolorKropki};">${lokal.status_lokalu || '-'} </span><span style="margin-left:5px;"> | ${lokal.powierzchnia_m2 || 0} m² (${lokal.powierzchnia_uzytkowa_m2 || 0} m²)</span> | <span style="margin-left:5px; font-size:16px; font-weight: bold;"> ${cena}</span> `;
 
-                            document.getElementById('lokal-cena').textContent =
-                                lokal.cena_wyjsciowa ? `${lokal.cena_wyjsciowa} PLN` : 'Cena niedostępna';
+                            // document.getElementById('lokal-cena').textContent =
+                            //     lokal.cena_wyjsciowa ? `${lokal.cena_wyjsciowa} PLN` : 'Cena niedostępna';
+
                             document.getElementById('lokal-opis').textContent = lokal.opis || '';
 
                             const linkBox = document.getElementById('lokal-link');
