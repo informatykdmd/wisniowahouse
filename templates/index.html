@@ -137,6 +137,20 @@
                 </svg>
                 <div id="lokal-info" class="lokal-info-box">
                   <button id="close-info" class="close-button">×</button>
+                
+                  <h5 id="lokal-nazwa" class="fade-in-item"></h5>
+                
+                  <p id="lokal-meta" class="fade-in-item small-muted"></p>
+                
+                  <p id="lokal-cena" class="fade-in-item cena-bold"></p>
+                
+                  <p id="lokal-opis" class="fade-in-item opis-muted"></p>
+                
+                  <a id="lokal-link" class="button button-sm button-primary fade-in-item" href="#">Zobacz więcej</a>
+                </div>
+                
+                <!-- <div id="lokal-info" class="lokal-info-box">
+                  <button id="close-info" class="close-button">×</button>
                   <h5 id="lokal-nazwa"></h5>
                   <p id="lokal-id"></p>
                   <p id="lokal-status"></p>
@@ -145,7 +159,7 @@
                   <p id="lokal-cena"></p>
                   <p id="lokal-opis"></p>
                   <a id="lokal-link" class="button button-sm button-primary" href="#">Zobacz więcej</a>
-                </div>
+                </div> -->
             </div>
             <div class="row g-0" style="margin-top: 0px !important;">
                 <div class="col-md-4 col-lg-5 col-xl-6 position-relative box-transform-wrap box-transform-1">
@@ -625,67 +639,125 @@
 {% endblock %}
 {% block bottom_scripts %}
 <script>
-    function loadLokale() {
-        console.log('[DEBUG] Start ładowania lokali...');
+  function loadLokale() {
+    console.log('[DEBUG] Start ładowania lokali...');
 
-        fetch('/api/lokale')
-            .then(response => {
-                console.log('[DEBUG] Odpowiedź fetch OK:', response);
-                return response.json();
-            })
-            .then(data => {
-                console.log('[DEBUG] Dane JSON:', data);
+    fetch('/api/lokale')
+        .then(response => {
+            console.log('[DEBUG] Odpowiedź fetch OK:', response);
+            return response.json();
+        })
+        .then(data => {
+            console.log('[DEBUG] Dane JSON:', data);
 
-                data.forEach(lokal => {
-                    const rect = document.querySelector(`.lokal[data-lokal="${lokal.id_lokalu}"]`);
-                    console.log(`[DEBUG] Szukam lokal ID: ${lokal.id_lokalu}`, rect);
+            data.forEach(lokal => {
+                const rect = document.querySelector(`.lokal[data-lokal="${lokal.id_lokalu}"]`);
+                console.log(`[DEBUG] Szukam lokal ID: ${lokal.id_lokalu}`, rect);
 
-                    if (rect) {
-                      rect.classList.remove('dostepny', 'rezerwacja', 'sprzedane');
-                      rect.classList.add(lokal.status_lokalu);
-                      console.log(`[DEBUG] Ustawiam status: ${lokal.status_lokalu} dla lokalu: ${lokal.id_lokalu}`);
+                if (rect) {
+                    rect.classList.remove('dostepny', 'rezerwacja', 'sprzedane');
+                    rect.classList.add(lokal.status_lokalu);
+                    console.log(`[DEBUG] Ustawiam status: ${lokal.status_lokalu} dla lokalu: ${lokal.id_lokalu}`);
 
-                      if (!rect.dataset.bound) {
-                          rect.dataset.bound = true;
+                    if (!rect.dataset.bound) {
+                        rect.dataset.bound = true;
 
-                          rect.addEventListener('click', () => {
-                              console.log(`[DEBUG] Kliknięto lokal: ${lokal.id_lokalu}`);
+                        rect.addEventListener('click', () => {
+                            console.log(`[DEBUG] Kliknięto lokal: ${lokal.id_lokalu}`);
 
-                              const infoBox = document.getElementById('lokal-info');
-                              const idBox = document.getElementById('lokal-id');
-                              const statusBox = document.getElementById('lokal-status');
-                              const cenaBox = document.getElementById('lokal-cena');
-                              const linkBox = document.getElementById('lokal-link');
+                            // Wypełnij dane infoBoxa
+                            document.getElementById('lokal-nazwa').textContent = lokal.nazwa || 'Brak nazwy';
+                            document.getElementById('lokal-meta').textContent =
+                                `${lokal.id_lokalu} | ${lokal.status_lokalu} | ${lokal.powierzchnia_uzytkowa_m2} m²`;
+                            document.getElementById('lokal-cena').textContent =
+                                lokal.cena_wyjsciowa ? `${lokal.cena_wyjsciowa} PLN` : 'Cena niedostępna';
+                            document.getElementById('lokal-opis').textContent = lokal.opis || '';
 
-                              // Możesz dodać inne elementy jeśli chcesz osobno je wyświetlić
-                              const opisBox = document.getElementById('lokal-opis');
-                              const nazwaBox = document.getElementById('lokal-nazwa');
-                              const metrazBox = document.getElementById('lokal-metraz');
-                              const uzytkowaBox = document.getElementById('lokal-metraz-uzytkowa');
+                            const linkBox = document.getElementById('lokal-link');
+                            linkBox.href = `/lokale/${lokal.id_lokalu}`;
+                            linkBox.classList.toggle('disabled', lokal.status_lokalu !== 'dostepny');
+                            linkBox.style.pointerEvents = (lokal.status_lokalu === 'dostepny') ? 'auto' : 'none';
+                            linkBox.style.opacity = (lokal.status_lokalu === 'dostepny') ? '1' : '0.5';
 
-                              idBox.textContent = `ID: ${lokal.id_lokalu}`;
-                              nazwaBox.textContent = lokal.nazwa || 'Brak nazwy';
-                              opisBox.textContent = lokal.opis || '';
-                              metrazBox.textContent = `Powierzchnia: ${lokal.powierzchnia_m2} m²`;
-                              uzytkowaBox.textContent = `Użytkowa: ${lokal.powierzchnia_uzytkowa_m2} m²`;
-                              statusBox.textContent = `Status: ${lokal.status_lokalu}`;
-                              cenaBox.textContent = `Cena: ${lokal.cena_wyjsciowa ? lokal.cena_wyjsciowa + ' PLN' : 'Niedostępna'}`;
-
-                              linkBox.href = `/lokale/${lokal.id_lokalu}`;
-                              linkBox.classList.toggle('disabled', lokal.status_lokalu !== 'dostepny');
-                              linkBox.style.pointerEvents = (lokal.status_lokalu === 'dostepny') ? 'auto' : 'none';
-                              linkBox.style.opacity = (lokal.status_lokalu === 'dostepny') ? '1' : '0.5';
-
-                              infoBox.classList.add('show');
-                              console.log('[DEBUG] Pokazuję infoBox');
-                          });
-                      }
+                            const infoBox = document.getElementById('lokal-info');
+                            infoBox.classList.add('show');
+                            console.log('[DEBUG] Pokazuję infoBox');
+                        });
                     }
+                }
+            });
+        })
+        .catch(error => console.error('[BŁĄD FETCH]', error));
+  }
 
-                });
-            })
-            .catch(error => console.error('[BŁĄD FETCH]', error));
-    }
+    // function loadLokale() {
+    //     console.log('[DEBUG] Start ładowania lokali...');
+
+    //     fetch('/api/lokale')
+    //         .then(response => {
+    //             console.log('[DEBUG] Odpowiedź fetch OK:', response);
+    //             return response.json();
+    //         })
+    //         .then(data => {
+    //             console.log('[DEBUG] Dane JSON:', data);
+
+    //             data.forEach(lokal => {
+    //                 const rect = document.querySelector(`.lokal[data-lokal="${lokal.id_lokalu}"]`);
+    //                 console.log(`[DEBUG] Szukam lokal ID: ${lokal.id_lokalu}`, rect);
+
+    //                 if (rect) {
+    //                   rect.classList.remove('dostepny', 'rezerwacja', 'sprzedane');
+    //                   rect.classList.add(lokal.status_lokalu);
+    //                   console.log(`[DEBUG] Ustawiam status: ${lokal.status_lokalu} dla lokalu: ${lokal.id_lokalu}`);
+
+    //                   if (!rect.dataset.bound) {
+    //                       rect.dataset.bound = true;
+
+    //                       rect.addEventListener('click', () => {
+    //                           console.log(`[DEBUG] Kliknięto lokal: ${lokal.id_lokalu}`);
+
+    //                           document.getElementById('lokal-nazwa').textContent = lokal.nazwa || 'Brak nazwy';
+    //                           document.getElementById('lokal-meta').textContent = 
+    //                               `${lokal.id_lokalu} | ${lokal.status_lokalu} | ${lokal.powierzchnia_uzytkowa_m2} m²`;
+    //                           document.getElementById('lokal-cena').textContent = lokal.cena_wyjsciowa 
+    //                               ? `${lokal.cena_wyjsciowa} PLN` : 'Cena niedostępna';
+    //                           document.getElementById('lokal-opis').textContent = lokal.opis || '';
+
+    //                           // const infoBox = document.getElementById('lokal-info');
+    //                           // const idBox = document.getElementById('lokal-id');
+    //                           // const statusBox = document.getElementById('lokal-status');
+    //                           // const cenaBox = document.getElementById('lokal-cena');
+    //                           // const linkBox = document.getElementById('lokal-link');
+
+    //                           // // Możesz dodać inne elementy jeśli chcesz osobno je wyświetlić
+    //                           // const opisBox = document.getElementById('lokal-opis');
+    //                           // const nazwaBox = document.getElementById('lokal-nazwa');
+    //                           // const metrazBox = document.getElementById('lokal-metraz');
+    //                           // const uzytkowaBox = document.getElementById('lokal-metraz-uzytkowa');
+
+    //                           idBox.textContent = `ID: ${lokal.id_lokalu}`;
+    //                           nazwaBox.textContent = lokal.nazwa || 'Brak nazwy';
+    //                           opisBox.textContent = lokal.opis || '';
+    //                           metrazBox.textContent = `Powierzchnia: ${lokal.powierzchnia_m2} m²`;
+    //                           uzytkowaBox.textContent = `Użytkowa: ${lokal.powierzchnia_uzytkowa_m2} m²`;
+    //                           statusBox.textContent = `Status: ${lokal.status_lokalu}`;
+    //                           cenaBox.textContent = `Cena: ${lokal.cena_wyjsciowa ? lokal.cena_wyjsciowa + ' PLN' : 'Niedostępna'}`;
+
+    //                           linkBox.href = `/lokale/${lokal.id_lokalu}`;
+    //                           linkBox.classList.toggle('disabled', lokal.status_lokalu !== 'dostepny');
+    //                           linkBox.style.pointerEvents = (lokal.status_lokalu === 'dostepny') ? 'auto' : 'none';
+    //                           linkBox.style.opacity = (lokal.status_lokalu === 'dostepny') ? '1' : '0.5';
+
+    //                           infoBox.classList.add('show');
+    //                           console.log('[DEBUG] Pokazuję infoBox');
+    //                       });
+    //                   }
+    //                 }
+
+    //             });
+    //         })
+    //         .catch(error => console.error('[BŁĄD FETCH]', error));
+    // }
 
 
     // Inicjalizacja po załadowaniu DOM
