@@ -680,10 +680,9 @@
                                     break;
                             }
 
+                            let cena = lokal.cena_wyjsciowa ? `${lokal.cena_wyjsciowa} PLN` : 'Cena niedostępna';
                             // Wstawiamy HTML z kolorową kropką i metrażem
-                            metaBox.innerHTML = `<span style="color:${kolorKropki};font-size:14px;">&#9679;</span><span style="margin-left:5px;">${lokal.id_lokalu || '-'} | ${lokal.status_lokalu || '-'} | ${lokal.powierzchnia_m2 || 0} m² (${lokal.powierzchnia_uzytkowa_m2 || 0} m²)</span>`;
-                           
-                            console.log("metaBox.innerHTML:", metaBox.innerHTML);
+                            metaBox.innerHTML = `<span style="margin-left:5px;">${lokal.id_lokalu || '-'} </span><span style="color:${kolorKropki};font-size:14px;">&#9679;</span> <span style="margin-left:5px;">${lokal.status_lokalu || '-'} | ${lokal.powierzchnia_m2 || 0} m² (${lokal.powierzchnia_uzytkowa_m2 || 0} m²)</span> <span style="margin-left:5px;"> ${cena}</span> `;
 
                             document.getElementById('lokal-cena').textContent =
                                 lokal.cena_wyjsciowa ? `${lokal.cena_wyjsciowa} PLN` : 'Cena niedostępna';
