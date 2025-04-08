@@ -638,8 +638,8 @@
 
                     if (rect) {
                         rect.classList.remove('dostępny', 'rezerwacja', 'sprzedane');
-                        rect.classList.add(lokal.status);
-                        console.log(`[DEBUG] Ustawiam status: ${lokal.status} dla lokalu: ${lokal.id_lokalu}`);
+                        rect.classList.add(lokal.status_lokalu);
+                        console.log(`[DEBUG] Ustawiam status: ${lokal.status_lokalu} dla lokalu: ${lokal.id_lokalu}`);
 
                         // Dodajemy listener tylko raz
                         if (!rect.dataset.bound) {
@@ -655,13 +655,13 @@
                                 const linkBox = document.getElementById('lokal-link');
 
                                 idBox.textContent = `Lokal: ${lokal.id_lokalu}`;
-                                statusBox.textContent = `Status: ${lokal.status}`;
-                                cenaBox.textContent = `Cena: ${lokal.cena ? lokal.cena + ' PLN' : 'Niedostępny'}`;
+                                statusBox.textContent = `Status: ${lokal.status_lokalu}`;
+                                cenaBox.textContent = `Cena: ${lokal.cena_lokalu ? lokal.cena_lokalu + ' PLN' : 'Niedostępny'}`;
 
                                 linkBox.href = `/lokale/${lokal.id_lokalu}`;
-                                linkBox.classList.toggle('disabled', lokal.status !== 'dostępny');
-                                linkBox.style.pointerEvents = (lokal.status === 'dostępny') ? 'auto' : 'none';
-                                linkBox.style.opacity = (lokal.status === 'dostępny') ? '1' : '0.5';
+                                linkBox.classList.toggle('disabled', lokal.status_lokalu !== 'dostępny');
+                                linkBox.style.pointerEvents = (lokal.status_lokalu === 'dostępny') ? 'auto' : 'none';
+                                linkBox.style.opacity = (lokal.status_lokalu === 'dostępny') ? '1' : '0.5';
 
                                 infoBox.classList.add('show');
                                 console.log('[DEBUG] Pokazuję infoBox');
