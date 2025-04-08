@@ -662,8 +662,32 @@
 
                             // Wypełnij dane infoBoxa
                             document.getElementById('lokal-nazwa').textContent = lokal.nazwa || 'Brak nazwy';
-                            document.getElementById('lokal-meta').textContent =
-                                `${lokal.id_lokalu} | ${lokal.status_lokalu} | ${lokal.powierzchnia_uzytkowa_m2} m²`;
+
+                            const metaBox = document.getElementById('lokal-meta');
+
+                            // Dobieramy kolor kropki na podstawie statusu
+                            let kolorKropki;
+                            switch (lokal.status_lokalu) {
+                                case 'dostepny':
+                                    kolorKropki = 'green';
+                                    break;
+                                case 'rezerwacja':
+                                    kolorKropki = 'goldenrod';
+                                    break;
+                                case 'sprzedane':
+                                default:
+                                    kolorKropki = 'red';
+                                    break;
+                            }
+
+                            // Wstawiamy HTML z kolorową kropką i metrażem
+                            metaBox.innerHTML = `
+                                <span style="color: ${kolorKropki}; font-size: 14px;">●</span>
+                                <span style="margin-left: 5px;">${lokal.id_lokalu} | ${lokal.status_lokalu} | 
+                                    ${lokal.powierzchnia_m2} m² (${lokal.powierzchnia_uzytkowa_m2} m²)
+                                </span>
+                            `;
+                            
                             document.getElementById('lokal-cena').textContent =
                                 lokal.cena_wyjsciowa ? `${lokal.cena_wyjsciowa} PLN` : 'Cena niedostępna';
                             document.getElementById('lokal-opis').textContent = lokal.opis || '';
@@ -684,76 +708,6 @@
         })
         .catch(error => console.error('[BŁĄD FETCH]', error));
   }
-
-    // function loadLokale() {
-    //     console.log('[DEBUG] Start ładowania lokali...');
-
-    //     fetch('/api/lokale')
-    //         .then(response => {
-    //             console.log('[DEBUG] Odpowiedź fetch OK:', response);
-    //             return response.json();
-    //         })
-    //         .then(data => {
-    //             console.log('[DEBUG] Dane JSON:', data);
-
-    //             data.forEach(lokal => {
-    //                 const rect = document.querySelector(`.lokal[data-lokal="${lokal.id_lokalu}"]`);
-    //                 console.log(`[DEBUG] Szukam lokal ID: ${lokal.id_lokalu}`, rect);
-
-    //                 if (rect) {
-    //                   rect.classList.remove('dostepny', 'rezerwacja', 'sprzedane');
-    //                   rect.classList.add(lokal.status_lokalu);
-    //                   console.log(`[DEBUG] Ustawiam status: ${lokal.status_lokalu} dla lokalu: ${lokal.id_lokalu}`);
-
-    //                   if (!rect.dataset.bound) {
-    //                       rect.dataset.bound = true;
-
-    //                       rect.addEventListener('click', () => {
-    //                           console.log(`[DEBUG] Kliknięto lokal: ${lokal.id_lokalu}`);
-
-    //                           document.getElementById('lokal-nazwa').textContent = lokal.nazwa || 'Brak nazwy';
-    //                           document.getElementById('lokal-meta').textContent = 
-    //                               `${lokal.id_lokalu} | ${lokal.status_lokalu} | ${lokal.powierzchnia_uzytkowa_m2} m²`;
-    //                           document.getElementById('lokal-cena').textContent = lokal.cena_wyjsciowa 
-    //                               ? `${lokal.cena_wyjsciowa} PLN` : 'Cena niedostępna';
-    //                           document.getElementById('lokal-opis').textContent = lokal.opis || '';
-
-    //                           // const infoBox = document.getElementById('lokal-info');
-    //                           // const idBox = document.getElementById('lokal-id');
-    //                           // const statusBox = document.getElementById('lokal-status');
-    //                           // const cenaBox = document.getElementById('lokal-cena');
-    //                           // const linkBox = document.getElementById('lokal-link');
-
-    //                           // // Możesz dodać inne elementy jeśli chcesz osobno je wyświetlić
-    //                           // const opisBox = document.getElementById('lokal-opis');
-    //                           // const nazwaBox = document.getElementById('lokal-nazwa');
-    //                           // const metrazBox = document.getElementById('lokal-metraz');
-    //                           // const uzytkowaBox = document.getElementById('lokal-metraz-uzytkowa');
-
-    //                           idBox.textContent = `ID: ${lokal.id_lokalu}`;
-    //                           nazwaBox.textContent = lokal.nazwa || 'Brak nazwy';
-    //                           opisBox.textContent = lokal.opis || '';
-    //                           metrazBox.textContent = `Powierzchnia: ${lokal.powierzchnia_m2} m²`;
-    //                           uzytkowaBox.textContent = `Użytkowa: ${lokal.powierzchnia_uzytkowa_m2} m²`;
-    //                           statusBox.textContent = `Status: ${lokal.status_lokalu}`;
-    //                           cenaBox.textContent = `Cena: ${lokal.cena_wyjsciowa ? lokal.cena_wyjsciowa + ' PLN' : 'Niedostępna'}`;
-
-    //                           linkBox.href = `/lokale/${lokal.id_lokalu}`;
-    //                           linkBox.classList.toggle('disabled', lokal.status_lokalu !== 'dostepny');
-    //                           linkBox.style.pointerEvents = (lokal.status_lokalu === 'dostepny') ? 'auto' : 'none';
-    //                           linkBox.style.opacity = (lokal.status_lokalu === 'dostepny') ? '1' : '0.5';
-
-    //                           infoBox.classList.add('show');
-    //                           console.log('[DEBUG] Pokazuję infoBox');
-    //                       });
-    //                   }
-    //                 }
-
-    //             });
-    //         })
-    //         .catch(error => console.error('[BŁĄD FETCH]', error));
-    // }
-
 
     // Inicjalizacja po załadowaniu DOM
     document.addEventListener('DOMContentLoaded', () => {
