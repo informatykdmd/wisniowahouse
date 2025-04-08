@@ -664,7 +664,7 @@
                             document.getElementById('lokal-nazwa').textContent = lokal.nazwa || 'Brak nazwy';
 
                             const metaBox = document.getElementById('lokal-meta');
-
+                            console.log("metaBox:", metaBox);
                             // Dobieramy kolor kropki na podstawie statusu
                             let kolorKropki;
                             switch (lokal.status_lokalu) {
@@ -687,7 +687,7 @@
                                     ${lokal.powierzchnia_m2} m² (${lokal.powierzchnia_uzytkowa_m2} m²)
                                 </span>
                             `;
-                            
+
                             document.getElementById('lokal-cena').textContent =
                                 lokal.cena_wyjsciowa ? `${lokal.cena_wyjsciowa} PLN` : 'Cena niedostępna';
                             document.getElementById('lokal-opis').textContent = lokal.opis || '';
