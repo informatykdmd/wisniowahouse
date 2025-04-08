@@ -142,7 +142,7 @@
     display: inline-block;
     font-size: 0.75em; /* zmniejsza tekst */
     padding: 4px 8px;  /* zmniejsza wewnętrzny margines */
-    transform: scale(0.5); /* zmniejsza cały guzik o 50% */
+    transform: scale(0.7); /* zmniejsza cały guzik o 50% */
     transform-origin: left top; /* opcjonalnie: ustawia punkt zmniejszenia */
 }
 
