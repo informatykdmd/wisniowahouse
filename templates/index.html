@@ -637,7 +637,7 @@
                     console.log(`[DEBUG] Szukam lokal ID: ${lokal.id_lokalu}`, rect);
 
                     if (rect) {
-                        rect.classList.remove('dostępny', 'rezerwacja', 'sprzedane');
+                        rect.classList.remove('dostepny', 'rezerwacja', 'sprzedane');
                         rect.classList.add(lokal.status_lokalu);
                         console.log(`[DEBUG] Ustawiam status: ${lokal.status_lokalu} dla lokalu: ${lokal.id_lokalu}`);
 
@@ -656,7 +656,7 @@
 
                                 idBox.textContent = `Lokal: ${lokal.id_lokalu}`;
                                 statusBox.textContent = `Status: ${lokal.status_lokalu}`;
-                                cenaBox.textContent = `Cena: ${lokal.cena_lokalu ? lokal.cena_lokalu + ' PLN' : 'Niedostępny'}`;
+                                cenaBox.textContent = `Cena: ${lokal.cena_wyjsciowa ? lokal.cena_wyjsciowa + ' PLN' : 'Niedostępny'}`;
 
                                 linkBox.href = `/lokale/${lokal.id_lokalu}`;
                                 linkBox.classList.toggle('disabled', lokal.status_lokalu !== 'dostępny');

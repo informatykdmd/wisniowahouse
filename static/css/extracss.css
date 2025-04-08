@@ -20,7 +20,7 @@
     opacity: 0;
     transition: fill-opacity 0.3s;
 }
-.lokal.dostępny:hover {
+.lokal.dostepny:hover {
     fill: rgba(0, 255, 0, 0.5); /* Zielony dla dostępnych */
     opacity: .8;
 }
