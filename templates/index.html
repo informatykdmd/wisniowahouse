@@ -681,7 +681,14 @@
                             }
 
                             // Wstawiamy HTML z kolorową kropką i metrażem
-                            metaBox.innerHTML = `<span style="color:${kolorKropki};font-size:14px;">&#9679;</span><span style="margin-left:5px;">${lokal.id_lokalu || '-'} | ${lokal.status_lokalu || '-'} | ${lokal.powierzchnia_m2 || 0} m² (${lokal.powierzchnia_uzytkowa_m2 || 0} m²)</span>`;
+                            // metaBox.innerHTML = `<span style="color:${kolorKropki};font-size:14px;">&#9679;</span><span style="margin-left:5px;">${lokal.id_lokalu || '-'} | ${lokal.status_lokalu || '-'} | ${lokal.powierzchnia_m2 || 0} m² (${lokal.powierzchnia_uzytkowa_m2 || 0} m²)</span>`;
+                            metaBox.innerHTML = `
+                                <div class="fade-in-item" style="color: ${kolorKropki}; font-size: 14px;">●</div>
+                                <div class="fade-in-item" style="margin-left: 5px;">
+                                    ${lokal.id_lokalu} | ${lokal.status_lokalu} | 
+                                    ${lokal.powierzchnia_m2} m² (${lokal.powierzchnia_uzytkowa_m2} m²)
+                                </div>
+                            `;
                             console.log("metaBox.innerHTML:", metaBox.innerHTML);
 
                             document.getElementById('lokal-cena').textContent =
