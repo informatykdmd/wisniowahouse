@@ -77,7 +77,7 @@
     max-width: 40%;
     border: 2px solid white;
     border-radius: 8px;
-    background: rgba(0, 0, 0, 0.35); /* ← półprzezroczyste tło */
+    background: rgba(0, 0, 0, 0.50); /* ← półprzezroczyste tło */
     padding: 12px 16px;
     box-sizing: border-box;
 
