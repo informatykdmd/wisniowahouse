@@ -308,10 +308,19 @@ def lokale_details(category):
 @app.route('/api/lokale', methods=['GET'])
 def get_lokale():
     db = get_db()
-    query_lokale = "SELECT * FROM Lokale_wisniowa;"
-    all_lokale = db.getFrom(query_lokale, as_dict=True)
-
-    return jsonify(all_lokale)
+    query_lokale = """
+        SELECT 
+            id_lokalu,
+            nazwa,
+            opis,
+            powierzchnia_m2,
+            powierzchnia_uzytkowa_m2,
+            status_lokalu,
+            typ_zabudowy
+        FROM Lokale_wisniowa;
+    """
+    result = db.getFrom(query_lokale, as_dict=True)
+    return jsonify(result)
 
 # Wizualizacje
 @app.route('/wizualizacje')
