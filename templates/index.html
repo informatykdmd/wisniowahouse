@@ -659,9 +659,9 @@
                                 cenaBox.textContent = `Cena: ${lokal.cena_wyjsciowa ? lokal.cena_wyjsciowa + ' PLN' : 'Niedostępny'}`;
 
                                 linkBox.href = `/lokale/${lokal.id_lokalu}`;
-                                linkBox.classList.toggle('disabled', lokal.status_lokalu !== 'dostępny');
-                                linkBox.style.pointerEvents = (lokal.status_lokalu === 'dostępny') ? 'auto' : 'none';
-                                linkBox.style.opacity = (lokal.status_lokalu === 'dostępny') ? '1' : '0.5';
+                                linkBox.classList.toggle('disabled', lokal.status_lokalu !== 'dostepny');
+                                linkBox.style.pointerEvents = (lokal.status_lokalu === 'dostepny') ? 'auto' : 'none';
+                                linkBox.style.opacity = (lokal.status_lokalu === 'dostepny') ? '1' : '0.5';
 
                                 infoBox.classList.add('show');
                                 console.log('[DEBUG] Pokazuję infoBox');
