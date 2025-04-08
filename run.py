@@ -315,6 +315,7 @@ def get_lokale():
             opis,
             powierzchnia_m2,
             powierzchnia_uzytkowa_m2,
+            cena_wyjsciowa,
             status_lokalu,
             typ_zabudowy
         FROM Lokale_wisniowa;
