@@ -38,7 +38,7 @@
     fill-opacity: 0.7;
 }
 
-.lokal-info-box {
+/* .lokal-info-box {
     position: absolute;
     left: 20px;
     bottom: 20px;
@@ -61,7 +61,7 @@
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-}
+} */
 
 /* Sekwencyjne animacje elementów */
 .fade-in-item {
