@@ -132,10 +132,6 @@
     color: #ddd;
 }
 
-/* #lokal-link {
-    margin-top: 8px;
-    display: inline-block;
-} */
 
 #lokal-link {
     margin-top: 8px;
@@ -153,13 +149,16 @@
         bottom: 10px;
         max-width: 90%;
         padding: 10px;
+
+        transform: scale(0.7);
+        transform-origin: left bottom; /* zachowuje pozycję względem narożnika */
     }
 
     #lokal-nazwa {
         font-size: 14px;
     }
 
-    #lokal-meta, #lokal-opis, #lokal-cena {
+    #lokal-meta, #lokal-opis {
         font-size: 11px;
     }
 }
