@@ -622,30 +622,30 @@
 {% block bottom_scripts %}
 <script>
   function loadLokale() {
-    console.log('[DEBUG] Start ładowania lokali...');
+    // console.log('[DEBUG] Start ładowania lokali...');
 
     fetch('/api/lokale')
         .then(response => {
-            console.log('[DEBUG] Odpowiedź fetch OK:', response);
+            // console.log('[DEBUG] Odpowiedź fetch OK:', response);
             return response.json();
         })
         .then(data => {
-            console.log('[DEBUG] Dane JSON:', data);
+            // console.log('[DEBUG] Dane JSON:', data);
 
             data.forEach(lokal => {
                 const rect = document.querySelector(`.lokal[data-lokal="${lokal.id_lokalu}"]`);
-                console.log(`[DEBUG] Szukam lokal ID: ${lokal.id_lokalu}`, rect);
+                // console.log(`[DEBUG] Szukam lokal ID: ${lokal.id_lokalu}`, rect);
 
                 if (rect) {
                     rect.classList.remove('dostepny', 'rezerwacja', 'sprzedane');
                     rect.classList.add(lokal.status_lokalu);
-                    console.log(`[DEBUG] Ustawiam status: ${lokal.status_lokalu} dla lokalu: ${lokal.id_lokalu}`);
+                    // console.log(`[DEBUG] Ustawiam status: ${lokal.status_lokalu} dla lokalu: ${lokal.id_lokalu}`);
 
                     if (!rect.dataset.bound) {
                         rect.dataset.bound = true;
 
                         rect.addEventListener('click', () => {
-                            console.log(`[DEBUG] Kliknięto lokal: ${lokal.id_lokalu}`);
+                            // console.log(`[DEBUG] Kliknięto lokal: ${lokal.id_lokalu}`);
 
                             // Wypełnij dane infoBoxa
                             document.getElementById('lokal-nazwa').textContent = lokal.nazwa || 'Brak nazwy';
@@ -684,7 +684,7 @@
 
                             const infoBox = document.getElementById('lokal-info');
                             infoBox.classList.add('show');
-                            console.log('[DEBUG] Pokazuję infoBox');
+                            // console.log('[DEBUG] Pokazuję infoBox');
                         });
                     }
                 }
@@ -695,17 +695,17 @@
 
     // Inicjalizacja po załadowaniu DOM
     document.addEventListener('DOMContentLoaded', () => {
-        console.log('[DEBUG] DOM załadowany');
+        // console.log('[DEBUG] DOM załadowany');
 
         loadLokale();
 
         const closeButton = document.getElementById('close-info');
-        console.log('[DEBUG] closeButton:', closeButton);
+        // console.log('[DEBUG] closeButton:', closeButton);
         if (closeButton) {
             closeButton.addEventListener('click', () => {
                 const infoBox = document.getElementById('lokal-info');
                 infoBox.classList.remove('show');
-                console.log('[DEBUG] Zamknięto infoBox');
+                // console.log('[DEBUG] Zamknięto infoBox');
             });
         } else {
             console.warn('[DEBUG] Nie znaleziono przycisku zamykania');
