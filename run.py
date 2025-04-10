@@ -311,7 +311,7 @@ def lokale_details(category):
             status_lokalu,
             typ_zabudowy
         FROM Lokale_wisniowa 
-        WHERE id_lokalu='%s';
+        WHERE id_lokalu=%s;
     """
     result = db.getFrom(query_lokale, (category.capitalize(), ), as_object=True)
     lokal_data = result[0] if result else []
