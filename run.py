@@ -302,6 +302,7 @@ def lokale_details(category):
     db = get_db()
     query_lokale = """
         SELECT 
+            id,
             id_lokalu,
             nazwa,
             opis,
