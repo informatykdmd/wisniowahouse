@@ -299,10 +299,28 @@ def lokale_details(category):
     session['page'] = f'lokal_{category}'
     pageTitle = f'Lokale - {category.capitalize()}'
 
+    db = get_db()
+    query_lokale = """
+        SELECT 
+            id_lokalu,
+            nazwa,
+            opis,
+            powierzchnia_m2,
+            powierzchnia_uzytkowa_m2,
+            cena_wyjsciowa,
+            status_lokalu,
+            typ_zabudowy
+        FROM Lokale_wisniowa 
+        WHERE id_lokalu='%s';
+    """
+    result = db.getFrom(query_lokale, (category.capitalize(), ), as_object=True)
+    lokal_data = result[0] if result else []
+    
+
     return render_template(
         'lokal.html',
         pageTitle=pageTitle,
-        category=category
+        lokal_data=lokal_data
     )
 
 @app.route('/api/lokale', methods=['GET'])
