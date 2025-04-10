@@ -4,10 +4,10 @@
 <section class="bg-gray-7">
     <div class="breadcrumbs-custom box-transform-wrap context-dark">
       <div class="container">
-        <h3 class="breadcrumbs-custom-title">Project Page</h3>
+        <h3 class="breadcrumbs-custom-title">{{lokal_data.nazwa}}</h3>
         <div class="breadcrumbs-custom-decor"></div>
       </div>
-      <div class="box-transform" style="background-image: url(static/images/bg-project.jpg);"></div>
+      <div class="box-transform" style="background-image: url(../static/images/bg-project.jpg);"></div>
     </div>
     <div class="container">
       <ul class="breadcrumbs-custom-path">
@@ -17,7 +17,7 @@
       </ul>
     </div>
   </section>
-  {{lokal_data.powierzchnia_m2}}
+  
   <!-- Project Page-->
   <section class="section section-lg bg-default text-md-start">
     <div class="container">
@@ -26,35 +26,35 @@
           <div class="slick-project">
             <!-- Slick Carousel-->
             <div class="slick-slider carousel-parent" data-arrows="true" data-autoplay="true" data-swipe="true" data-items="1" data-child="#child-carousel-7" data-for="#child-carousel-7" data-slide-effect="true">
-              <div class="item"><img src="static/images/project-5-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/vis/vis-1-{{lokal_data.id_lokalu}}.png" alt="" width="670" height="377"/>
                 <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #1</div>
+                  <div class="slick-project-title">Od frontu</div>
                 </div>
               </div>
-              <div class="item"><img src="static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/vis/vis-2-{{lokal_data.id_lokalu}}.png" alt="" width="670" height="377"/>
                 <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #2</div>
+                  <div class="slick-project-title">Od ogrodu</div>
                 </div>
               </div>
-              <div class="item"><img src="static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/vis/pom-1-{{lokal_data.id_lokalu}}.png" alt="" width="670" height="377"/>
                 <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #3</div>
+                  <div class="slick-project-title">Pomieszczenia</div>
                 </div>
               </div>
-              <div class="item"><img src="static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/vis/pom-2-{{lokal_data.id_lokalu}}.png" alt="" width="670" height="377"/>
                 <div class="slick-project-caption">
-                  <div class="slick-project-title">Photo #4</div>
+                  <div class="slick-project-title">Przestrzenie własne</div>
                 </div>
               </div>
             </div>
             <div class="slick-slider child-carousel" id="child-carousel-7" data-for=".carousel-parent" data-items="3" data-sm-items="3" data-md-items="4" data-lg-items="3" data-xl-items="4" data-slide-to-scroll="1">
-              <div class="item"><img src="static/images/project-5-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/vis/vis-1-{{lokal_data.id_lokalu}}.png" alt="" width="670" height="377"/>
               </div>
-              <div class="item"><img src="static/images/project-6-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/vis/vis-2-{{lokal_data.id_lokalu}}.png" alt="" width="670" height="377"/>
               </div>
-              <div class="item"><img src="static/images/project-7-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/vis/pom-1-{{lokal_data.id_lokalu}}.png" alt="" width="670" height="377"/>
               </div>
-              <div class="item"><img src="static/images/project-8-670x477.jpg" alt="" width="670" height="477"/>
+              <div class="item"><img src="../static/images/vis/pom-2-{{lokal_data.id_lokalu}}.png" alt="" width="670" height="377"/>
               </div>
             </div>
           </div>
