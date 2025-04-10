@@ -161,11 +161,82 @@
                 </ul>
               </div>
             </div>
+
+
+
+            <form class="rd-form rd-mailform" id="contact-form">
+              <div class="form-wrap wow fadeInRight">
+                <input class="form-input" id="contact-name-6" type="text" name="name" data-constraints="@Required">
+                <label class="form-label" for="contact-name-6">Twoje imię i nazwisko*</label>
+              </div>
+              <div class="form-wrap wow fadeInRight" data-wow-delay=".05s">
+                <input class="form-input" id="contact-email-6" type="email" name="email" data-constraints="@Email @Required">
+                <label class="form-label" for="contact-email-6">Twój adres e-mail*</label>
+              </div>
+              
+              <div class="form-wrap wow fadeInRight" data-wow-delay=".2s">
+                <input class="form-input" id="contact-phone-6" type="text" name="phone" data-constraints="@Numeric">
+                <label class="form-label" for="contact-phone-6">Twój numer telefonu</label>
+              </div>
+              <input type="hidden" value="{{ lokal.id }}" name="lokal">
+              <input type="hidden" value="Wiadomość ze strony 'Głównej'" name="title">
+              <input type="hidden" value="Interesuje mnie ten lokal. Proszę o kontakt." name="message">
+              <button class="button button-icon button-icon-right button-gray-3 wow fadeInRight" type="submit" data-wow-delay=".25s">
+                <span class="icon mdi mdi-chevron-right"></span>Wyślij wiadomość
+              </button>
+            </form>
+            <div id="Answering"></div>
+
+
+
           </div>
         </div>
       </div>
     </div>
   </section>
   
+{% endblock %}
+{% block bottom_scripts %}
+<script>
+    document.querySelector('#contact-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+        const outputDiv = document.getElementById('Answering');
+
+        // Czyścimy poprzedni komunikat
+        outputDiv.textContent = '';
+        outputDiv.className = '';
+
+        try {
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            body: formData,
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            outputDiv.textContent = '✅ Wiadomość została wysłana!';
+            outputDiv.classList.add('success-message');
+            form.reset();
+        } else {
+            outputDiv.textContent = '❌ Błąd: ' + result.message;
+            outputDiv.classList.add('error-message');
+        }
+        } catch (error) {
+            outputDiv.textContent = '⚠️ Wystąpił problem z połączeniem.';
+            outputDiv.classList.add('error-message');
+            console.error(error);
+        }
+
+        // Znikanie po 5 sekundach
+        setTimeout(() => {
+            outputDiv.classList.add('hidden');
+        }, 5000);
+    });
+
+</script>
 {% endblock %}
 
