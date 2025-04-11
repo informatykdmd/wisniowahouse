@@ -108,16 +108,16 @@
 }
 
 
-/* #lokal-link {
+#lokal-link {
     margin-top: 8px;
     display: inline-block;
     font-size: 0.75em; 
     padding: 4px 8px;  
     transform: scale(0.7); 
     transform-origin: left top; 
-} */
+}
 
-#lokal-link {
+/* #lokal-link {
     display: inline-block;
     font-size: 1.2em;
     margin-right: 2px;
@@ -126,7 +126,7 @@
 
 #lokal-link:hover {
     color: #91fafe;
-}
+} */
 
 #phone-link {
     display: inline-block;
@@ -181,7 +181,6 @@
     }
 
     #lokal-nazwa,
-    #karta-lokalu,
     #lokal-opis {
         display: none;
     }
