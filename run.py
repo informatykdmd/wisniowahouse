@@ -316,7 +316,11 @@ def lokale_details(category):
         WHERE id_lokalu=%s;
     """
     result = db.getFrom(query_lokale, (category.capitalize(), ), as_object=True)
-    lokal_data = result[0] if result else []
+    lokal_data = result[0] if result else {}
+
+    # Zabezpieczenie: jeśli brak lokalu lub jest zarezerwowany/sprzedany, przekieruj
+    if not lokal_data or lokal_data.status_lokalu.lower() in ['sprzedany', 'zarezerwowany']:
+        return redirect(url_for('lokale'))  # zakładam że taka funkcja istnieje
     
 
     return render_template(
