@@ -319,7 +319,7 @@ def lokale_details(category):
     lokal_data = result[0] if result else {}
 
     # Zabezpieczenie: jeśli brak lokalu lub jest zarezerwowany/sprzedany, przekieruj
-    if not lokal_data or lokal_data.status_lokalu.lower() in ['sprzedany', 'zarezerwowany']:
+    if not lokal_data or lokal_data.status_lokalu.lower() in ['sprzedane', 'rezerwacja']:
         return redirect(url_for('lokale'))  # zakładam że taka funkcja istnieje
     
 
