@@ -118,13 +118,25 @@
 }
 
 
-#phone-link,
-#email-link,
+#phone-link {
+    display: inline-block;
+    font-size: 1.2em;
+    margin-right: 6px;
+    color: #1efe00;
+  }
+  
+#email-link {
+    display: inline-block;
+    font-size: 1.2em;
+    margin-right: 6px;
+    color: #ffd000;
+  }
+
 #facebook-link {
   display: inline-block;
   font-size: 1.2em;
   margin-right: 6px;
-  color: #00bbff;
+  color: #0078a4;
 }
 
 #phone-link i,
