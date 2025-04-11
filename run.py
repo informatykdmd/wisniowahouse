@@ -324,6 +324,11 @@ def lokale_details(category):
         lokal_data=lokal_data
     )
 
+@app.route('/pobierz/<filename>')
+def download_file(filename):
+    return send_from_directory('static/downloads', filename, as_attachment=True)
+
+
 @app.route('/api/lokale', methods=['GET'])
 def get_lokale():
     db = get_db()

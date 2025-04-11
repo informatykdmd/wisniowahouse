@@ -156,6 +156,9 @@
               download="card-{{lokal_data.id_lokalu}}.pdf">
               Pobierz PDF
             </a>
+            <a href="{{ url_for('download_file', filename='card-' + lokal_data.id_lokalu + '.pdf') }}">
+              Pobierz PDF
+            </a>
             <div class="group-sm group-middle"><span class="project-page-social-title">KONTAKT</span>
               <div>
                 <ul class="list-inline project-page-social-list">
