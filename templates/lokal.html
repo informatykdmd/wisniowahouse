@@ -149,12 +149,14 @@
           <div class="project-page">
             <h4>{{lokal_data.nazwa}}</h4>
 
-            <ul>
-              <li>{{lokal_data.typ_zabudowy}} / {{lokal_data.id_lokalu}}</li>
-              <li>Budynek: {{lokal_data.id_lokalu[0]}}</li>
-              <li>Lokal: {{lokal_data.id_lokalu}}</li>
-              <li>Typ budynku: {{lokal_data.typ_zabudowy}}</li>
-              <li>Umiejscowienie: Lewy (skrajny)</li>
+            <ul class="lokal-info">
+              <li><span class="label">Budynek:</span> {{lokal_data.id_lokalu[0]}}</li>
+              <li><span class="label">Lokal:</span> {{lokal_data.id_lokalu}}</li>
+              <li><span class="label">Typ budynku:</span> {{lokal_data.typ_zabudowy}}</li>
+              <li><span class="label">Umiejscowienie:</span> Lewy (skrajny)</li>
+              <li><span class="label">Powierzchnia całkowita:</span> {{lokal_data.powierzchnia_m2}} m²</li>
+              <li><span class="label">Powierzchnia użytkowa:</span> <span class="highlight">{{lokal_data.powierzchnia_uzytkowa_m2}} m²</span></li>
+              <li><span class="label">Cena:</span> <span class="highlight price">{{lokal_data.cena_wyjsciowa}} PLN</span></li>
             </ul>
             <p>{{lokal_data.opis}}</p>
             
