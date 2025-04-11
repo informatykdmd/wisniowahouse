@@ -108,15 +108,21 @@
 }
 
 
-#lokal-link {
+/* #lokal-link {
     margin-top: 8px;
     display: inline-block;
-    font-size: 0.75em; /* zmniejsza tekst */
-    padding: 4px 8px;  /* zmniejsza wewnętrzny margines */
-    transform: scale(0.7); /* zmniejsza cały guzik o 50% */
-    transform-origin: left top; /* opcjonalnie: ustawia punkt zmniejszenia */
-}
+    font-size: 0.75em; 
+    padding: 4px 8px;  
+    transform: scale(0.7); 
+    transform-origin: left top; 
+} */
 
+#lokal-link {
+    display: inline-block;
+    font-size: 1.2em;
+    margin-right: 6px;
+    color: #9c293c;
+  }
 
 #phone-link {
     display: inline-block;
