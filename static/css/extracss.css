@@ -118,9 +118,9 @@
 } */
 
 #lokal-link {
-    /* display: inline-block; */
+    display: inline-block;
     font-size: 1.2em;
-    margin-right: 6px;
+    /* margin-right: 6px; */
     color: #ddfbfc;
   }
 
