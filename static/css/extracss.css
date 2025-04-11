@@ -333,6 +333,7 @@
   }
   
   .lokal-info .label {
+    text-align: left !important;
     font-weight: 600;
     color: #333;
   }
