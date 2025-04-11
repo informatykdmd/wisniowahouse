@@ -150,13 +150,9 @@
             <h4>{{lokal_data.nazwa}}</h4>
             <p>{{lokal_data.opis}}</p>
             
-            <a 
-              class="button button-lg button-primary button-winona" 
-              href="../static/downloads/card-{{lokal_data.id_lokalu}}.pdf"
-              download="card-{{lokal_data.id_lokalu}}.pdf">
-              Pobierz PDF
-            </a>
-            <a href="{{ url_for('download_file', filename='card-' + lokal_data.id_lokalu + '.pdf') }}">
+            <a  class="button button-lg button-primary button-winona" 
+                download="card-{{lokal_data.id_lokalu}}.pdf" 
+                href="{{ url_for('download_file', filename='card-' + lokal_data.id_lokalu + '.pdf') }}">
               Pobierz PDF
             </a>
             <div class="group-sm group-middle"><span class="project-page-social-title">KONTAKT</span>
