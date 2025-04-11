@@ -148,12 +148,13 @@
         <div class="col-lg-6 col-xl-5">
           <div class="project-page">
             <h4>{{lokal_data.nazwa}}</h4>
-            <ul class="list-group">
-              <li class="list-group-item disabled" aria-disabled="true">{{lokal_data.typ_zabudowy}} / {{lokal_data.id_lokalu}}</li>
-              <li class="list-group-item">Budynek: {{lokal_data.id_lokalu[0]}}</li>
-              <li class="list-group-item">Lokal: {{lokal_data.id_lokalu}}</li>
-              <li class="list-group-item">A fourth item</li>
-              <li class="list-group-item">And a fifth one</li>
+
+            <ul>
+              <li>{{lokal_data.typ_zabudowy}} / {{lokal_data.id_lokalu}}</li>
+              <li>Budynek: {{lokal_data.id_lokalu[0]}}</li>
+              <li>Lokal: {{lokal_data.id_lokalu}}</li>
+              <li>Typ budynku: {{lokal_data.typ_zabudowy}}</li>
+              <li>Umiejscowienie: Lewy (skrajny)</li>
             </ul>
             <p>{{lokal_data.opis}}</p>
             
