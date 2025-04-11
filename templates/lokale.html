@@ -75,7 +75,23 @@
                 <h5 id="lokal-nazwa" class="fade-in-item"></h5>
                 <p id="lokal-meta" class="fade-in-item"></p>
                 <p id="lokal-opis" class="fade-in-item"></p>
-                <a id="lokal-link" class="button button-sm button-primary fade-in-item" href="#">Zobacz więcej</a>
+                <div class="row">
+                  <div class="col-5">
+                    <!-- button button-sm button-primary   -->
+                    <!-- <a id="lokal-link" class="fade-in-item" href="#"><i class="bi bi-journal-arrow-up"></i> <span id="karta-lokalu">Karta lokalu</span></a> -->
+                    <a id="lokal-link" class="button button-sm button-primary fade-in-item" href="#">Karta lokalu</a>
+                  </div>
+                  <div class="col-2"></div>
+                  <div class="col-1">
+                    <a id="phone-link" class="fade-in-item" href="tel:+48600202480"><i class="bi bi-telephone-fill"></i></a>
+                  </div>
+                  <div class="col-1">
+                    <a id="email-link" class="fade-in-item" href="mailto:biuro@dmdinwestycje.pl"><i class="bi bi-envelope"></i></a>
+                  </div>
+                  <div class="col-1">
+                    <a id="facebook-link" class="fade-in-item" href="https://www.facebook.com/dmddeweloper" target="_blank"><i class="bi bi-facebook"></i></a>
+                  </div>
+                </div>
             </div>
         </div>
         <div class="row g-0" style="margin-top: 0px !important;">
@@ -161,18 +177,40 @@
 
                             let cena = lokal.cena_wyjsciowa ? `${lokal.cena_wyjsciowa} PLN` : 'Cena niedostępna';
                             // Wstawiamy HTML z kolorową kropką i metrażem
-                            metaBox.innerHTML = `<span style="margin-left:5px;">${lokal.id_lokalu || '-'} </span><span style="color:${kolorKropki};font-size:14px;">&#9679;</span> <span style="margin-left:5px; color:${kolorKropki};">${lokal.status_lokalu || '-'} </span><span style="margin-left:5px;"> | ${lokal.powierzchnia_m2 || 0} m² (${lokal.powierzchnia_uzytkowa_m2 || 0} m²)</span> | <span style="margin-left:5px; font-size:16px; font-weight: bold;"> ${cena}</span> `;
-
+                            
                             // document.getElementById('lokal-cena').textContent =
                             //     lokal.cena_wyjsciowa ? `${lokal.cena_wyjsciowa} PLN` : 'Cena niedostępna';
-
+                            
                             document.getElementById('lokal-opis').textContent = lokal.opis || '';
-
+                            
                             const linkBox = document.getElementById('lokal-link');
-                            linkBox.href = `/lokale/${lokal.id_lokalu}`;
-                            linkBox.classList.toggle('disabled', lokal.status_lokalu !== 'dostepny');
-                            linkBox.style.pointerEvents = (lokal.status_lokalu === 'dostepny') ? 'auto' : 'none';
-                            linkBox.style.opacity = (lokal.status_lokalu === 'dostepny') ? '1' : '0.5';
+                            const phoneLink = document.getElementById('phone-link');
+                            const emailLink = document.getElementById('email-link');
+                            const facebookLink = document.getElementById('facebook-link');
+                            
+                            const isDostepny = lokal.status_lokalu === 'dostepny';
+                            
+                            if (isDostepny) {
+                                metaBox.innerHTML = `<span style="margin-left:5px;">${lokal.id_lokalu || '-'} </span><span style="color:${kolorKropki};font-size:14px;">&#9679;</span> <span style="margin-left:5px; color:${kolorKropki};">${lokal.status_lokalu || '-'} </span><span style="margin-left:5px;"> | ${lokal.powierzchnia_m2 || 0} m² (${lokal.powierzchnia_uzytkowa_m2 || 0} m²)</span> | <span style="margin-left:5px; font-size:16px; font-weight: bold;"> ${cena}</span> `;
+                                linkBox.href = `/lokale/${lokal.id_lokalu}`;
+                                linkBox.classList.remove('disabled');
+                                linkBox.style.pointerEvents = 'auto';
+                                linkBox.style.opacity = '1';
+
+                                // Pokaż wszystkie ikony
+                                linkBox.style.display = 'inline-block';
+                                phoneLink.style.display = 'inline-block';
+                                emailLink.style.display = 'inline-block';
+                                facebookLink.style.display = 'inline-block';
+                            } else {
+                                // Ukryj wszystko
+                                metaBox.innerHTML = `<span style="margin-left:5px;">${lokal.id_lokalu || '-'} </span><span style="color:${kolorKropki};font-size:14px;">&#9679;</span> <span style="margin-left:5px; color:${kolorKropki};">${lokal.status_lokalu || '-'} </span> `;
+                                linkBox.style.display = 'none';
+                                phoneLink.style.display = 'none';
+                                emailLink.style.display = 'none';
+                                facebookLink.style.display = 'none';
+                            }
+
 
                             const infoBox = document.getElementById('lokal-info');
                             infoBox.classList.add('show');
