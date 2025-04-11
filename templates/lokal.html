@@ -11,7 +11,7 @@
     </div>
     <div class="container">
       <ul class="breadcrumbs-custom-path">
-        <li><a href="/">Home</a></li>
+        <li><a href="/"><i class="bi bi-house" style="font-size: 24px;"></i></a></li>
         <li><a href="/lokale">Lokale</a></li>
         <li class="active">{{lokal_data.id_lokalu}}</li>
       </ul>
@@ -153,7 +153,7 @@
               <li><span class="label">Budynek:</span> {{lokal_data.id_lokalu[0]}}</li>
               <li><span class="label">Lokal:</span> {{lokal_data.id_lokalu}}</li>
               <li><span class="label">Typ budynku:</span> {{lokal_data.typ_zabudowy}}</li>
-              <li><span class="label">Umiejscowienie:</span> Lewy (skrajny)</li>
+              <li><span class="label">Umiejscowienie:</span> {{lokal_data.umiejscowienie}}</li>
               <li><span class="label">Powierzchnia całkowita:</span> {{lokal_data.powierzchnia_m2}} m²</li>
               <li><span class="label">Powierzchnia użytkowa:</span> <span class="highlight">{{lokal_data.powierzchnia_uzytkowa_m2}} m²</span></li>
               <li><span class="label">Cena:</span> <span class="highlight price">{{lokal_data.cena_wyjsciowa}} PLN</span></li>

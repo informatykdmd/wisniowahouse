@@ -310,7 +310,8 @@ def lokale_details(category):
             powierzchnia_uzytkowa_m2,
             cena_wyjsciowa,
             status_lokalu,
-            typ_zabudowy
+            typ_zabudowy,
+            umiejscowienie
         FROM Lokale_wisniowa 
         WHERE id_lokalu=%s;
     """
@@ -341,7 +342,8 @@ def get_lokale():
             powierzchnia_uzytkowa_m2,
             cena_wyjsciowa,
             status_lokalu,
-            typ_zabudowy
+            typ_zabudowy,
+            umiejscowienie
         FROM Lokale_wisniowa;
     """
     result = db.getFrom(query_lokale, as_dict=True)
