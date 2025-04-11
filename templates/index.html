@@ -141,9 +141,9 @@
                     <p id="lokal-meta" class="fade-in-item"></p>
                     <p id="lokal-opis" class="fade-in-item"></p>
                     <a id="lokal-link" class="button button-sm button-primary fade-in-item" href="#">Zobacz więcej</a>
-                    <a class="icon mdi mdi-phone" href="tel:+48600202480"></a>
-                    <a class="icon mdi mdi-email-outline" href="mailto:biuro@dmdinwestycje.pl"></a>
-                    <a class="icon mdi mdi-facebook" href="https://www.facebook.com/dmddeweloper" target="_blank"></a>
+                    <a id="phone-link" class="icon mdi mdi-phone fade-in-item" href="tel:+48600202480"></a>
+                    <a id="email-link" class="icon mdi mdi-email-outline fade-in-item" href="mailto:biuro@dmdinwestycje.pl"></a>
+                    <a id="facebook-link" class="icon mdi mdi-facebook fade-in-item" href="https://www.facebook.com/dmddeweloper" target="_blank"></a>
                 </div>
             </div>
             <div class="row g-0" style="margin-top: 0px !important;">
@@ -680,10 +680,31 @@
                             document.getElementById('lokal-opis').textContent = lokal.opis || '';
 
                             const linkBox = document.getElementById('lokal-link');
-                            linkBox.href = `/lokale/${lokal.id_lokalu}`;
-                            linkBox.classList.toggle('disabled', lokal.status_lokalu !== 'dostepny');
-                            linkBox.style.pointerEvents = (lokal.status_lokalu === 'dostepny') ? 'auto' : 'none';
-                            linkBox.style.opacity = (lokal.status_lokalu === 'dostepny') ? '1' : '0.5';
+                            const phoneLink = document.getElementById('phone-link');
+                            const emailLink = document.getElementById('email-link');
+                            const facebookLink = document.getElementById('facebook-link');
+
+                            const isDostepny = lokal.status_lokalu === 'dostepny';
+
+                            if (isDostepny) {
+                                linkBox.href = `/lokale/${lokal.id_lokalu}`;
+                                linkBox.classList.remove('disabled');
+                                linkBox.style.pointerEvents = 'auto';
+                                linkBox.style.opacity = '1';
+
+                                // Pokaż wszystkie ikony
+                                linkBox.style.display = 'inline-block';
+                                phoneLink.style.display = 'inline-block';
+                                emailLink.style.display = 'inline-block';
+                                facebookLink.style.display = 'inline-block';
+                            } else {
+                                // Ukryj wszystko
+                                linkBox.style.display = 'none';
+                                phoneLink.style.display = 'none';
+                                emailLink.style.display = 'none';
+                                facebookLink.style.display = 'none';
+                            }
+
 
                             const infoBox = document.getElementById('lokal-info');
                             infoBox.classList.add('show');
