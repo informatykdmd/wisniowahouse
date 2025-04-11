@@ -124,25 +124,41 @@
     color: #ddfbfc;
   }
 
+#lokal-link:hover {
+    color: #91fafe;
+}
+
 #phone-link {
     display: inline-block;
     font-size: 1.2em;
     margin-right: 6px;
     color: #1efe00;
-  }
-  
+}
+
+#phone-link:hover {
+    color: #119100;
+}
+
 #email-link {
     display: inline-block;
     font-size: 1.2em;
     margin-right: 6px;
     color: #ffd000;
-  }
+}
+
+#email-link:hover {
+    color: #ffea8d;
+}
 
 #facebook-link {
   display: inline-block;
   font-size: 1.2em;
   margin-right: 6px;
   color: #0078a4;
+}
+
+#email-link:hover {
+    color: #00bbff;
 }
 
 #phone-link i,
