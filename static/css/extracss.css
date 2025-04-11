@@ -340,10 +340,12 @@
   
   .lokal-info .highlight {
     font-weight: 700;
+    text-align: right !important;
     color: #2c3e50;
   }
   
   .lokal-info .price {
     color: #e74c3c;
+    text-align: right !important;
     font-size: 16px;
   }
