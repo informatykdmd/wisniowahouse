@@ -150,7 +150,12 @@
             <h4>{{lokal_data.nazwa}}</h4>
             <p>{{lokal_data.opis}}</p>
             
-            <a class="button button-lg button-primary button-winona" href="../static/downloads/card-{{lokal_data.id_lokalu}}.pdf">Pobierz PDF</a>
+            <a 
+              class="button button-lg button-primary button-winona" 
+              href="../static/downloads/card-{{lokal_data.id_lokalu}}.pdf"
+              download="card-{{lokal_data.id_lokalu}}.pdf">
+              Pobierz PDF
+            </a>
             <div class="group-sm group-middle"><span class="project-page-social-title">KONTAKT</span>
               <div>
                 <ul class="list-inline project-page-social-list">
