@@ -356,7 +356,7 @@
   /* Główna sekcja banera */
   .lokal-banner {
     position: relative;
-    height: 600px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -458,7 +458,7 @@
   /* RESPONSYWNOŚĆ */
   @media (max-width: 768px) {
     .lokal-banner {
-      height: 400px;
+      height: 350px;
     }
     .lokal-banner-title {
       font-size: 28px;
@@ -467,7 +467,7 @@
   
   @media (max-width: 480px) {
     .lokal-banner {
-      height: 300px;
+      height: 250px;
     }
     .lokal-banner-title {
       font-size: 24px;
