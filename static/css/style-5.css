@@ -11772,7 +11772,7 @@ p.rights a:hover {
 	right: 0;
 	top: 0;
 	width: 100%;
-	height: 500px; /* <--- zmieniona wysokość */
+	height: 500px !important; /* <--- zmieniona wysokość */
 	background-position: center;
 	background-size: cover;
 	transform: none;
