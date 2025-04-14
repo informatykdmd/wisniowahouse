@@ -11767,6 +11767,22 @@ p.rights a:hover {
 	z-index: -1;
 }
 
+.box-transform-lokal {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: calc(100% + 150px);
+	height: calc(100% + 450px);
+	will-change: transform;
+	animation: bgPos 100s linear infinite;
+	transform: translate3d(75px, -75px, 0) rotate(0.001deg);
+	background-position: 50% 50%;
+	background-size: cover;
+	pointer-events: none;
+	zoom: 1;
+	z-index: -1;
+}
+
 .ipad .box-transform {
 	transform-style: preserve-3d;
 }
