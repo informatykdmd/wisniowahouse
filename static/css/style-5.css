@@ -11768,16 +11768,11 @@ p.rights a:hover {
 }
 
 .box-transform-lokal {
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 100%;
-	height: 500px !important; /* <--- zmieniona wysokość */
-	background-position: center;
-	background-size: cover;
-	transform: none;
-	z-index: -1;
-}
+	height: 300px !important;
+	transform: none !important;
+	background-position: center !important;
+	background-size: cover !important;
+  }
 
 .ipad .box-transform {
 	transform-style: preserve-3d;
