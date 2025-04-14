@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 <!-- Breadcrumbs -->
-<section class="bg-gray-7">
+<!-- <section class="bg-gray-7">
     <div class="breadcrumbs-custom box-transform-wrap context-dark">
       <div class="container">
         <h3 class="breadcrumbs-custom-title">{{lokal_data.nazwa}}</h3>
         <div class="breadcrumbs-custom-decor"></div>
       </div>
-      <!-- <div class="box-transform" style="background-image: url(../static/images/bg-project.jpg);"></div> -->
+      <div class="box-transform" style="background-image: url(../static/images/bg-project.jpg);"></div>
       <div class="box-transform-lokal" style="background-image: url(../static/images/vis/vis-1-{{lokal_data.id_lokalu}}.png);"></div>
     </div>
     <div class="container">
@@ -17,8 +17,26 @@
         <li class="active">{{lokal_data.id_lokalu}}</li>
       </ul>
     </div>
-  </section>
+  </section> -->
   
+<!-- Breadcrumbs -->
+<section class="lokal-bg">
+  <div class="lokal-banner">
+    <div class="lokal-banner-container">
+      <h3 class="lokal-banner-title">{{lokal_data.nazwa}}</h3>
+      <div class="lokal-banner-decor"></div>
+    </div>
+    <div class="lokal-banner-bg" style="background-image: url(../static/images/vis/vis-1-{{lokal_data.id_lokalu}}.png);"></div>
+  </div>
+
+  <div class="lokal-breadcrumbs-container">
+    <ul class="lokal-breadcrumbs">
+      <li><a href="/"><i class="bi bi-house" style="font-size: 24px;"></i></a></li>
+      <li><a href="/lokale">Lokale</a></li>
+      <li class="active">{{lokal_data.id_lokalu}}</li>
+    </ul>
+  </div>
+</section>
   <!-- Project Page-->
   <section class="section section-lg bg-default text-md-start">
     <div class="container">

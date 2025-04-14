@@ -348,3 +348,129 @@
     color: #e74c3c;
     font-size: 16px;
   }
+
+  .lokal-bg {
+    background-color: #f3f3f3;
+  }
+  
+  /* Główna sekcja banera */
+  .lokal-banner {
+    position: relative;
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background-color: #9c293c;
+    color: #fff;
+    z-index: 1;
+  }
+  
+  .lokal-banner-container {
+    position: relative;
+    z-index: 2;
+    padding: 0 15px;
+  }
+  
+  /* Tytuł */
+  .lokal-banner-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  /* Dekoracyjna kreska pod tytułem */
+  .lokal-banner-decor::before {
+    content: '';
+    display: inline-block;
+    width: 72px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Tło banera */
+  .lokal-banner-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+    height: 100%;
+  }
+  
+  /* Breadcrumbs */
+  .lokal-breadcrumbs-container {
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .lokal-breadcrumbs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .lokal-breadcrumbs li {
+    display: inline-block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-weight: 500;
+    color: #777;
+    position: relative;
+    margin: 0 5px;
+  }
+  
+  .lokal-breadcrumbs li::after {
+    content: "";
+    font-family: "Material Design Icons";
+    font-size: 14px;
+    color: #151515;
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+  }
+  
+  .lokal-breadcrumbs li:last-child::after {
+    display: none;
+  }
+  
+  .lokal-breadcrumbs li.active {
+    font-weight: 900;
+    color: #151515;
+  }
+  
+  .lokal-breadcrumbs a {
+    color: #777;
+    text-decoration: none;
+  }
+  
+  .lokal-breadcrumbs a:hover {
+    color: #9c293c;
+  }
+  
+  /* RESPONSYWNOŚĆ */
+  @media (max-width: 768px) {
+    .lokal-banner {
+      height: 500px;
+    }
+    .lokal-banner-title {
+      font-size: 28px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .lokal-banner {
+      height: 400px;
+    }
+    .lokal-banner-title {
+      font-size: 24px;
+    }
+  }
+  
