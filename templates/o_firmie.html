@@ -1,22 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <!-- Breadcrumbs -->
 <section class="bg-gray-7">
-    <div class="breadcrumbs-custom box-transform-wrap context-dark">
-      <div class="container">
-        <img src="static/images/logo-dmdbudownictwo.png" style="max-width: 300px !important;" alt="DMD Budownictwo">
-        <!-- <h3 class="breadcrumbs-custom-title">O DMD Budownictwo</h3> -->
-        <div class="breadcrumbs-custom-decor"></div>
+  <div class="swiper-container swiper-slider swiper-slider-7" data-loop="true" data-autoplay="90009999" data-simulate-touch="false" data-add-slides="1">
+    <div class="swiper-wrapper text-sm-start">
+      <div class="swiper-slide" data-slide-bg="../static/images/modules/breadcrumbs-kontakt.png">
+        <div class="swiper-slide-caption section-md">
+          <div class="swiper-box">
+            <h6 class="swiper-time" data-caption-animate="fadeInLeft" data-caption-delay="500">
+              <span class="d-inline-block" data-caption-animate="slideInDown" data-caption-delay="500">Wiśniowa House <br></span>
+            </h6>
+            <h3 class="swiper-title oh">          
+              <span class="d-block" data-caption-animate="slideInLeft" data-caption-delay="200">Kontakt z Nami</span>
+            </h3>
+            <p>Skontaktuj się z nami, aby uzyskać więcej informacji</p>
+          </div>
+          <div class="swiper-content-bg-1"></div>
+        </div>
       </div>
-      <div class="box-transform" style="background-image: url(static/images/bg-forms-dmd.jpg);"></div>
+      <div class="swiper-slide" data-slide-bg="../static/images/modules/breadcrumbs-DB.png"></div>
     </div>
-    <div class="container">
-      <ul class="breadcrumbs-custom-path">
-        <li><a href="/"><i class="bi bi-house" style="font-size: 24px;"></i></a></li>
-        <li class="active">O nas</li>
-      </ul>
-    </div>
-  </section>
+    <div class="swiper-pagination" data-bullet-custom="true"></div>
+  </div>
+  <div class="container">
+    <ul class="breadcrumbs-custom-path">
+      <li><a href="/"><i class="bi bi-house" style="font-size: 24px;"></i></a></li>
+      <li class="active">O nas</li>
+    </ul>
+  </div>
+</section>
+
   <!-- About-->
   <section class="section section-lg bg-default">
     <div class="container">
@@ -173,93 +187,4 @@
     </div>
   </section>
 
-  <!-- Our clients-->
-  <!-- <section class="section section-lg bg-default text-md-start">
-    <div class="container">
-      <div class="row row-60 justify-content-center flex-lg-row-reverse">
-        <div class="col-md-8 col-lg-6 col-xl-5">
-          <div class="offset-left-xl-70">
-            <h3>Our clients</h3>
-            <div class="slick-quote">
-
-              <div class="slick-slider carousel-parent" data-autoplay="true" data-swipe="true" data-items="1" data-child="#child-carousel-5" data-for="#child-carousel-5" data-slide-effect="true">
-                <div class="item">
-
-                  <article class="quote-modern">
-                    <h5 class="quote-modern-text"><span class="q">Torus accelerares, tanquam ferox cacula. Fluctuss experimentum in burdigala! Ubi est peritus classis? Peregrinatione superbe ducunt ad magnum verpa.</span></h5>
-                    <h5 class="quote-modern-author">Stephen Adams,</h5>
-                    <p class="quote-modern-status">“AlphaIndustry”, CEO</p>
-                  </article>
-                </div>
-                <div class="item">
-
-                  <article class="quote-modern">
-                    <h5 class="quote-modern-text"><span class="q">Gluten, fluctus, et galatae. Germanus classiss ducunt ad brodium. Pol, a bene cedrium. Tabess unda in neuter avenio! Orexiss sunt adelphiss de rusticus parma.</span></h5>
-                    <h5 class="quote-modern-author">Sam Peterson,</h5>
-                    <p class="quote-modern-status">“Digitex”, CFO</p>
-                  </article>
-                </div>
-                <div class="item">
-
-                  <article class="quote-modern">
-                    <h5 class="quote-modern-text"><span class="q">Hercle, lanista regius!, nobilis lamia! Pol, a bene abaculus. Advenas ire! Cum sensorem peregrinationes, omnes orexises contactus placidus, velox adiuratores.</span></h5>
-                    <h5 class="quote-modern-author">Jane McMillan,</h5>
-                    <p class="quote-modern-status">“South East Technologies”, Lead HR Manager</p>
-                  </article>
-                </div>
-                <div class="item">
-
-                  <article class="quote-modern">
-                    <h5 class="quote-modern-text"><span class="q">Fluctuss sunt eras de neuter plasmator. Heuretes noster brabeuta est. Nixus, visus, et mensa. Primus, magnum tatas rare locus de altus, camerarius clabulare.</span></h5>
-                    <h5 class="quote-modern-author">Will Jones,</h5>
-                    <p class="quote-modern-status">“STC Ltd.”, Sales Manager</p>
-                  </article>
-                </div>
-              </div>
-              <div class="slick-slider child-carousel" id="child-carousel-5" data-arrows="true" data-for=".carousel-parent" data-items="4" data-sm-items="4" data-md-items="4" data-lg-items="4" data-xl-items="4" data-slide-to-scroll="1">
-                <div class="item"><img class="img-circle" src="static/images/team-5-83x83.jpg" alt="" width="83" height="83"/>
-                </div>
-                <div class="item"><img class="img-circle" src="static/images/team-6-83x83.jpg" alt="" width="83" height="83"/>
-                </div>
-                <div class="item"><img class="img-circle" src="static/images/team-7-83x83.jpg" alt="" width="83" height="83"/>
-                </div>
-                <div class="item"><img class="img-circle" src="static/images/team-8-83x83.jpg" alt="" width="83" height="83"/>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-xl-7">
-
-          <div class="clients-classic-wrap">
-            <div class="row g-0">
-              <div class="col-sm-6 wow fadeInLeft">
-                <div class="clients-classic"><a class="clients-classic-figure" href="#"><img src="static/images/clients-1-200x90.png" alt="" width="200" height="90"/></a></div>
-              </div>
-              <div class="col-sm-6 wow fadeInRight">
-                <div class="clients-classic"><a class="clients-classic-figure" href="#"><img src="static/images/clients-2-200x90.png" alt="" width="200" height="90"/></a></div>
-              </div>
-            </div>
-            <div class="row g-0">
-              <div class="col-sm-6 wow fadeInLeft">
-                <div class="clients-classic"><a class="clients-classic-figure" href="#"><img src="static/images/clients-3-200x90.png" alt="" width="200" height="90"/></a></div>
-              </div>
-              <div class="col-sm-6 wow fadeInRight">
-                <div class="clients-classic"><a class="clients-classic-figure" href="#"><img src="static/images/clients-4-200x90.png" alt="" width="200" height="90"/></a></div>
-              </div>
-            </div>
-            <div class="row g-0">
-              <div class="col-sm-6 wow fadeInLeft">
-                <div class="clients-classic"><a class="clients-classic-figure" href="#"><img src="static/images/clients-5-200x90.png" alt="" width="200" height="90"/></a></div>
-              </div>
-              <div class="col-sm-6 wow fadeInRight">
-                <div class="clients-classic"><a class="clients-classic-figure" href="#"><img src="static/images/clients-6-200x90.png" alt="" width="200" height="90"/></a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-  
 {% endblock %}
