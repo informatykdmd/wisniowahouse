@@ -4,7 +4,17 @@
 <section class="bg-gray-7">
   <div class="swiper-container swiper-slider swiper-slider-7" data-loop="true" data-autoplay="90009999" data-simulate-touch="false" data-add-slides="1">
     <div class="swiper-wrapper text-sm-start">
-      <div class="swiper-slide" data-slide-bg="../static/images/modules/breadcrumbs-DD.png">
+      {% if detail == 'standard-wykonczenia' %}
+      <div class="swiper-slide" data-slide-bg="../static/images/standard-1.png">
+      {% elif detail == 'technologie-budowlane' %}
+      <div class="swiper-slide" data-slide-bg="../static/images/technologie-1.png">
+      {% elif detail == 'zalety-lokalizacji' %}
+      <div class="swiper-slide" data-slide-bg="../static/images/zalety-1.png">
+      {% elif detail == 'plan-osiedla' %}
+      <div class="swiper-slide" data-slide-bg="../static/images/planosiedla-1.png">
+      {% endif %}
+      
+        
         <div class="swiper-slide-caption section-md">
           <div class="swiper-box">
             <h6 class="swiper-time" data-caption-animate="fadeInLeft" data-caption-delay="500">
@@ -204,7 +214,7 @@
                   <li class="custom-list-item">Instalacja światłowodowa – wprowadzenie.</li>
               </ul>
             </div>
-            <img src="../static/images/standard-1.png"/>
+            <!-- <img src="../static/images/standard-1.png"/> -->
           </div>
         </div>
         
