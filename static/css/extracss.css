@@ -45,22 +45,23 @@
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.lokal-info-page {
-
-
-  border: 2px solid white;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.50); /* ← półprzezroczyste tło */
-  padding: 12px 16px;
-  box-sizing: border-box;
-  text-align: left !important;
-
-  pointer-events: none;
-
-
-  border-color: transparent;
-  transition: border-color 0.8s ease, opacity 0.3s ease 0.8s, visibility 0s linear 0.8s;
+.white-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: calc(58.333333% + 8.333333%); /* col-xl-6 + offset-1 = 7/12 szerokości */
+  background-color: white;
+  z-index: 1;
 }
+
+.swiper-slide-caption .container > .row,
+.swiper-slide-caption .container > .row .col-sm-9 {
+  position: relative;
+  z-index: 2; /* treść nad tłem */
+}
+
+
 
 .lokal-info-box {
     position: absolute;
