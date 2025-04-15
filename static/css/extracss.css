@@ -64,6 +64,26 @@
 }
 
 
+.text-wrapper-with-bg {
+  position: relative;
+  z-index: 2;
+  padding: 2rem; /* dodatkowo: żeby tekst nie kleił się do krawędzi */
+  background-color: white; /* fallback w razie gdyby ::before się nie załadowało */
+}
+
+.text-wrapper-with-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: -1;
+  border-radius: 0; /* opcjonalnie */
+}
+
+
 
 .lokal-info-box {
     position: absolute;
