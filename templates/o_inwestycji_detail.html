@@ -57,41 +57,7 @@
 </section>
 
 
-<!-- Breadcrumbs -->
-<section class="bg-gray-7">
-    <div class="breadcrumbs-custom box-transform-wrap context-dark">
-      <div class="container">
-        {% if detail == 'standard-wykonczenia' %}
-          <h3 class="breadcrumbs-custom-title">Standard wykończenia</h3>
-        {% elif detail == 'technologie-budowlane' %}
-          <h3 class="breadcrumbs-custom-title">Technologie budowlane</h3>
-        {% elif detail == 'zalety-lokalizacji' %}
-          <h3 class="breadcrumbs-custom-title">Zalety lokalizacji</h3>
-        {% elif detail == 'plan-osiedla' %}
-          <h3 class="breadcrumbs-custom-title">Plan Osiedla</h3>
-        {% endif %}
-        <div class="breadcrumbs-custom-decor"></div>
-      </div>
-      <!-- <div class="box-transform" style="background-image: url(../static/images/bg-project.jpg);"></div> -->
-      {% set filepath = url_for('static', filename='images/bg-oinwestycji.jpg') %}
-      <div class="box-transform" style="background-image: url('{{ filepath }}');"></div>
-    </div>
-    <div class="container">
-      <ul class="breadcrumbs-custom-path">
-        <li><a href="/"><i class="bi bi-house" style="font-size: 24px;"></i></a></li>
-        <li><a href="/o-inwestycji">O inwestycji</a></li>
-        {% if detail == 'standard-wykonczenia' %}
-          <li class="active">Standard</li>
-        {% elif detail == 'technologie-budowlane' %}
-          <li class="active">Technologie</li>
-        {% elif detail == 'zalety-lokalizacji' %}
-          <li class="active">Lokalizacja</li>
-        {% elif detail == 'plan-osiedla' %}
-          <li class="active">Plan Osiedla</li>
-        {% endif %}
-      </ul>
-    </div>
-  </section>
+
   {% if detail == 'standard-wykonczenia' %}
   <!-- About-->
   <section class="section section-lg bg-default">
@@ -238,7 +204,7 @@
                   <li class="custom-list-item">Instalacja światłowodowa – wprowadzenie.</li>
               </ul>
             </div>
-            <img src="../static/images/sw-1.jpg" alt="O nas" width="835" height="418"/>
+            <img src="../static/images/standard-1.png"/>
           </div>
         </div>
         
