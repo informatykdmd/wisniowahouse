@@ -48,19 +48,44 @@
 .white-bg-overlay {
   position: absolute;
   top: 0;
-  left: 0;
-  height: 100%;
-  width: 30%; 
-  margin-left: 12%;
-  /* col-xl-6 + offset-1 = 7/12 szerokości */
-  background-color: white;
+  bottom: 0;
+  left: 0; /* zaczynamy od lewej krawędzi kontenera .swiper-slide-caption */
+  width: 100%;
   z-index: 1;
+  pointer-events: none; /* żeby nie blokowało kliknięć */
 }
 
-.swiper-slide-caption .container > .row,
-.swiper-slide-caption .container > .row .col-sm-9 {
-  position: relative;
-  z-index: 2; /* treść nad tłem */
+@media (min-width: 1200px) {
+  .white-bg-overlay {
+    left: calc(100% / 12 * 1); /* offset-lg-1 = 1/12 */
+    width: calc(100% / 12 * 6); /* col-xl-6 = 6/12 */
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .white-bg-overlay {
+    left: calc(100% / 12 * 1); /* offset-lg-1 */
+    width: calc(100% / 12 * 7); /* col-lg-7 */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .white-bg-overlay {
+    left: 0;
+    width: calc(100% / 12 * 8); /* col-md-8 */
+  }
+}
+
+@media (max-width: 767.98px) {
+  .white-bg-overlay {
+    left: 0;
+    width: 100%; /* pełna szerokość na mobile */
+  }
+}
+
+.white-bg-overlay {
+  background: white;
+  height: 100%;
 }
 
 
