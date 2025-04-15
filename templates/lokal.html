@@ -34,10 +34,65 @@
     </ul>
   </div>
 </section> -->
-<section class="section swiper-container swiper-slider swiper-slider-2 swiper-slider-3" data-loop="false" data-autoplay="500000000" data-simulate-touch="false" data-slide-effect="fade">
+
+
+<div class="swiper-container swiper-slider swiper-slider-7" data-loop="true" data-autoplay="5000" data-simulate-touch="false" data-add-slides="1">
+  <div class="swiper-wrapper text-sm-start">
+    <div class="swiper-slide" data-slide-bg="../static/images/engineering/slide-1-1697x605.jpg">
+      <div class="swiper-slide-caption section-md">
+        <div class="swiper-box">
+          <h6 class="oh swiper-subtitle"><span class="d-inline-block" data-caption-animate="slideInDown" data-caption-delay="500">Wiśniowa House <br>– Twój wybór</span></h6>
+          <h3 class="swiper-title oh"><span class="d-block" data-caption-animate="slideInLeft" data-caption-delay="200">Blisko </span><span class="d-block" data-caption-animate="slideInRight" data-caption-delay="200">natury</span></h3>
+          <h6 class="swiper-time" data-caption-animate="fadeInLeft" data-caption-delay="500">
+            Spokój i harmonia
+          </h6><a class="button button-lg button-icon button-icon-right button-gray-3" data-caption-animate="fadeInUp" data-caption-delay="500" href="/lokale"><span class="icon mdi mdi-chevron-right"></span>Poznaj lokale</a>
+        </div>
+        <div class="swiper-content-bg-1"></div>
+      </div>
+    </div>
+    <div class="swiper-slide" data-slide-bg="../static/images/engineering/slide-2-1697x605.jpg">
+      <div class="swiper-slide-caption section-md">
+        <div class="swiper-box">
+          <h6 class="oh swiper-subtitle"><span class="d-inline-block" data-caption-animate="slideInLeft" data-caption-delay="500">Idealne miejsce <br>do życia</span></h6>
+          <h3 class="swiper-title"><span class="d-block" data-caption-animate="fadeInRight" data-caption-delay="200">Komfort </span><span class="d-block" data-caption-animate="fadeInRight" data-caption-delay="300">codzienności</span></h3>
+          <h6 class="swiper-time" data-caption-animate="fadeInUp" data-caption-delay="500">
+            Przestrzeń i styl
+          </h6>
+          <div class="oh button-wrap"><a class="button button-lg button-icon button-icon-right button-gray-3" data-caption-animate="slideInLeft" data-caption-delay="200" href="/o-inwestycji"><span class="icon mdi mdi-chevron-right"></span>Zobacz szczegóły</a></div>
+        </div>
+        <div class="swiper-content-bg-2"></div>
+      </div>
+    </div>
+    <div class="swiper-slide" data-slide-bg="../static/images/engineering/slide-3-1697x605.jpg">
+      <div class="swiper-slide-caption section-md">
+        <div class="swiper-box">
+          <h6 class="oh swiper-subtitle"><span class="d-inline-block" data-caption-animate="slideInUp" data-caption-delay="500">Styl <br>i funkcjonalność</span></h6>
+          <h3 class="swiper-title oh d-inline-block"><span class="d-block" data-caption-animate="slideInDown" data-caption-delay="200">Piękno </span><span class="d-block" data-caption-animate="slideInUp" data-caption-delay="200">wnętrza</span></h3>
+          <h6 class="swiper-time" data-caption-animate="fadeInLeft" data-caption-delay="500">
+            Twoja wygoda
+          </h6>
+          <div class="oh button-wrap"><a class="button button-lg button-icon button-icon-right button-gray-3" data-caption-animate="slideInDown" data-caption-delay="500" href="/kontakt"><span class="icon mdi mdi-chevron-right"></span>Zapytaj o lokal</a></div>
+        </div>
+        <div class="swiper-content-bg-3"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Swiper Navigation-->
+  <div class="swiper-navigation__module">
+    <div class="swiper-pagination__fraction"><span class="swiper-pagination__fraction-index"></span><span class="swiper-pagination__fraction-divider">/</span><span class="swiper-pagination__fraction-count"></span></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+  <!-- Swiper Pagination-->
+  <div class="swiper-pagination" data-bullet-custom="true"></div>
+</div>
+
+
+
+<!-- <section class="section swiper-container swiper-slider swiper-slider-2 swiper-slider-3" data-loop="false" data-autoplay="500000000" data-simulate-touch="false" data-slide-effect="fade">
   <div class="swiper-wrapper text-sm-start">
     <div class="swiper-slide context-dark position-relative" data-slide-bg="../static/images/modules/breadcrumbs-{{lokal_data.id_lokalu}}.png">
-      <div class="white-bg-overlay"></div> <!-- Biały pasek w tle -->
+      <div class="white-bg-overlay"></div>
       <div class="swiper-slide-caption section-md  position-relative">
         <div class="container">
           <div class="row">
@@ -63,7 +118,7 @@
       <li class="active">{{lokal_data.id_lokalu}}</li>
     </ul>
   </div>
-</section>
+</section> -->
 <!-- 
 
 <section class="section swiper-container swiper-slider swiper-slider-2 swiper-slider-3" data-loop="false" data-autoplay="500000000" data-simulate-touch="false" data-slide-effect="fade">
@@ -325,22 +380,6 @@
     });
 
 </script>
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const overlay = document.querySelector('.white-bg-overlay');
-    const anchor = document.querySelector('.white-bg-anchor');
-    const span = anchor.querySelector('span');
 
-    if (overlay && anchor && span) {
-      const anchorRect = anchor.getBoundingClientRect();
-      const spanRect = span.getBoundingClientRect();
-      const slideRect = document.querySelector('.swiper-slide').getBoundingClientRect();
-
-      // Pozycja lewa względem slidera
-      overlay.style.left = (spanRect.left - slideRect.left) + 'px';
-      overlay.style.width = spanRect.width + 'px';
-    }
-  });
-</script>
 {% endblock %}
 
