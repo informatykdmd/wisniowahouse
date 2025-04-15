@@ -17874,6 +17874,27 @@ button.swiper-pagination-bullet {
 	color: #9c293c;
 }
 
+
+.swiper-pagination__fraction-index-lokal {
+	font-size: 40px;
+	line-height: 1;
+	font-weight: 300;
+	color: rgba(21, 21, 21, 0.21);
+}
+
+@media (min-width: 992px) {
+	.swiper-pagination__fraction-index-lokal {
+		font-size: 50px;
+	}
+}
+
+@media (min-width: 1800px) {
+	.swiper-pagination__fraction-index-lokal {
+		font-size: 60px;
+	}
+}
+
+
 .swiper-pagination__fraction-index {
 	font-size: 40px;
 	line-height: 1;
@@ -17894,6 +17915,10 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-pagination__fraction-count {
+	margin-left: 6px;
+}
+
+.swiper-pagination__fraction-count-lokal {
 	margin-left: 6px;
 }
 
@@ -24005,6 +24030,10 @@ html:not(.ie-11):not(.ios) .parallax-disabled {
 }
 
 .swiper-pagination__fraction-count {
+	margin-left: 6px;
+}
+
+.swiper-pagination__fraction-count-lokal {
 	margin-left: 6px;
 }
 
