@@ -50,7 +50,7 @@
   top: 0;
   left: 100;
   height: 100%;
-  width: calc(58.333333% + 8.333333%); /* col-xl-6 + offset-1 = 7/12 szerokości */
+  width: calc(18.333333% + 8.333333%); /* col-xl-6 + offset-1 = 7/12 szerokości */
   background-color: white;
   z-index: 1;
 }
