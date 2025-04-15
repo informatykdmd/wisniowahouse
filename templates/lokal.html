@@ -41,7 +41,7 @@
       <div class="swiper-slide-caption section-md  position-relative">
         <div class="container">
           <div class="row">
-            <div class="col-sm-9 col-md-8 col-lg-7 col-xl-6 offset-lg-1 offset-xxl-0">
+            <div class="col-sm-9 col-md-8 col-lg-7 col-xl-6 offset-lg-1 offset-xxl-0 white-bg-anchor">
               <h3 class="oh swiper-title">
                 <span class="d-inline-block" data-caption-animate="slideInUp" data-caption-delay="0">
                   {{lokal_data.typ_zabudowy}} {{lokal_data.id_lokalu}} 
@@ -324,6 +324,23 @@
         }, 5000);
     });
 
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.querySelector('.white-bg-overlay');
+    const anchor = document.querySelector('.white-bg-anchor');
+    const span = anchor.querySelector('span');
+
+    if (overlay && anchor && span) {
+      const anchorRect = anchor.getBoundingClientRect();
+      const spanRect = span.getBoundingClientRect();
+      const slideRect = document.querySelector('.swiper-slide').getBoundingClientRect();
+
+      // Pozycja lewa względem slidera
+      overlay.style.left = (spanRect.left - slideRect.left) + 'px';
+      overlay.style.width = spanRect.width + 'px';
+    }
+  });
 </script>
 {% endblock %}
 

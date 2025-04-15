@@ -48,13 +48,12 @@
 .white-bg-overlay {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0; /* domyślnie — nadpiszemy zaraz JS-em */
   height: 100%;
-  width: 30%; 
-  margin-left: 12%;
-  /* col-xl-6 + offset-1 = 7/12 szerokości */
+  width: auto;
   background-color: white;
   z-index: 1;
+  pointer-events: none;
 }
 
 .swiper-slide-caption .container > .row,
