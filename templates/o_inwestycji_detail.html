@@ -2,6 +2,63 @@
 {% block content %}
 <!-- Breadcrumbs -->
 <section class="bg-gray-7">
+  <div class="swiper-container swiper-slider swiper-slider-7" data-loop="true" data-autoplay="90009999" data-simulate-touch="false" data-add-slides="1">
+    <div class="swiper-wrapper text-sm-start">
+      <div class="swiper-slide" data-slide-bg="../static/images/modules/breadcrumbs-DD.png">
+        <div class="swiper-slide-caption section-md">
+          <div class="swiper-box">
+            <h6 class="swiper-time" data-caption-animate="fadeInLeft" data-caption-delay="500">
+              <span class="d-inline-block" data-caption-animate="slideInDown" data-caption-delay="500">Wiśniowa House <br></span>
+            </h6>
+            {% if detail == 'standard-wykonczenia' %}
+              <h3 class="swiper-title oh">          
+                <span class="d-block" data-caption-animate="slideInLeft" data-caption-delay="200">Standard wykończenia</span>
+              </h3>
+              <p>Stosujemy najwyższej jakości materiały i nowoczesne rozwiązania, dbając o każdy detal – od podłóg, przez stolarkę, aż po armaturę i systemy inteligentnego domu.</p>
+            {% elif detail == 'technologie-budowlane' %}
+              <h3 class="swiper-title oh">          
+                <span class="d-block" data-caption-animate="slideInLeft" data-caption-delay="200">Technologie budowlane</span>
+              </h3>
+              <p>Wykorzystujemy sprawdzone systemy konstrukcyjne, zapewniające trwałość i wysoką efektywność energetyczną budynków.</p>
+            {% elif detail == 'zalety-lokalizacji' %}
+              <h3 class="swiper-title oh">          
+                <span class="d-block" data-caption-animate="slideInLeft" data-caption-delay="200">Zalety lokalizacji</span>
+              </h3>
+              <p>Inwestycja położona w spokojnej i dobrze skomunikowanej okolicy, z szybkim dostępem do centrum.</p>
+            {% elif detail == 'plan-osiedla' %}
+              <h3 class="swiper-title oh">          
+                <span class="d-block" data-caption-animate="slideInLeft" data-caption-delay="200">Plan Osiedla</span>
+              </h3>
+              <p>Zapoznaj się z naszym osiedlem – starannie zaprojektowanym kompleksem.</p>
+            {% endif %}
+          </div>
+          <div class="swiper-content-bg-1"></div>
+        </div>
+      </div>
+      <div class="swiper-slide" data-slide-bg="../static/images/modules/breadcrumbs-DC.png"></div>
+    </div>
+    <div class="swiper-pagination" data-bullet-custom="true"></div>
+  </div>
+  <div class="container">
+    <ul class="breadcrumbs-custom-path">
+      <li><a href="/"><i class="bi bi-house" style="font-size: 24px;"></i></a></li>
+      <li><a href="/o-inwestycji">O inwestycji</a></li>
+      {% if detail == 'standard-wykonczenia' %}
+        <li class="active">Standard</li>
+      {% elif detail == 'technologie-budowlane' %}
+        <li class="active">Technologie</li>
+      {% elif detail == 'zalety-lokalizacji' %}
+        <li class="active">Lokalizacja</li>
+      {% elif detail == 'plan-osiedla' %}
+        <li class="active">Plan Osiedla</li>
+      {% endif %}
+    </ul>
+  </div>
+</section>
+
+
+<!-- Breadcrumbs -->
+<section class="bg-gray-7">
     <div class="breadcrumbs-custom box-transform-wrap context-dark">
       <div class="container">
         {% if detail == 'standard-wykonczenia' %}
