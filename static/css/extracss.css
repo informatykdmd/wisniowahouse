@@ -45,25 +45,6 @@
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.white-bg-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 30%; 
-  margin-left: 12%;
-  /* col-xl-6 + offset-1 = 7/12 szerokości */
-  background-color: white;
-  z-index: 1;
-}
-
-.swiper-slide-caption .container > .row,
-.swiper-slide-caption .container > .row .col-sm-9 {
-  position: relative;
-  z-index: 2; /* treść nad tłem */
-}
-
-
 
 .lokal-info-box {
     position: absolute;
