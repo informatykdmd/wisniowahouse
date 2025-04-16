@@ -304,7 +304,7 @@ def lokale():
             umiejscowienie
         FROM Lokale_wisniowa;
     """
-    all_data = db.getFrom(query_lokale, as_object=True)
+    all_data = db.getFrom(query_lokale, as_dict=True)
 
     lokale_dict = {}
 
