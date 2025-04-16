@@ -289,9 +289,48 @@ def lokale():
     session['page'] = 'lokale'
     pageTitle = 'Lokale'
 
+    db = get_db()
+    query_lokale = """
+        SELECT 
+            id,
+            id_lokalu,
+            nazwa,
+            opis,
+            powierzchnia_m2,
+            powierzchnia_uzytkowa_m2,
+            cena_wyjsciowa,
+            status_lokalu,
+            typ_zabudowy,
+            umiejscowienie
+        FROM Lokale_wisniowa;
+    """
+    all_data = db.getFrom(query_lokale, as_object=True)
+
+    lokale_list = []
+    lokale_dict = {}
+
+    for ap in all_data:
+        id_lokalu = ap.get('id_lokalu', '').strip()
+        if not id_lokalu:
+            continue
+
+        building = id_lokalu[0].capitalize()
+        if building:
+            href = f"/lokale/{id_lokalu}"
+            name = f"Lokal {id_lokalu}"
+            id_direct = ap.get('id')
+
+            lokale_dict.setdefault(id_lokalu, {}) = {
+                "href": href,
+                "name": name,
+                "id_direct": id_direct,
+                "id_lokalu": id_lokalu
+            }
+
     return render_template(
         'lokale.html',
-        pageTitle=pageTitle
+        pageTitle=pageTitle,
+        lokale_dict=lokale_dict
     )
 
 @app.route('/lokale/<category>')
