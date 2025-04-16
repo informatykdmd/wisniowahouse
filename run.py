@@ -306,18 +306,23 @@ def lokale():
     """
     all_data = db.getFrom(query_lokale, as_dict=True)
     nest_dict_name = {
-        "A1": "Garden",
-        "A2": "Garden",
-        "A3": "Garden",
-        "A4": "Garden",
-        "B1": "Garden",
-        "B2": "Garden",
-        "B3": "Garden",
-        "B4": "Garden",
-        "C1": "Garden",
-        "C2": "Garden",
-        "D1": "Garden",
-        "D2": "Garden"
+        # Skrajne czworaki – największe ogrody
+        "A1": "Nest Garden",
+        "A4": "Nest Garden",
+        "B1": "Nest Garden",
+        "B4": "Nest Garden",
+
+        # Bliźniaki – średnie ogrody, dobra prywatność
+        "C1": "East Nest ",
+        "C2": "East Nest ",
+        "D1": "East Nest ",
+        "D2": "East Nest ",
+
+        # Środkowe czworaki – najmniejsze ogrody
+        "A2": "Nest Compact",
+        "A3": "Nest Compact",
+        "B2": "Nest Compact",
+        "B3": "Nest Compact"
     }
 
     lokale_dict = {}
@@ -338,7 +343,7 @@ def lokale():
             title = ap.get('nazwa')
             kind_nest = nest_dict_name.get(id_lokalu, '')
 
-            name = f"Nest {kind_nest} {id_lokalu} {powierzchnia_uzytkowa_m2} m²"
+            name = f"{kind_nest} {id_lokalu} {powierzchnia_uzytkowa_m2} m²"
 
             if id_lokalu not in lokale_dict:
                 lokale_dict[id_lokalu] = {
