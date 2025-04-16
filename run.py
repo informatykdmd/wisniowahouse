@@ -319,13 +319,15 @@ def lokale():
             name = f"Lokal {id_lokalu}"
             id_direct = ap.get('id')
             title = ap.get('nazwa')
+            status_lokalu = ap.get('status_lokalu')
 
             if id_lokalu not in lokale_dict:
                 lokale_dict[id_lokalu] = {
                     "href": href,
                     "title": title,
                     "id_direct": id_direct,
-                    "id_lokalu": id_lokalu
+                    "id_lokalu": id_lokalu,
+                    "status_lokalu": status_lokalu
                 }
 
     return render_template(
