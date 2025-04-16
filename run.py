@@ -325,6 +325,7 @@ def lokale():
                 lokale_dict[id_lokalu] = {
                     "href": href,
                     "title": title,
+                    "name": name,
                     "id_direct": id_direct,
                     "id_lokalu": id_lokalu,
                     "status_lokalu": status_lokalu
