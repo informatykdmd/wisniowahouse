@@ -71,126 +71,400 @@
                 </article>
             </div>
             <div class="col-sm-8 col-xl-4 isotope-item oh-desktop">
-                <!-- Thumbnail Mary 2 -->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-big block-3 wow slideInRight"><a class="thumbnail-mary-figure" href="static/images/lokale/preview-2.png" data-lightgallery="item"><img src="static/images/lokale/preview-2.png" alt="" width="631" height="587"/></a>
-                    <div class="thumbnail-mary-caption">
-                    <div>
-                        <h6 class="thumbnail-mary-title"><a href="project-page.html">Seattle Fitness club</a></h6>
-                        <div class="thumbnail-mary-location">Pool pavilion Renovation</div>
-                    </div>
-                    </div>
-                </article>
-            </div>
-            <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
-                <!-- Thumbnail Mary 3 -->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInDown"><a class="thumbnail-mary-figure" href="static/images/lokale/preview-2.png" data-lightgallery="item"><img src="static/images/lokale/preview-3.png" alt="" width="311" height="289"/></a>
-                    <div class="thumbnail-mary-caption">
-                    <div>
-                        <h6 class="thumbnail-mary-title"><a href="project-page.html">National library</a></h6>
-                        <div class="thumbnail-mary-location">Commercial cabinetry</div>
-                    </div>
-                    </div>
-                </article>
-            </div>
-            <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
-                <!-- Thumbnail Mary 4 -->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInDown"><a class="thumbnail-mary-figure" href="static/images/lokale/preview-2.png" data-lightgallery="item"><img src="static/images/lokale/preview-3.png" alt="" width="311" height="289"/></a>
+                <!-- Thumbnail Mary A2 -->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-big block-3 wow slideInRight">
+                    <a 
+                        {% if lokale_dict.A2.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.A2.href}}" title="{{lokale_dict.A2.name}}"
+                        {% else %}
+                            class="thumbnail-mary-figure disabled"
+                        {% endif %}
+                    >
+                        <img 
+                            src="static/images/lokale/preview-{{lokale_dict.A2.id_lokalu}}-{{lokale_dict.A2.status_lokalu}}.png" 
+                            alt="{{lokale_dict.A2.status_lokalu}}" 
+                            width="631" height="587"/>
+                    </a>
                     <div class="thumbnail-mary-caption">
                         <div>
-                        <h6 class="thumbnail-mary-title"><a href="project-page.html">National library</a></h6>
-                        <div class="thumbnail-mary-location">Commercial cabinetry</div>
+                            <h6 class="thumbnail-mary-title">
+                                <a 
+                                    {% if lokale_dict.A2.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.A2.href}}" title="{{lokale_dict.A2.name}}"
+                                    {% else %}
+                                        class="disabled"
+                                    {% endif %}
+                                >{{lokale_dict.A2.name}}</a>
+                            </h6>
+                            {% if lokale_dict.A2.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.A2.cena_wyjsciowa}} PLN</div>
+                            {% else %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.A2.status_lokalu}}</div>
+                            {% endif %}
                         </div>
                     </div>
                 </article>
             </div>
             <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
-                <!-- Thumbnail Mary 5 -->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInLeft"><a class="thumbnail-mary-figure" href="static/images/lokale/preview-5.png" data-lightgallery="item"><img src="static/images/lokale/preview-5.png" alt="" width="311" height="585"/></a>
+                <!-- Thumbnail Mary A3 -->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInDown">
+                    <a 
+                        {% if lokale_dict.A3.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.A3.href}}" title="{{lokale_dict.A3.name}}"
+                        {% else %}
+                            class="thumbnail-mary-figure disabled"
+                        {% endif %}
+                    >
+                        <img 
+                            src="static/images/lokale/preview-{{lokale_dict.A3.id_lokalu}}-{{lokale_dict.A3.status_lokalu}}.png" 
+                            alt="{{lokale_dict.A3.status_lokalu}}" 
+                            width="311" height="289"/>
+                    </a>
                     <div class="thumbnail-mary-caption">
                         <div>
-                        <h6 class="thumbnail-mary-title"><a href="project-page.html">LA toy store</a></h6>
-                        <div class="thumbnail-mary-location">Custom woodwork</div>
+                            <h6 class="thumbnail-mary-title">
+                                <a 
+                                    {% if lokale_dict.A3.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.A3.href}}" title="{{lokale_dict.A3.name}}"
+                                    {% else %}
+                                        class="disabled"
+                                    {% endif %}
+                                >{{lokale_dict.A3.name}}</a>
+                            </h6>
+                            {% if lokale_dict.A3.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.A3.cena_wyjsciowa}} PLN</div>
+                            {% else %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.A3.status_lokalu}}</div>
+                            {% endif %}
                         </div>
                     </div>
                 </article>
+
+            </div>
+            <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
+                <!-- Thumbnail Mary B2 -->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInDown">
+                    <a 
+                        {% if lokale_dict.B2.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.B2.href}}" title="{{lokale_dict.B2.name}}"
+                        {% else %}
+                            class="thumbnail-mary-figure disabled"
+                        {% endif %}
+                    >
+                        <img 
+                            src="static/images/lokale/preview-{{lokale_dict.B2.id_lokalu}}-{{lokale_dict.B2.status_lokalu}}.png" 
+                            alt="{{lokale_dict.B2.status_lokalu}}" 
+                            width="311" height="289"/>
+                    </a>
+                    <div class="thumbnail-mary-caption">
+                        <div>
+                            <h6 class="thumbnail-mary-title">
+                                <a 
+                                    {% if lokale_dict.B2.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.B2.href}}" title="{{lokale_dict.B2.name}}"
+                                    {% else %}
+                                        class="disabled"
+                                    {% endif %}
+                                >{{lokale_dict.B2.name}}</a>
+                            </h6>
+                            {% if lokale_dict.B2.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.B2.cena_wyjsciowa}} PLN</div>
+                            {% else %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.B2.status_lokalu}}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+            <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
+                <!-- Thumbnail Mary A4 -->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInLeft">
+                    <a 
+                        {% if lokale_dict.A4.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.A4.href}}" title="{{lokale_dict.A4.name}}"
+                        {% else %}
+                            class="thumbnail-mary-figure disabled"
+                        {% endif %}
+                    >
+                        <img 
+                            src="static/images/lokale/preview-{{lokale_dict.A4.id_lokalu}}-{{lokale_dict.A4.status_lokalu}}.png" 
+                            alt="{{lokale_dict.A4.status_lokalu}}" 
+                            width="311" height="585"/>
+                    </a>
+                    <div class="thumbnail-mary-caption">
+                        <div>
+                            <h6 class="thumbnail-mary-title">
+                                <a 
+                                    {% if lokale_dict.A4.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.A4.href}}" title="{{lokale_dict.A4.name}}"
+                                    {% else %}
+                                        class="disabled"
+                                    {% endif %}
+                                >{{lokale_dict.A4.name}}</a>
+                            </h6>
+                            {% if lokale_dict.A4.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.A4.cena_wyjsciowa}} PLN</div>
+                            {% else %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.A4.status_lokalu}}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+
             </div>
             <div class="col-sm-8 col-xl-4 isotope-item oh-desktop">
-                <!-- Thumbnail Mary 6 -->
-                <article class="thumbnail thumbnail-mary block-3 wow slideInUp"><a class="thumbnail-mary-figure" href="static/images/lokale/preview-6.png" data-lightgallery="item"><img src="static/images/lokale/preview-6.png" alt="" width="631" height="289"/></a>
+                <!-- Thumbnail Mary B1 -->
+                <article class="thumbnail thumbnail-mary block-3 wow slideInUp">
+                    <a 
+                        {% if lokale_dict.B1.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.B1.href}}" title="{{lokale_dict.B1.name}}"
+                        {% else %}
+                            class="thumbnail-mary-figure disabled"
+                        {% endif %}
+                    >
+                        <img 
+                            src="static/images/lokale/preview-{{lokale_dict.B1.id_lokalu}}-{{lokale_dict.B1.status_lokalu}}.png" 
+                            alt="{{lokale_dict.B1.status_lokalu}}" 
+                            width="631" height="289"/>
+                    </a>
                     <div class="thumbnail-mary-caption">
                         <div>
-                            <h6 class="thumbnail-mary-title"><a href="project-page.html">Private kindergarten</a></h6>
-                            <div class="thumbnail-mary-location">Furniture construction</div>
+                            <h6 class="thumbnail-mary-title">
+                                <a 
+                                    {% if lokale_dict.B1.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.B1.href}}" title="{{lokale_dict.B1.name}}"
+                                    {% else %}
+                                        class="disabled"
+                                    {% endif %}
+                                >{{lokale_dict.B1.name}}</a>
+                            </h6>
+                            {% if lokale_dict.B1.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.B1.cena_wyjsciowa}} PLN</div>
+                            {% else %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.B1.status_lokalu}}</div>
+                            {% endif %}
                         </div>
                     </div>
                 </article>
+
             </div>
             <div class="col-sm-8 col-xl-4 isotope-item oh-desktop">
-                <!-- Thumbnail Mary 7 -->
-                <article class="thumbnail thumbnail-mary block-3 wow slideInUp"><a class="thumbnail-mary-figure" href="images/woodworking/project-10-1200x800-original.jpg" data-lightgallery="item"><img src="static/images/lokale/preview-6.png" alt="" width="631" height="289"/></a>
+                <!-- Thumbnail Mary C2 -->
+                <article class="thumbnail thumbnail-mary block-3 wow slideInUp">
+                    <a 
+                        {% if lokale_dict.C2.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.C2.href}}" title="{{lokale_dict.C2.name}}"
+                        {% else %}
+                            class="thumbnail-mary-figure disabled"
+                        {% endif %}
+                    >
+                        <img 
+                            src="static/images/lokale/preview-{{lokale_dict.C2.id_lokalu}}-{{lokale_dict.C2.status_lokalu}}.png" 
+                            alt="{{lokale_dict.C2.status_lokalu}}" 
+                            width="631" height="289"/>
+                    </a>
                     <div class="thumbnail-mary-caption">
                         <div>
-                            <h6 class="thumbnail-mary-title"><a href="project-page.html">Private kindergarten</a></h6>
-                            <div class="thumbnail-mary-location">Furniture construction</div>
+                            <h6 class="thumbnail-mary-title">
+                                <a 
+                                    {% if lokale_dict.C2.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.C2.href}}" title="{{lokale_dict.C2.name}}"
+                                    {% else %}
+                                        class="disabled"
+                                    {% endif %}
+                                >{{lokale_dict.C2.name}}</a>
+                            </h6>
+                            {% if lokale_dict.C2.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.C2.cena_wyjsciowa}} PLN</div>
+                            {% else %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.C2.status_lokalu}}</div>
+                            {% endif %}
                         </div>
                     </div>
                 </article>
+
             </div>
             
             <div class="col-sm-8 col-xl-4 isotope-item oh-desktop">
-                <!-- Thumbnail Mary 8 -->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-big block-3 wow slideInRight"><a class="thumbnail-mary-figure" href="images/woodworking/project-8-1200x800-original.jpg" data-lightgallery="item"><img src="static/images/lokale/preview-2.png" alt="" width="631" height="587"/></a>
+                <!-- Thumbnail Mary B3 -->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-big block-3 wow slideInRight">
+                    <a 
+                        {% if lokale_dict.B3.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.B3.href}}" title="{{lokale_dict.B3.name}}"
+                        {% else %}
+                            class="thumbnail-mary-figure disabled"
+                        {% endif %}
+                    >
+                        <img 
+                            src="static/images/lokale/preview-{{lokale_dict.B3.id_lokalu}}-{{lokale_dict.B3.status_lokalu}}.png" 
+                            alt="{{lokale_dict.B3.status_lokalu}}" 
+                            width="631" height="587"/>
+                    </a>
                     <div class="thumbnail-mary-caption">
-                    <div>
-                        <h6 class="thumbnail-mary-title"><a href="project-page.html">Seattle Fitness club</a></h6>
-                        <div class="thumbnail-mary-location">Pool pavilion Renovation</div>
-                    </div>
+                        <div>
+                            <h6 class="thumbnail-mary-title">
+                                <a 
+                                    {% if lokale_dict.B3.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.B3.href}}" title="{{lokale_dict.B3.name}}"
+                                    {% else %}
+                                        class="disabled"
+                                    {% endif %}
+                                >{{lokale_dict.B3.name}}</a>
+                            </h6>
+                            {% if lokale_dict.B3.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.B3.cena_wyjsciowa}} PLN</div>
+                            {% else %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.B3.status_lokalu}}</div>
+                            {% endif %}
+                        </div>
                     </div>
                 </article>
+
             </div>
             <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
-                <!-- Thumbnail Mary 9 -->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInLeft"><a class="thumbnail-mary-figure" href="images/woodworking/project-4-1200x800-original.jpg" data-lightgallery="item"><img src="static/images/lokale/preview-5.png" alt="" width="311" height="585"/></a>
+                <!-- Thumbnail Mary B4 -->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInLeft">
+                    <a 
+                        {% if lokale_dict.B4.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.B4.href}}" title="{{lokale_dict.B4.name}}"
+                        {% else %}
+                            class="thumbnail-mary-figure disabled"
+                        {% endif %}
+                    >
+                        <img 
+                            src="static/images/lokale/preview-{{lokale_dict.B4.id_lokalu}}-{{lokale_dict.B4.status_lokalu}}.png" 
+                            alt="{{lokale_dict.B4.status_lokalu}}" 
+                            width="311" height="585"/>
+                    </a>
                     <div class="thumbnail-mary-caption">
-                    <div>
-                        <h6 class="thumbnail-mary-title"><a href="project-page.html">LA toy store</a></h6>
-                        <div class="thumbnail-mary-location">Custom woodwork</div>
-                    </div>
+                        <div>
+                            <h6 class="thumbnail-mary-title">
+                                <a 
+                                    {% if lokale_dict.B4.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.B4.href}}" title="{{lokale_dict.B4.name}}"
+                                    {% else %}
+                                        class="disabled"
+                                    {% endif %}
+                                >{{lokale_dict.B4.name}}</a>
+                            </h6>
+                            {% if lokale_dict.B4.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.B4.cena_wyjsciowa}} PLN</div>
+                            {% else %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.B4.status_lokalu}}</div>
+                            {% endif %}
+                        </div>
                     </div>
                 </article>
+
             </div>
             <div class="col-sm-8 col-xl-4 isotope-item oh-desktop">
-                <!-- Thumbnail Mary 10 -->
-                <article class="thumbnail thumbnail-mary block-3 wow slideInUp"><a class="thumbnail-mary-figure" href="images/woodworking/project-10-1200x800-original.jpg" data-lightgallery="item"><img src="static/images/lokale/preview-6.png" alt="" width="631" height="289"/></a>
+                <!-- Thumbnail Mary C1 -->
+                <article class="thumbnail thumbnail-mary block-3 wow slideInUp">
+                    <a 
+                        {% if lokale_dict.C1.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.C1.href}}" title="{{lokale_dict.C1.name}}"
+                        {% else %}
+                            class="thumbnail-mary-figure disabled"
+                        {% endif %}
+                    >
+                        <img 
+                            src="static/images/lokale/preview-{{lokale_dict.C1.id_lokalu}}-{{lokale_dict.C1.status_lokalu}}.png" 
+                            alt="{{lokale_dict.C1.status_lokalu}}" 
+                            width="631" height="289"/>
+                    </a>
                     <div class="thumbnail-mary-caption">
                         <div>
-                            <h6 class="thumbnail-mary-title"><a href="project-page.html">Private kindergarten</a></h6>
-                            <div class="thumbnail-mary-location">Furniture construction</div>
+                            <h6 class="thumbnail-mary-title">
+                                <a 
+                                    {% if lokale_dict.C1.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.C1.href}}" title="{{lokale_dict.C1.name}}"
+                                    {% else %}
+                                        class="disabled"
+                                    {% endif %}
+                                >{{lokale_dict.C1.name}}</a>
+                            </h6>
+                            {% if lokale_dict.C1.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.C1.cena_wyjsciowa}} PLN</div>
+                            {% else %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.C1.status_lokalu}}</div>
+                            {% endif %}
                         </div>
                     </div>
                 </article>
+
             </div>
             <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
-                <!-- Thumbnail Mary 11-->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInRight"><a class="thumbnail-mary-figure" href="static/images/lokale/preview-6.png" data-lightgallery="item"><img src="static/images/lokale/preview-3.png" alt="" width="311" height="289"/></a>
+                <!-- Thumbnail Mary D1 -->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInRight">
+                    <a 
+                        {% if lokale_dict.D1.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.D1.href}}" title="{{lokale_dict.D1.name}}"
+                        {% else %}
+                            class="thumbnail-mary-figure disabled"
+                        {% endif %}
+                    >
+                        <img 
+                            src="static/images/lokale/preview-{{lokale_dict.D1.id_lokalu}}-{{lokale_dict.D1.status_lokalu}}.png" 
+                            alt="{{lokale_dict.D1.status_lokalu}}" 
+                            width="311" height="289"/>
+                    </a>
                     <div class="thumbnail-mary-caption">
                         <div>
-                            <h6 class="thumbnail-mary-title"><a href="project-page.html">Pace hotel</a></h6>
-                            <div class="thumbnail-mary-location">Room design</div>
+                            <h6 class="thumbnail-mary-title">
+                                <a 
+                                    {% if lokale_dict.D1.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.D1.href}}" title="{{lokale_dict.D1.name}}"
+                                    {% else %}
+                                        class="disabled"
+                                    {% endif %}
+                                >{{lokale_dict.D1.name}}</a>
+                            </h6>
+                            {% if lokale_dict.D1.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.D1.cena_wyjsciowa}} PLN</div>
+                            {% else %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.D1.status_lokalu}}</div>
+                            {% endif %}
                         </div>
                     </div>
                 </article>
+
             </div>
             <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
-                <!-- Thumbnail Mary 12-->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInRight"><a class="thumbnail-mary-figure" href="static/images/lokale/preview-6.png" data-lightgallery="item"><img src="static/images/lokale/preview-3.png" alt="" width="311" height="289"/></a>
+                <!-- Thumbnail Mary D2 -->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInRight">
+                    <a 
+                        {% if lokale_dict.D2.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.D2.href}}" title="{{lokale_dict.D2.name}}"
+                        {% else %}
+                            class="thumbnail-mary-figure disabled"
+                        {% endif %}
+                    >
+                        <img 
+                            src="static/images/lokale/preview-{{lokale_dict.D2.id_lokalu}}-{{lokale_dict.D2.status_lokalu}}.png" 
+                            alt="{{lokale_dict.D2.status_lokalu}}" 
+                            width="311" height="289"/>
+                    </a>
                     <div class="thumbnail-mary-caption">
                         <div>
-                            <h6 class="thumbnail-mary-title"><a href="project-page.html">Pace hotel</a></h6>
-                            <div class="thumbnail-mary-location">Room design</div>
+                            <h6 class="thumbnail-mary-title">
+                                <a 
+                                    {% if lokale_dict.D2.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.D2.href}}" title="{{lokale_dict.D2.name}}"
+                                    {% else %}
+                                        class="disabled"
+                                    {% endif %}
+                                >{{lokale_dict.D2.name}}</a>
+                            </h6>
+                            {% if lokale_dict.D2.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.D2.cena_wyjsciowa}} PLN</div>
+                            {% else %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.D2.status_lokalu}}</div>
+                            {% endif %}
                         </div>
                     </div>
                 </article>
+
             </div>
         </div>
     </div>
