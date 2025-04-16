@@ -35,12 +35,18 @@
         <div class="row row-10 gutters-10 isotope" data-lightgallery="group">
             <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
                 <!-- Thumbnail Mary 1 -->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInLeft"><a class="thumbnail-mary-figure" href="static/images/lokale/preview-1.png" data-lightgallery="item"><img src="static/images/lokale/preview-1.png" alt="" width="311" height="585"/></a>
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInLeft">
+                    <!-- data-lightgallery="item" -->
+                    <a class="thumbnail-mary-figure" href="static/images/lokale/preview-1.png" disabled>
+                        <img src="static/images/lokale/preview-1.png" alt="" width="311" height="585"/>
+                    </a>
                     <div class="thumbnail-mary-caption">
-                    <div>
-                        <h6 class="thumbnail-mary-title"><a href="{{lokale_dict.A1.href}}">{{lokale_dict.A1.name}}</a></h6>
-                        <div class="thumbnail-mary-location">{{lokale_dict.A1.id_lokalu}}</div>
-                    </div>
+                        <div>
+                            <h6 class="thumbnail-mary-title">
+                                <a href="{{lokale_dict.A1.href}}">{{lokale_dict.A1.title}}</a>
+                            </h6>
+                            <div class="thumbnail-mary-location">{{lokale_dict.A1.status_lokalu}}</div>
+                        </div>
                     </div>
                 </article>
             </div>

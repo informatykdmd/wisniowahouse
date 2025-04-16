@@ -318,11 +318,12 @@ def lokale():
             href = f"/lokale/{id_lokalu}"
             name = f"Lokal {id_lokalu}"
             id_direct = ap.get('id')
+            title = ap.get('nazwa')
 
             if id_lokalu not in lokale_dict:
                 lokale_dict[id_lokalu] = {
                     "href": href,
-                    "name": name,
+                    "title": title,
                     "id_direct": id_direct,
                     "id_lokalu": id_lokalu
                 }
