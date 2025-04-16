@@ -32,21 +32,40 @@
 <section class="section section-sm section-last bg-default">
     <div class="container-fluid container-inset-0 isotope-wrap">
         <h3 class="wow fadeInRight">Zapoznaj się z naszą ofertą lokali</h3>
-        {{lokale_dict.A1}}
+
         <div class="row row-10 gutters-10 isotope" data-lightgallery="group">
             <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
-                <!-- Thumbnail Mary 1 -->
+                <!-- Thumbnail Mary A1 -->
                 <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInLeft">
                     <!-- data-lightgallery="item" -->
-                    <a class="thumbnail-mary-figure" href="{{lokale_dict.A1.href}}" disabled>
-                        <img src="static/images/lokale/preview-1.png" alt="" width="311" height="585"/>
+                    <a 
+                        {% if lokale_dict.A1.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.A1.href}}" title="{{lokale_dict.A1.name}}"
+                        {% else %}
+                            disabled
+                        {% endif %}
+                         >
+                        <img 
+                            src="static/images/lokale/preview-{{lokale_dict.A1.id_lokalu}}-{{lokale_dict.A1.status_lokalu}}.png" 
+                            alt="{{lokale_dict.A1.status_lokalu}}" width="311" height="585"/>
                     </a>
                     <div class="thumbnail-mary-caption">
                         <div>
                             <h6 class="thumbnail-mary-title">
-                                <a href="{{lokale_dict.A1.href}}">{{lokale_dict.A1.name}} </a>
+                                <a 
+                                {% if lokale_dict.A1.status_lokalu == "dostepny" %}
+                                    href="{{lokale_dict.A1.href}}"
+                                    title="{{lokale_dict.A1.name}}"
+                                {% else %}
+                                    disabled
+                                {% endif %}
+                                    >{{lokale_dict.A1.name}} </a>
                             </h6>
-                            <div class="thumbnail-mary-location">{{lokale_dict.A1.status_lokalu}}</div>
+                            {% if lokale_dict.A1.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.A1.cena_wyjsciowa}} PLN</div>
+                            {% else %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.A1.status_lokalu}}</div>
+                            {% endif %}
                         </div>
                     </div>
                 </article>
