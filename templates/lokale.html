@@ -286,42 +286,44 @@
 
             </div>
             
-            <div class="col-sm-8 col-xl-4 isotope-item oh-desktop">
-                <!-- Thumbnail Mary B3 -->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-big block-3 wow slideInRight">
+
+            <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
+                <!-- Thumbnail Mary D1 -->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInRight">
                     <a 
-                        {% if lokale_dict.B3.status_lokalu == "dostepny" %}
-                            class="thumbnail-mary-figure" href="{{lokale_dict.B3.href}}" title="{{lokale_dict.B3.name}}"
+                        {% if lokale_dict.D1.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.D1.href}}" title="{{lokale_dict.D1.name}}"
                         {% else %}
                             class="thumbnail-mary-figure disabled"
                         {% endif %}
                     >
                         <img 
-                            src="static/images/lokale/preview-{{lokale_dict.B3.id_lokalu}}-{{lokale_dict.B3.status_lokalu}}.png" 
-                            alt="{{lokale_dict.B3.status_lokalu}}" 
-                            width="631" height="587"/>
+                            src="static/images/lokale/preview-{{lokale_dict.D1.id_lokalu}}-{{lokale_dict.D1.status_lokalu}}.png" 
+                            alt="{{lokale_dict.D1.status_lokalu}}" 
+                            width="311" height="289"/>
                     </a>
                     <div class="thumbnail-mary-caption">
                         <div>
                             <h6 class="thumbnail-mary-title">
                                 <a 
-                                    {% if lokale_dict.B3.status_lokalu == "dostepny" %}
-                                        href="{{lokale_dict.B3.href}}" title="{{lokale_dict.B3.name}}"
+                                    {% if lokale_dict.D1.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.D1.href}}" title="{{lokale_dict.D1.name}}"
                                     {% else %}
                                         class="disabled"
                                     {% endif %}
-                                >{{lokale_dict.B3.name}}</a>
+                                >{{lokale_dict.D1.name}}</a>
                             </h6>
-                            {% if lokale_dict.B3.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.B3.cena_wyjsciowa}} PLN</div>
+                            {% if lokale_dict.D1.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.D1.cena_wyjsciowa}} PLN</div>
                             {% else %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.B3.status_lokalu}}</div>
+                                <div class="thumbnail-mary-location">{{lokale_dict.D1.status_lokalu}}</div>
                             {% endif %}
                         </div>
                     </div>
                 </article>
 
             </div>
+            
             <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
                 <!-- Thumbnail Mary B4 -->
                 <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInLeft">
@@ -394,42 +396,46 @@
                 </article>
 
             </div>
-            <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
-                <!-- Thumbnail Mary D1 -->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInRight">
+            
+            <div class="col-sm-8 col-xl-4 isotope-item oh-desktop">
+                <!-- Thumbnail Mary B3 -->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-big block-3 wow slideInRight">
                     <a 
-                        {% if lokale_dict.D1.status_lokalu == "dostepny" %}
-                            class="thumbnail-mary-figure" href="{{lokale_dict.D1.href}}" title="{{lokale_dict.D1.name}}"
+                        {% if lokale_dict.B3.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.B3.href}}" title="{{lokale_dict.B3.name}}"
                         {% else %}
                             class="thumbnail-mary-figure disabled"
                         {% endif %}
                     >
                         <img 
-                            src="static/images/lokale/preview-{{lokale_dict.D1.id_lokalu}}-{{lokale_dict.D1.status_lokalu}}.png" 
-                            alt="{{lokale_dict.D1.status_lokalu}}" 
-                            width="311" height="289"/>
+                            src="static/images/lokale/preview-{{lokale_dict.B3.id_lokalu}}-{{lokale_dict.B3.status_lokalu}}.png" 
+                            alt="{{lokale_dict.B3.status_lokalu}}" 
+                            width="631" height="587"/>
                     </a>
                     <div class="thumbnail-mary-caption">
                         <div>
                             <h6 class="thumbnail-mary-title">
                                 <a 
-                                    {% if lokale_dict.D1.status_lokalu == "dostepny" %}
-                                        href="{{lokale_dict.D1.href}}" title="{{lokale_dict.D1.name}}"
+                                    {% if lokale_dict.B3.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.B3.href}}" title="{{lokale_dict.B3.name}}"
                                     {% else %}
                                         class="disabled"
                                     {% endif %}
-                                >{{lokale_dict.D1.name}}</a>
+                                >{{lokale_dict.B3.name}}</a>
                             </h6>
-                            {% if lokale_dict.D1.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.D1.cena_wyjsciowa}} PLN</div>
+                            {% if lokale_dict.B3.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.B3.cena_wyjsciowa}} PLN</div>
                             {% else %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.D1.status_lokalu}}</div>
+                                <div class="thumbnail-mary-location">{{lokale_dict.B3.status_lokalu}}</div>
                             {% endif %}
                         </div>
                     </div>
                 </article>
 
             </div>
+
+
+
             <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
                 <!-- Thumbnail Mary D2 -->
                 <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInRight">
