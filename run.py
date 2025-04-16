@@ -305,6 +305,20 @@ def lokale():
         FROM Lokale_wisniowa;
     """
     all_data = db.getFrom(query_lokale, as_dict=True)
+    nest_dict_name = {
+        "A1": "Garden",
+        "A2": "Garden",
+        "A3": "Garden",
+        "A4": "Garden",
+        "B1": "Garden",
+        "B2": "Garden",
+        "B3": "Garden",
+        "B4": "Garden",
+        "C1": "Garden",
+        "C2": "Garden",
+        "D1": "Garden",
+        "D2": "Garden"
+    }
 
     lokale_dict = {}
 
@@ -312,14 +326,19 @@ def lokale():
         id_lokalu = ap.get('id_lokalu', '').strip()
         if not id_lokalu:
             continue
+        
 
         building = id_lokalu[0].capitalize()
         if building:
             href = f"/lokale/{id_lokalu}"
-            name = f"Lokal {id_lokalu}"
             id_direct = ap.get('id')
-            title = ap.get('nazwa')
             status_lokalu = ap.get('status_lokalu')
+            cena_wyjsciowa = ap.get('cena_wyjsciowa')
+            powierzchnia_uzytkowa_m2 = ap.get('powierzchnia_uzytkowa_m2')
+            title = ap.get('nazwa')
+            kind_nest = nest_dict_name.get(id_lokalu, '')
+
+            name = f"Nest {kind_nest} {id_lokalu} {powierzchnia_uzytkowa_m2} m²"
 
             if id_lokalu not in lokale_dict:
                 lokale_dict[id_lokalu] = {
@@ -328,7 +347,9 @@ def lokale():
                     "name": name,
                     "id_direct": id_direct,
                     "id_lokalu": id_lokalu,
-                    "status_lokalu": status_lokalu
+                    "status_lokalu": status_lokalu,
+                    "cena_wyjsciowa": cena_wyjsciowa,
+                    "powierzchnia_uzytkowa_m2": powierzchnia_uzytkowa_m2
                 }
 
     return render_template(
