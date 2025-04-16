@@ -306,7 +306,6 @@ def lokale():
     """
     all_data = db.getFrom(query_lokale, as_object=True)
 
-    lokale_list = []
     lokale_dict = {}
 
     for ap in all_data:
@@ -320,12 +319,13 @@ def lokale():
             name = f"Lokal {id_lokalu}"
             id_direct = ap.get('id')
 
-            lokale_dict.setdefault(id_lokalu, {}) = {
-                "href": href,
-                "name": name,
-                "id_direct": id_direct,
-                "id_lokalu": id_lokalu
-            }
+            if id_lokalu not in lokale_dict:
+                lokale_dict[id_lokalu] = {
+                    "href": href,
+                    "name": name,
+                    "id_direct": id_direct,
+                    "id_lokalu": id_lokalu
+                }
 
     return render_template(
         'lokale.html',
