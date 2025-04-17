@@ -323,6 +323,43 @@
                 </article>
 
             </div>
+
+            <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
+                <!-- Thumbnail Mary D2 -->
+                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInRight">
+                    <a 
+                        {% if lokale_dict.D2.status_lokalu == "dostepny" %}
+                            class="thumbnail-mary-figure" href="{{lokale_dict.D2.href}}" title="{{lokale_dict.D2.name}}"
+                        {% else %}
+                            class="thumbnail-mary-figure disabled"
+                        {% endif %}
+                    >
+                        <img 
+                            src="static/images/lokale/preview-{{lokale_dict.D2.id_lokalu}}-{{lokale_dict.D2.status_lokalu}}.png" 
+                            alt="{{lokale_dict.D2.status_lokalu}}" 
+                            width="311" height="289"/>
+                    </a>
+                    <div class="thumbnail-mary-caption">
+                        <div>
+                            <h6 class="thumbnail-mary-title">
+                                <a 
+                                    {% if lokale_dict.D2.status_lokalu == "dostepny" %}
+                                        href="{{lokale_dict.D2.href}}" title="{{lokale_dict.D2.name}}"
+                                    {% else %}
+                                        class="disabled"
+                                    {% endif %}
+                                >{{lokale_dict.D2.name}}</a>
+                            </h6>
+                            {% if lokale_dict.D2.status_lokalu == "dostepny" %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.D2.cena_wyjsciowa}} PLN</div>
+                            {% else %}
+                                <div class="thumbnail-mary-location">{{lokale_dict.D2.status_lokalu}}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </article>
+
+            </div>
             
             <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
                 <!-- Thumbnail Mary B4 -->
@@ -436,42 +473,7 @@
 
 
 
-            <div class="col-sm-4 col-xl-2 isotope-item oh-desktop">
-                <!-- Thumbnail Mary D2 -->
-                <article class="thumbnail thumbnail-mary thumbnail-mary-2 block-3 wow slideInRight">
-                    <a 
-                        {% if lokale_dict.D2.status_lokalu == "dostepny" %}
-                            class="thumbnail-mary-figure" href="{{lokale_dict.D2.href}}" title="{{lokale_dict.D2.name}}"
-                        {% else %}
-                            class="thumbnail-mary-figure disabled"
-                        {% endif %}
-                    >
-                        <img 
-                            src="static/images/lokale/preview-{{lokale_dict.D2.id_lokalu}}-{{lokale_dict.D2.status_lokalu}}.png" 
-                            alt="{{lokale_dict.D2.status_lokalu}}" 
-                            width="311" height="289"/>
-                    </a>
-                    <div class="thumbnail-mary-caption">
-                        <div>
-                            <h6 class="thumbnail-mary-title">
-                                <a 
-                                    {% if lokale_dict.D2.status_lokalu == "dostepny" %}
-                                        href="{{lokale_dict.D2.href}}" title="{{lokale_dict.D2.name}}"
-                                    {% else %}
-                                        class="disabled"
-                                    {% endif %}
-                                >{{lokale_dict.D2.name}}</a>
-                            </h6>
-                            {% if lokale_dict.D2.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.D2.cena_wyjsciowa}} PLN</div>
-                            {% else %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.D2.status_lokalu}}</div>
-                            {% endif %}
-                        </div>
-                    </div>
-                </article>
-
-            </div>
+            
         </div>
     </div>
 </section>
