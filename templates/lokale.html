@@ -42,7 +42,7 @@
                         {% if lokale_dict.A1.status_lokalu == "dostepny" %}
                             class="thumbnail-mary-figure" href="{{lokale_dict.A1.href}}" title="{{lokale_dict.A1.name}}"
                         {% else %}
-                            disabled
+                            class="thumbnail-mary-figure disabled"
                         {% endif %}
                          >
                         <img 
@@ -57,7 +57,7 @@
                                     href="{{lokale_dict.A1.href}}"
                                     title="{{lokale_dict.A1.name}}"
                                 {% else %}
-                                    disabled
+                                    class="disabled"
                                 {% endif %}
                                     >{{lokale_dict.A1.name}} </a>
                             </h6>
