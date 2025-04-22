@@ -217,6 +217,26 @@ def inject_shared_variable():
     available_premises = {}
     sales_status = {"sold": 0, "reserved": 0, "left": 0}
 
+    nest_dict_name = {
+        # Skrajne czworaki – największe ogrody
+        "A1": "Nest Garden",
+        "A4": "Nest Garden",
+        "B1": "Nest Garden",
+        "B4": "Nest Garden",
+
+        # Bliźniaki – średnie ogrody, dobra prywatność
+        "C1": "East Nest ",
+        "C2": "East Nest ",
+        "D1": "East Nest ",
+        "D2": "East Nest ",
+
+        # Środkowe czworaki – najmniejsze ogrody
+        "A2": "Nest Compact",
+        "A3": "Nest Compact",
+        "B2": "Nest Compact",
+        "B3": "Nest Compact"
+    }
+
     for ap in all_data:
         id_lokalu = ap.get('id_lokalu', '').strip()
         if not id_lokalu:
@@ -225,7 +245,10 @@ def inject_shared_variable():
         building = id_lokalu[0].capitalize()
         if ap.get("status_lokalu") == "dostepny" and building:
             href = f"/lokale/{id_lokalu}"
-            name = f"Lokal {id_lokalu}"
+
+            kind_nest = nest_dict_name.get(id_lokalu, '')
+            name = f"{kind_nest} {id_lokalu}"
+
             id_direct = ap.get('id')
 
             building_key = f"Budynek {building}"
