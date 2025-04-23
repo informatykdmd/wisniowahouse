@@ -448,22 +448,12 @@ def get_lokale():
 # Wizualizacje
 @app.route('/wizualizacje')
 def wizualizacje():
-    category = request.args.get('cat')  # Pobierz parametr 'cat' z URL-a
-    if category:
-        session['page'] = f'wizualizacje_{category}'
-        pageTitle = f'Wizualizacje - {category.capitalize()}'
-        return render_template(
-            'wizualizacje_category.html',
-            pageTitle=pageTitle,
-            category=category
-        )
-    else:
-        session['page'] = 'wizualizacje'
-        pageTitle = 'Wizualizacje'
-        return render_template(
-            'wizualizacje.html',
-            pageTitle=pageTitle
-        )
+    session['page'] = 'wizualizacje'
+    pageTitle = 'Wizualizacje'
+    return render_template(
+        'wizualizacje.html',
+        pageTitle=pageTitle
+    )
 
 # Lokalizacja
 @app.route('/lokalizacja')
