@@ -447,8 +447,8 @@ def get_lokale():
     result = db.getFrom(query_lokale, as_dict=True)
     for lok in result:
         if "id_lokalu" in lok:
-            kind_nest = nest_dict_name.get(id_lokalu, '')
             id_lokalu = lok["id_lokalu"]
+            kind_nest = nest_dict_name.get(id_lokalu, '')
             name = f"{kind_nest} {id_lokalu} "
             lok["name"] = name
 
