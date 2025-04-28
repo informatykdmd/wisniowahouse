@@ -211,31 +211,33 @@ def generator_wisniowa_lokale():
 
     return all_lokale
 
+nest_dict_name = {
+    # Skrajne czworaki – największe ogrody
+    "A1": "Nest Garden",
+    "A4": "Nest Garden",
+    "B1": "Nest Garden",
+    "B4": "Nest Garden",
+
+    # Bliźniaki – średnie ogrody, dobra prywatność
+    "C1": "East Nest ",
+    "C2": "East Nest ",
+    "D1": "East Nest ",
+    "D2": "East Nest ",
+
+    # Środkowe czworaki – najmniejsze ogrody
+    "A2": "Nest Compact",
+    "A3": "Nest Compact",
+    "B2": "Nest Compact",
+    "B3": "Nest Compact"
+}
+
 @app.context_processor
 def inject_shared_variable():
     all_data = generator_wisniowa_lokale()
     available_premises = {}
     sales_status = {"sold": 0, "reserved": 0, "left": 0}
 
-    nest_dict_name = {
-        # Skrajne czworaki – największe ogrody
-        "A1": "Nest Garden",
-        "A4": "Nest Garden",
-        "B1": "Nest Garden",
-        "B4": "Nest Garden",
-
-        # Bliźniaki – średnie ogrody, dobra prywatność
-        "C1": "East Nest ",
-        "C2": "East Nest ",
-        "D1": "East Nest ",
-        "D2": "East Nest ",
-
-        # Środkowe czworaki – najmniejsze ogrody
-        "A2": "Nest Compact",
-        "A3": "Nest Compact",
-        "B2": "Nest Compact",
-        "B3": "Nest Compact"
-    }
+    
 
     for ap in all_data:
         id_lokalu = ap.get('id_lokalu', '').strip()
@@ -328,25 +330,25 @@ def lokale():
         FROM Lokale_wisniowa;
     """
     all_data = db.getFrom(query_lokale, as_dict=True)
-    nest_dict_name = {
-        # Skrajne czworaki – największe ogrody
-        "A1": "Nest Garden",
-        "A4": "Nest Garden",
-        "B1": "Nest Garden",
-        "B4": "Nest Garden",
+    # nest_dict_name = {
+    #     # Skrajne czworaki – największe ogrody
+    #     "A1": "Nest Garden",
+    #     "A4": "Nest Garden",
+    #     "B1": "Nest Garden",
+    #     "B4": "Nest Garden",
 
-        # Bliźniaki – średnie ogrody, dobra prywatność
-        "C1": "East Nest ",
-        "C2": "East Nest ",
-        "D1": "East Nest ",
-        "D2": "East Nest ",
+    #     # Bliźniaki – średnie ogrody, dobra prywatność
+    #     "C1": "East Nest ",
+    #     "C2": "East Nest ",
+    #     "D1": "East Nest ",
+    #     "D2": "East Nest ",
 
-        # Środkowe czworaki – najmniejsze ogrody
-        "A2": "Nest Compact",
-        "A3": "Nest Compact",
-        "B2": "Nest Compact",
-        "B3": "Nest Compact"
-    }
+    #     # Środkowe czworaki – najmniejsze ogrody
+    #     "A2": "Nest Compact",
+    #     "A3": "Nest Compact",
+    #     "B2": "Nest Compact",
+    #     "B3": "Nest Compact"
+    # }
 
     lokale_dict = {}
 
@@ -443,6 +445,13 @@ def get_lokale():
         FROM Lokale_wisniowa;
     """
     result = db.getFrom(query_lokale, as_dict=True)
+    for lok in result:
+        if "id_lokalu" in lok:
+            kind_nest = nest_dict_name.get(id_lokalu, '')
+            id_lokalu = lok["id_lokalu"]
+            name = f"{kind_nest} {id_lokalu} "
+            lok["name"] = name
+
     return jsonify(result)
 
 # Wizualizacje
