@@ -439,7 +439,10 @@
                   Każda nieruchomość posiada wyznaczoną przestrzeń rekreacyjną, miejsca postojowe oraz funkcjonalne ciągi piesze i kołowe. Plan osiedla harmonijnie łączy nowoczesną architekturę z otaczającą przyrodą, tworząc przyjazne miejsce do życia dla rodzin ceniących spokój i kontakt z naturą.
               </p>
               
-              <a class="button button-lg button-primary button-winona" href="#" target="_blank">Pobierz plan osiedla w PDF</a>
+              <a
+              download="plan-osiedla-wisniowahouse.pdf"
+              href="{{ url_for('download_file', filename='plan-osiedla-wisniowahouse.pdf') }}"
+              class="button button-lg button-primary button-winona">Pobierz plan osiedla w PDF</a>
           </div>
       </div>      
       </div>
