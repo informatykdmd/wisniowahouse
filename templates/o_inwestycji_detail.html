@@ -94,7 +94,10 @@
               <a href="#tabs-4-6" data-bs-toggle="tab">Wyposażenie techniczne budynku</a>
             </li>
           </ul>
-          <a class="button button-lg button-primary button-winona" href="contacts.html">Pobierz w pdf</a>
+          <a 
+              download="standard-segmentow.pdf" 
+              href="{{ url_for('download_file', filename='standard-segmentow.pdf') }}"
+              class="button button-lg button-primary button-winona">Pobierz w pdf</a>
 
         </div>
         <div class="col-lg-8 col-xl-9">
