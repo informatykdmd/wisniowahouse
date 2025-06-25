@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 from googletrans import Translator
 import redis
 from flask_session import Session
+import logging
 
 
 app = Flask(__name__)
@@ -271,6 +272,26 @@ def inject_shared_variable():
         'available_premises': available_premises,
         "sales_status": sales_status
     }
+
+logFileName = '/home/johndoe/app/wisniowahouse/logs/access.log'  # 🔁 ZMIENIAJ dla każdej aplikacji
+
+# Konfiguracja loggera
+logging.basicConfig(filename=logFileName, level=logging.INFO,
+                    format='%(asctime)s - %(message)s', filemode='a')
+
+# Funkcja do logowania informacji o zapytaniu
+def log_request():
+    ip_address = request.remote_addr
+    date_time = datetime.now()
+    endpoint = request.endpoint or request.path  # fallback jeśli brak endpointu
+    method = request.method
+
+    logging.info(f'IP: {ip_address}, Time: {date_time}, Endpoint: {endpoint}, Method: {method}')
+
+@app.before_request
+def before_request_logging():
+    log_request()
+
 
 ############################
 ##      ######           ###
