@@ -181,7 +181,7 @@
                                     >{{lokale_dict.A1.name}} </a>
                             </h6>
                             {% if lokale_dict.A1.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.A1.cena_wyjsciowa}} PLN</div>
+                                {% if lokal_data.A1.cena_wyjsciowa %}<div class="thumbnail-mary-location">{{lokale_dict.A1.cena_wyjsciowa}} PLN</div>{% endif %}
                             {% else %}
                                 <div class="thumbnail-mary-location">{{lokale_dict.A1.status_lokalu}}</div>
                             {% endif %}
@@ -216,7 +216,7 @@
                                 >{{lokale_dict.A2.name}}</a>
                             </h6>
                             {% if lokale_dict.A2.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.A2.cena_wyjsciowa}} PLN</div>
+                                {% if lokal_data.A2.cena_wyjsciowa %}<div class="thumbnail-mary-location">{{lokale_dict.A2.cena_wyjsciowa}} PLN</div>{% endif %}
                             {% else %}
                                 <div class="thumbnail-mary-location">{{lokale_dict.A2.status_lokalu}}</div>
                             {% endif %}
@@ -251,7 +251,7 @@
                                 >{{lokale_dict.A3.name}}</a>
                             </h6>
                             {% if lokale_dict.A3.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.A3.cena_wyjsciowa}} PLN</div>
+                                {% if lokal_data.A3.cena_wyjsciowa %}<div class="thumbnail-mary-location">{{lokale_dict.A3.cena_wyjsciowa}} PLN</div>{% endif %}
                             {% else %}
                                 <div class="thumbnail-mary-location">{{lokale_dict.A3.status_lokalu}}</div>
                             {% endif %}
@@ -287,7 +287,7 @@
                                 >{{lokale_dict.B2.name}}</a>
                             </h6>
                             {% if lokale_dict.B2.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.B2.cena_wyjsciowa}} PLN</div>
+                                {% if lokal_data.B2.cena_wyjsciowa %}<div class="thumbnail-mary-location">{{lokale_dict.B2.cena_wyjsciowa}} PLN</div>{% endif %}
                             {% else %}
                                 <div class="thumbnail-mary-location">{{lokale_dict.B2.status_lokalu}}</div>
                             {% endif %}
@@ -323,7 +323,7 @@
                                 >{{lokale_dict.A4.name}}</a>
                             </h6>
                             {% if lokale_dict.A4.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.A4.cena_wyjsciowa}} PLN</div>
+                                {% if lokal_data.A4.cena_wyjsciowa %}<div class="thumbnail-mary-location">{{lokale_dict.A4.cena_wyjsciowa}} PLN</div>{% endif %}
                             {% else %}
                                 <div class="thumbnail-mary-location">{{lokale_dict.A4.status_lokalu}}</div>
                             {% endif %}
@@ -359,7 +359,7 @@
                                 >{{lokale_dict.B1.name}}</a>
                             </h6>
                             {% if lokale_dict.B1.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.B1.cena_wyjsciowa}} PLN</div>
+                                {% if lokal_data.B1.cena_wyjsciowa %}<div class="thumbnail-mary-location">{{lokale_dict.B1.cena_wyjsciowa}} PLN</div>{% endif %}
                             {% else %}
                                 <div class="thumbnail-mary-location">{{lokale_dict.B1.status_lokalu}}</div>
                             {% endif %}
@@ -395,7 +395,7 @@
                                 >{{lokale_dict.C2.name}}</a>
                             </h6>
                             {% if lokale_dict.C2.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.C2.cena_wyjsciowa}} PLN</div>
+                                {% if lokal_data.C2.cena_wyjsciowa %}<div class="thumbnail-mary-location">{{lokale_dict.C2.cena_wyjsciowa}} PLN</div>{% endif %}
                             {% else %}
                                 <div class="thumbnail-mary-location">{{lokale_dict.C2.status_lokalu}}</div>
                             {% endif %}
@@ -433,7 +433,7 @@
                                 >{{lokale_dict.D1.name}}</a>
                             </h6>
                             {% if lokale_dict.D1.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.D1.cena_wyjsciowa}} PLN</div>
+                                {% if lokal_data.D1.cena_wyjsciowa %}<div class="thumbnail-mary-location">{{lokale_dict.D1.cena_wyjsciowa}} PLN</div>{% endif %}
                             {% else %}
                                 <div class="thumbnail-mary-location">{{lokale_dict.D1.status_lokalu}}</div>
                             {% endif %}
@@ -470,7 +470,7 @@
                                 >{{lokale_dict.B3.name}}</a>
                             </h6>
                             {% if lokale_dict.B3.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.B3.cena_wyjsciowa}} PLN</div>
+                                {% if lokal_data.B3.cena_wyjsciowa %}<div class="thumbnail-mary-location">{{lokale_dict.B3.cena_wyjsciowa}} PLN</div>{% endif %}
                             {% else %}
                                 <div class="thumbnail-mary-location">{{lokale_dict.B3.status_lokalu}}</div>
                             {% endif %}
@@ -507,7 +507,7 @@
                                 >{{lokale_dict.B4.name}}</a>
                             </h6>
                             {% if lokale_dict.B4.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.B4.cena_wyjsciowa}} PLN</div>
+                                {% if lokal_data.B4.cena_wyjsciowa %}<div class="thumbnail-mary-location">{{lokale_dict.B4.cena_wyjsciowa}} PLN</div>{% endif %}
                             {% else %}
                                 <div class="thumbnail-mary-location">{{lokale_dict.B4.status_lokalu}}</div>
                             {% endif %}
@@ -545,7 +545,7 @@
                                 >{{lokale_dict.C1.name}}</a>
                             </h6>
                             {% if lokale_dict.C1.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.C1.cena_wyjsciowa}} PLN</div>
+                                {% if lokal_data.C1.cena_wyjsciowa %}<div class="thumbnail-mary-location">{{lokale_dict.C1.cena_wyjsciowa}} PLN</div>{% endif %}
                             {% else %}
                                 <div class="thumbnail-mary-location">{{lokale_dict.C1.status_lokalu}}</div>
                             {% endif %}
@@ -584,7 +584,7 @@
                                 >{{lokale_dict.D2.name}}</a>
                             </h6>
                             {% if lokale_dict.D2.status_lokalu == "dostepny" %}
-                                <div class="thumbnail-mary-location">{{lokale_dict.D2.cena_wyjsciowa}} PLN</div>
+                                {% if lokal_data.D2.cena_wyjsciowa %}<div class="thumbnail-mary-location">{{lokale_dict.D2.cena_wyjsciowa}} PLN</div>{% endif %}
                             {% else %}
                                 <div class="thumbnail-mary-location">{{lokale_dict.D2.status_lokalu}}</div>
                             {% endif %}
