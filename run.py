@@ -4,7 +4,7 @@ from MySQLModel import MySQLModel
 import json
 from bin.config_utils import SESSION_FLASK_KEY
 from datetime import datetime, timedelta
-from googletrans import Translator
+import requests
 import redis
 from flask_session import Session
 import logging
@@ -50,7 +50,7 @@ def smart_truncate(content, length=400):
         truncated_content = content[:length].rsplit(' ', 1)[0]
         return f"{truncated_content}..."
 
-translator = Translator()
+
 
 def format_date(date_input, pl=True):
     ang_pol = {
@@ -74,19 +74,24 @@ def format_date(date_input, pl=True):
 
     return formatted_date
 
-def getLangText(text, dest='en'):
-    if not text:  # Sprawdza, czy text jest pusty lub None
-        return ""
 
+def getLangText(text, dest="en", source="pl"):
+    if not text:
+        return text
+    # bezpiecznik: nie tłumacz "ścian"
+    if len(text) > 8000:
+        return text
     try:
-        translation = translator.translate(str(text), dest=dest)
-        if translation and translation.text:
-            return translation.text
-        else:
-            return text  # Jeśli tłumaczenie zwróciło None, zwracamy oryginalny tekst
+        r = requests.post(
+            "http://127.0.0.1:5055/translate",
+            json={"text": text, "source": source, "target": dest, "format": "text"},
+            timeout=(2, 8),
+        )
+        r.raise_for_status()
+        return r.json().get("text", text)
     except Exception as e:
-        print(f"Error translating text: {text} - {e}")
-        return text  # W razie błędu zwracamy oryginalny tekst
+        print(f"Exception Error: {e}")
+        return text
 
 def generator_daneDBList(lang='pl'):
     db = MySQLModel(permanent_connection=False)  # Tworzymy instancję na czas tego wywołania
