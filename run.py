@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, jsonify, session, request, send_from_directory, g
+from flask import Flask, render_template, redirect, url_for, jsonify, session, request, send_from_directory, g, Response
 from flask_paginate import Pagination, get_page_args
 from MySQLModel import MySQLModel
 import json
@@ -8,6 +8,8 @@ import requests
 import redis
 from flask_session import Session
 import logging
+import csv
+import io
 
 
 app = Flask(__name__)
@@ -382,7 +384,6 @@ def lokale():
         id_lokalu = ap.get('id_lokalu', '').strip()
         if not id_lokalu:
             continue
-        
 
         building = id_lokalu[0].capitalize()
         if building:
@@ -441,7 +442,6 @@ def lokale_details(category):
     # Zabezpieczenie: jeśli brak lokalu lub jest zarezerwowany/sprzedany, przekieruj
     if not lokal_data or lokal_data.status_lokalu.lower() in ['sprzedane', 'rezerwacja']:
         return redirect(url_for('lokale'))  # zakładam że taka funkcja istnieje
-    
 
     return render_template(
         'lokal.html',
@@ -452,7 +452,6 @@ def lokale_details(category):
 @app.route('/pobierz/<filename>')
 def download_file(filename):
     return send_from_directory('static/downloads', filename, as_attachment=True)
-
 
 @app.route('/api/lokale', methods=['GET'])
 def get_lokale():
@@ -713,6 +712,83 @@ def contact():
     else:
         return jsonify({'message': 'Błąd serwera MySQL!'}), 500
 
+
+from flask import Response
+import csv
+import io
+import datetime
+
+@app.route("/dane")
+def export_csv():
+    db = get_db()
+
+    query_lokale = """
+        SELECT 
+            id_lokalu,
+            nazwa,
+            opis,
+            powierzchnia_m2,
+            powierzchnia_uzytkowa_m2,
+            cena_wyjsciowa,
+            status_lokalu,
+            typ_zabudowy,
+            umiejscowienie
+        FROM Lokale_wisniowa;
+    """
+
+    data = db.getFrom(query_lokale, as_dict=True)
+
+    # Jeśli brak danych albo zły typ -> zwróć pusty CSV (z samym nagłówkiem lub całkiem pusty)
+    if not isinstance(data, list) or len(data) == 0:
+        return Response(
+            "",
+            mimetype="text/csv; charset=utf-8",
+            headers={"Content-Disposition": "attachment; filename=dane-empty.csv"},
+        )
+    today = datetime.date.today().isoformat()
+
+    # Policz cena_za_m2
+    for d in data:
+        if not isinstance(d, dict):
+            continue
+        
+        d["data_zapisu"] = today
+        powierzchnia_m2 = d.get("powierzchnia_m2")
+        cena_wyjsciowa = d.get("cena_wyjsciowa")
+
+        # nie odrzucaj 0 przez "if x" — sprawdzaj None/puste
+        if powierzchnia_m2 is None or cena_wyjsciowa is None:
+            continue
+        if powierzchnia_m2 == "" or cena_wyjsciowa == "":
+            continue
+
+        try:
+            powierzchnia_m2 = float(powierzchnia_m2)
+            cena_wyjsciowa = float(cena_wyjsciowa)
+        except (TypeError, ValueError):
+            continue
+
+        if powierzchnia_m2 != 0:
+            d["cena_za_m2"] = round(cena_wyjsciowa / powierzchnia_m2, 2)
+
+    # CSV (UTF-8 z BOM pod Excela)
+    output = io.StringIO()
+    fieldnames = list(data[0].keys())
+    writer = csv.DictWriter(output, fieldnames=fieldnames, extrasaction="ignore")
+
+    writer.writeheader()
+    writer.writerows(data)
+
+    csv_data = output.getvalue()
+    output.close()
+
+
+    # utf-8-sig -> BOM dla Excela
+    return Response(
+        ("\ufeff" + csv_data),
+        mimetype="text/csv; charset=utf-8",
+        headers={"Content-Disposition": f'attachment; filename="dane-{today}.csv"'},
+    )
 
 
 if __name__ == '__main__':
