@@ -3,7 +3,7 @@ from flask_paginate import Pagination, get_page_args
 from MySQLModel import MySQLModel
 import json
 from bin.config_utils import SESSION_FLASK_KEY
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 import requests
 import redis
 from flask_session import Session
@@ -742,7 +742,7 @@ def export_csv():
                 headers={"Content-Disposition": "attachment; filename=dane-empty.csv"},
             )
 
-        today = datetime.date.today().isoformat()
+        today = date.today().isoformat()
 
         # upewnijmy się, że pierwszy rekord jest dict (żeby fieldnames nie wybuchło)
         first_dict = next((x for x in data if isinstance(x, dict)), None)
