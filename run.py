@@ -751,15 +751,15 @@ def export_csv():
                 headers={"Content-Disposition": f'attachment; filename="dane-empty-{today}.csv"'},
             )
 
+        rows = []
         for d in data:
             if not isinstance(d, dict):
                 continue
 
-            d["data_zapisu"] = today
-
             powierzchnia_m2 = d.get("powierzchnia_m2")
             cena_wyjsciowa = d.get("cena_wyjsciowa")
 
+            # rekord ma być w CSV tylko jeśli ma komplet danych do policzenia
             if powierzchnia_m2 is None or cena_wyjsciowa is None:
                 continue
             if powierzchnia_m2 == "" or cena_wyjsciowa == "":
@@ -771,14 +771,28 @@ def export_csv():
             except (TypeError, ValueError):
                 continue
 
-            if powierzchnia_m2_f != 0:
-                d["cena_za_m2"] = round(cena_wyjsciowa_f / powierzchnia_m2_f, 2)
+            if powierzchnia_m2_f == 0:
+                continue
+
+            d["data_zapisu"] = today
+            d["cena_za_m2"] = round(cena_wyjsciowa_f / powierzchnia_m2_f, 2)
+
+            rows.append(d)
+
+        # jeśli po odfiltrowaniu nic nie zostało — zwróć pusty plik
+        if len(rows) == 0:
+            return Response(
+                "",
+                mimetype="text/csv; charset=utf-8",
+                headers={"Content-Disposition": "attachment; filename=dane-empty.csv"},
+            )
 
         output = io.StringIO()
-        fieldnames = list(first_dict.keys())
+        fieldnames = list(rows[0].keys())
         writer = csv.DictWriter(output, fieldnames=fieldnames, extrasaction="ignore")
+
         writer.writeheader()
-        writer.writerows([x for x in data if isinstance(x, dict)])
+        writer.writerows(rows)
 
         csv_data = output.getvalue()
         output.close()
