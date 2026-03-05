@@ -723,13 +723,11 @@ def export_csv():
             SELECT 
                 id_lokalu,
                 nazwa,
-                opis,
                 powierzchnia_m2,
                 powierzchnia_uzytkowa_m2,
                 cena_wyjsciowa,
                 status_lokalu,
-                typ_zabudowy,
-                umiejscowienie
+                typ_zabudowy
             FROM Lokale_wisniowa;
         """
 
