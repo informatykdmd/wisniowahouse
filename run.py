@@ -440,9 +440,29 @@ def lokale_details(category):
     result = db.getFrom(query_lokale, (category.capitalize(), ), as_object=True)
     lokal_data = result[0] if result else {}
 
-    # Zabezpieczenie: jeśli brak lokalu lub jest zarezerwowany/sprzedany, przekieruj
-    if not lokal_data or lokal_data.status_lokalu.lower() in ['sprzedane', 'rezerwacja']:
-        return redirect(url_for('lokale'))  # zakładam że taka funkcja istnieje
+    # Redirect tylko gdy brak lokalu albo lokal nie powinien być dostępny
+    if not lokal_data:
+        return redirect(url_for('lokale'))
+
+    status_lokalu = getattr(lokal_data, "status_lokalu", None)
+    if status_lokalu and status_lokalu.lower() in ['sprzedane', 'rezerwacja']:
+        return redirect(url_for('lokale'))
+
+    powierzchnia_m2 = getattr(lokal_data, "powierzchnia_uzytkowa_m2", None)
+    cena_wyjsciowa = getattr(lokal_data, "cena_wyjsciowa", None)
+
+    # Domyślnie nic nie dodajemy.
+    # Atrybut cena_za_m2 pojawi się tylko jeśli da się go poprawnie policzyć.
+    if powierzchnia_m2 not in (None, "") and cena_wyjsciowa not in (None, ""):
+        try:
+            powierzchnia_m2_f = float(powierzchnia_m2)
+            cena_wyjsciowa_f = float(cena_wyjsciowa)
+
+            if powierzchnia_m2_f != 0:
+                setattr(lokal_data, "cena_za_m2", round(cena_wyjsciowa_f / powierzchnia_m2_f, 2))
+        except (TypeError, ValueError):
+            pass
+
 
     return render_template(
         'lokal.html',
@@ -756,7 +776,7 @@ def export_csv():
             if not isinstance(d, dict):
                 continue
 
-            powierzchnia_m2 = d.get("powierzchnia_m2")
+            powierzchnia_m2 = d.get("powierzchnia_uzytkowa_m2")
             cena_wyjsciowa = d.get("cena_wyjsciowa")
 
             # rekord ma być w CSV tylko jeśli ma komplet danych do policzenia

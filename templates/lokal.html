@@ -166,9 +166,17 @@
               <li><span class="label">Typ budynku:</span> {{lokal_data.typ_zabudowy}}</li>
               <li><span class="label">Umiejscowienie:</span> {{lokal_data.umiejscowienie}}</li>
               <li><span class="label">Powierzchnia całkowita:</span> {{lokal_data.powierzchnia_m2}} m²</li>
-              <li><span class="label">Powierzchnia użytkowa:</span> <span class="highlight">{{lokal_data.powierzchnia_uzytkowa_m2}} m²</span></li>
+              {% if lokal_data.cena_za_m2 is defined %}
+              <li><span class="label">Powierzchnia użytkowa:</span>
+              <span class="highlight">{{ lokal_data.powierzchnia_uzytkowa_m2 }} m²</span></li>
+
+              <li><span class="label">Cena za m²:</span>
+              <span class="highlight price">{{ lokal_data.cena_za_m2 }} PLN/m²</span></li>
+              {% endif %}
+
               {% if lokal_data.cena_wyjsciowa %}
-                <li><span class="label">Cena:</span> <span class="highlight price">{{lokal_data.cena_wyjsciowa}} PLN</span></li>
+              <li><span class="label">Cena:</span>
+              <span class="highlight price">{{ lokal_data.cena_wyjsciowa }} PLN</span></li>
               {% endif %}
             </ul>
             <p>{{lokal_data.opis}}</p>
